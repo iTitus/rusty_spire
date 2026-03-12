@@ -1,0 +1,11 @@
+[package]
+name = "sts2_extractor"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1"
+image = "0.25"
+thiserror = "2"
+itertools = "0.14"
+dds = "0.2.0" # required until image-extras updates to include this
