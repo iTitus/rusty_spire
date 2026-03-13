@@ -11,7 +11,7 @@ use sts2_extractor::texture::CompressedTexture2d;
 fn main() -> anyhow::Result<()> {
     let dir = Path::new("C:/Program Files (x86)/Steam/steamapps/common/Slay the Spire 2");
 
-    // extract_pck(dir.join("SlayTheSpire2.pck"), "out_sts_pck")?;
+    extract_pck(dir.join("SlayTheSpire2.pck"), "out_sts2_pck")?;
     decompile(dir.join("data_sts2_windows_x86_64/sts2.dll"), "out_sts2_dll")?;
 
     Ok(())
@@ -52,12 +52,12 @@ impl DirTree {
 // noinspection RsConstantConditionIf
 #[allow(unused)]
 fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow::Result<()> {
-    const DRY_RUN: bool = true;
+    const DRY_RUN: bool = false;
 
     let pck_path = pck_path.as_ref();
     let output_dir = output_dir.as_ref();
 
-    if !DRY_RUN {
+    if !DRY_RUN && std::fs::exists(output_dir)? {
         std::fs::remove_dir_all(output_dir)?;
     }
 
@@ -108,7 +108,11 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
         .collect();
     let mut tree = DirTree::default();
     let mut extensions: HashMap<String, usize> = HashMap::default();
-    for f in &files {
+    for (i, f) in files.iter().enumerate() {
+        if i % 100 == 0 {
+            println!("file: {i}/{}", files.len());
+        }
+
         tree.add_entry(f);
 
         let ext = Path::new(&f.path)
@@ -179,7 +183,10 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
 fn decompile(dll_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow::Result<()> {
     let dll_path = dll_path.as_ref();
     let output_dir = output_dir.as_ref();
-    std::fs::remove_dir_all(output_dir)?;
+
+    if std::fs::exists(output_dir)? {
+        std::fs::remove_dir_all(output_dir)?;
+    }
 
     let status = std::process::Command::new("ilspycmd")
         .arg("--nested-directories")
