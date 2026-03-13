@@ -1,6 +1,5 @@
-use crate::pck::PckError;
 use crate::ReadFromBytes;
-use dds::header::ParseOptions;
+use crate::pck::PckError;
 use dds::{ColorFormat, ImageViewMut};
 use std::io::{BufRead, Cursor, Read, Seek, SeekFrom};
 
@@ -38,7 +37,7 @@ impl CompressedTexture2d {
         let data_format = u32::read_ne(r)?;
         let width_2 = u16::read_ne(r)?;
         let height_2 = u16::read_ne(r)?;
-        let mipmaps = u32::read_ne(r)?;
+        let mipmap_count = u32::read_ne(r)?;
         let image_format: ImageFormat = u32::read_ne(r)?.try_into()?;
 
         let mut images = vec![];
@@ -56,21 +55,35 @@ impl CompressedTexture2d {
                 | ImageFormat::FORMAT_BPTC_RGBA
                 | ImageFormat::FORMAT_BPTC_RGBF
                 | ImageFormat::FORMAT_BPTC_RGBFU => {
-                    let size = 124u32.to_le_bytes();
+                    // calculate remaining bytes in r so we can use "take" to generate a Seek impl
+                    // that starts at position 0, which is required for our "SeekingChain" impl
+                    let remaining = {
+                        let pos = r.stream_position()?;
+                        let len = r.seek(SeekFrom::End(0))?;
+                        r.seek(SeekFrom::Start(pos))?;
+                        len - pos
+                    };
+
+                    let size = 124u32.to_le_bytes(); // must be 124
                     let flags = (0x1u32 | 0x2 | 0x4 | 0x1000 | 0x20000).to_le_bytes();
                     let height = height.to_le_bytes();
                     let width = width.to_le_bytes();
-                    let pols = 0u32.to_le_bytes(); // leave at 0, the decoder can deal with this
+                    let pols = (remaining as u32).to_le_bytes();
                     let depth = 0u32.to_le_bytes();
-                    let mipmaps = (mipmaps + 1).to_le_bytes();
-                    let pf_size = 32u32.to_le_bytes();
+                    let mipmaps = (mipmap_count + 1).to_le_bytes();
+                    let pf_size = 32u32.to_le_bytes(); // must be 32
                     let pf_flags = 0x4u32.to_le_bytes(); // enable fourcc
                     let rgb_bits = 0u32.to_le_bytes();
                     let r_mask = 0u32.to_le_bytes();
                     let g_mask = 0u32.to_le_bytes();
                     let b_mask = 0u32.to_le_bytes();
                     let a_mask = 0u32.to_le_bytes();
-                    let caps = 0u32.to_le_bytes();
+                    let caps = (if mipmap_count > 0 {
+                        0x8 | 0x400000
+                    } else {
+                        0u32
+                    })
+                    .to_le_bytes();
                     let caps2 = 0u32.to_le_bytes();
                     let dxgi = (match image_format {
                         ImageFormat::FORMAT_DXT1 => 71u32,    // BC1
@@ -86,7 +99,7 @@ impl CompressedTexture2d {
                     .to_le_bytes();
                     let res_dim = 3u32.to_le_bytes(); // 2d texture
                     let misc_flags = 0u32.to_le_bytes();
-                    let array_size = 0u32.to_le_bytes(); // must be 1, otherwise the decoder breaks
+                    let array_size = 1u32.to_le_bytes(); // must be 1
                     let misc_flags2 = 0u32.to_le_bytes();
                     let dds_header = [
                         b'D',
@@ -164,7 +177,7 @@ impl CompressedTexture2d {
                         0,
                         0,
                         0,
-                        0, // 11 * 4 reserved
+                        0, // 11 * 4 reserved [reserved1]
                         pf_size[0],
                         pf_size[1],
                         pf_size[2],
@@ -204,7 +217,7 @@ impl CompressedTexture2d {
                         caps2[0],
                         caps2[1],
                         caps2[2],
-                        caps2[3], // caps20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        caps2[3], // caps2
                         0,
                         0,
                         0,
@@ -216,7 +229,7 @@ impl CompressedTexture2d {
                         0,
                         0,
                         0,
-                        0, // 3 * 4 reserved
+                        0, // 3 * 4 reserved [caps3, cap4, reserved2]
                         dxgi[0],
                         dxgi[1],
                         dxgi[2],
@@ -239,45 +252,41 @@ impl CompressedTexture2d {
                         misc_flags2[3], // misc flags 2
                     ];
 
-                    // calculate remaining bytes in r so we can use "take" to generate a Seek impl
-                    // that starts at position 0, which is required for our "SeekingChain" impl
-                    let remaining = {
-                        let pos = r.stream_position()?;
-                        let len = r.seek(SeekFrom::End(0))?;
-                        r.seek(SeekFrom::Start(pos))?;
-                        len - pos
-                    };
-                    let mut data_reader = SeekingChain {
+                    let data_reader = SeekingChain {
                         first: Cursor::new(dds_header),
                         second: r.take(remaining),
                         done_first: false,
                     };
+                    let mut decoder = dds::Decoder::new(data_reader)?;
+                    while !decoder.is_done() {
+                        let Some(info) = decoder.surface_info() else {
+                            unreachable!();
+                        };
 
-                    let remaining = {
-                        let pos = data_reader.stream_position()?;
-                        let len = data_reader.seek(SeekFrom::End(0))?;
-                        data_reader.seek(SeekFrom::Start(pos))?;
-                        len - pos
-                    };
-                    let mut decoder = dds::Decoder::new_with_options(
-                        data_reader,
-                        &ParseOptions::new_permissive(Some(remaining)),
-                    )?;
-                    let size = decoder.main_size();
-                    let mut buf = vec![
-                        0;
-                        size.pixels() as usize
-                            * ColorFormat::RGBA_U8.bytes_per_pixel() as usize
-                    ];
-                    let image_view =
-                        ImageViewMut::new(&mut buf, size, ColorFormat::RGBA_U8).unwrap();
-                    decoder.read_surface(image_view)?;
+                        let size = info.size();
+                        let mut buf = vec![
+                            0;
+                            size.pixels() as usize
+                                * ColorFormat::RGBA_U8.bytes_per_pixel() as usize
+                        ];
+                        let image_view =
+                            ImageViewMut::new(&mut buf, size, ColorFormat::RGBA_U8).unwrap();
+                        decoder.read_surface(image_view)?;
 
-                    images.push(
-                        image::RgbaImage::from_vec(size.width, size.height, buf)
-                            .unwrap()
-                            .into(),
-                    );
+                        images.push(
+                            image::RgbaImage::from_vec(size.width, size.height, buf)
+                                .unwrap()
+                                .into(),
+                        );
+                    }
+
+                    if images.len() != (mipmap_count + 1) as usize {
+                        return Err(PckError::InvalidValue(format!(
+                            "surface count mismatch, expected {} but expected {}",
+                            mipmap_count + 1,
+                            images.len()
+                        )));
+                    }
                 }
                 ImageFormat::FORMAT_MAX => unreachable!(),
                 _ => {
@@ -287,7 +296,7 @@ impl CompressedTexture2d {
                 }
             },
             1 | 2 => {
-                for _ in 0..=mipmaps {
+                for _ in 0..=mipmap_count {
                     let size = u32::read_ne(r)?;
                     let mut data_reader = r.take(size as _);
                     let img = image::load(
@@ -320,7 +329,7 @@ impl CompressedTexture2d {
                 data_format,
                 width_2,
                 height_2,
-                mipmaps,
+                mipmaps: mipmap_count,
                 image_format,
             },
             images,

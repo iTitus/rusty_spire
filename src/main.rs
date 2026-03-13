@@ -8,11 +8,19 @@ use std::path::{Component, Path, PathBuf};
 use sts2_extractor::pck::{PckFile, PckHeader, PckReader};
 use sts2_extractor::texture::CompressedTexture2d;
 
+const DRY_RUN: bool = false;
+
+// noinspection RsConstantConditionIf
 fn main() -> anyhow::Result<()> {
     let dir = Path::new("C:/Program Files (x86)/Steam/steamapps/common/Slay the Spire 2");
 
     extract_pck(dir.join("SlayTheSpire2.pck"), "out_sts2_pck")?;
-    decompile(dir.join("data_sts2_windows_x86_64/sts2.dll"), "out_sts2_dll")?;
+    if !DRY_RUN {
+        decompile(
+            dir.join("data_sts2_windows_x86_64/sts2.dll"),
+            "out_sts2_dll",
+        )?;
+    }
 
     Ok(())
 }
@@ -52,8 +60,6 @@ impl DirTree {
 // noinspection RsConstantConditionIf
 #[allow(unused)]
 fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow::Result<()> {
-    const DRY_RUN: bool = false;
-
     let pck_path = pck_path.as_ref();
     let output_dir = output_dir.as_ref();
 
@@ -62,7 +68,6 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
     }
 
     let f = File::open(pck_path)?;
-    println!("file size: {}", f.metadata()?.len());
     let mut pck_reader = PckReader::new_from_start(BufReader::new(f))?;
 
     println!("{:#?}", pck_reader.pck.header);
@@ -106,14 +111,11 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
         .cloned()
         .sorted_unstable_by_key(|f| PathBuf::from(&f.path))
         .collect();
-    let mut tree = DirTree::default();
     let mut extensions: HashMap<String, usize> = HashMap::default();
     for (i, f) in files.iter().enumerate() {
         if i % 100 == 0 {
             println!("file: {i}/{}", files.len());
         }
-
-        tree.add_entry(f);
 
         let ext = Path::new(&f.path)
             .extension()
@@ -167,9 +169,6 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
         }
     }
 
-    // println!("{tree:?}");
-    println!("total size: {}", tree.size);
-
     println!("extensions:");
     extensions
         .into_iter()
@@ -188,6 +187,7 @@ fn decompile(dll_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow
         std::fs::remove_dir_all(output_dir)?;
     }
 
+    println!("decompiling with `ilspycmd`...");
     let status = std::process::Command::new("ilspycmd")
         .arg("--nested-directories")
         .arg("-p")
