@@ -16,6 +16,8 @@ namespace MegaCrit.Sts2.Core.Models.Monsters;
 
 public sealed class BowlbugNectar : MonsterModel
 {
+	private const string _buffTrigger = "Buff";
+
 	private const string _spitSfx = "event:/sfx/enemy/enemy_attacks/workbug_goop/workbug_goop_spit";
 
 	private const string _spineSkin = "goop";
@@ -64,7 +66,7 @@ public sealed class BowlbugNectar : MonsterModel
 
 	private async Task BuffMove(IReadOnlyList<Creature> targets)
 	{
-		await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
+		await CreatureCmd.TriggerAnim(base.Creature, "Buff", 0.6f);
 		await PowerCmd.Apply<StrengthPower>(base.Creature, BuffStrengthGain, base.Creature, null);
 	}
 
@@ -72,17 +74,20 @@ public sealed class BowlbugNectar : MonsterModel
 	{
 		AnimState animState = new AnimState("idle_loop", isLooping: true);
 		AnimState animState2 = new AnimState("spit");
-		AnimState animState3 = new AnimState("attack");
-		AnimState animState4 = new AnimState("hurt");
+		AnimState animState3 = new AnimState("buff");
+		AnimState animState4 = new AnimState("attack");
+		AnimState animState5 = new AnimState("hurt");
 		AnimState state = new AnimState("die");
 		animState2.NextState = animState;
 		animState3.NextState = animState;
 		animState4.NextState = animState;
+		animState5.NextState = animState;
 		CreatureAnimator creatureAnimator = new CreatureAnimator(animState, controller);
 		creatureAnimator.AddAnyState("Dead", state);
-		creatureAnimator.AddAnyState("Hit", animState4);
+		creatureAnimator.AddAnyState("Hit", animState5);
 		creatureAnimator.AddAnyState("Cast", animState2);
-		creatureAnimator.AddAnyState("Attack", animState3);
+		creatureAnimator.AddAnyState("Attack", animState4);
+		creatureAnimator.AddAnyState("Buff", animState3);
 		return creatureAnimator;
 	}
 }

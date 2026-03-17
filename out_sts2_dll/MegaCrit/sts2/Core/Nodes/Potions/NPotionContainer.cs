@@ -232,7 +232,7 @@ public class NPotionContainer : Control
 
 	public void OnPotionUseCanceled(PotionModel potion)
 	{
-		NPotionHolder nPotionHolder = _holders.FirstOrDefault((NPotionHolder n) => n.Potion.Model == potion);
+		NPotionHolder nPotionHolder = _holders.FirstOrDefault((NPotionHolder n) => n.Potion?.Model == potion);
 		if (nPotionHolder != null)
 		{
 			nPotionHolder.CancelPotionUse();

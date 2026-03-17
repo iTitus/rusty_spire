@@ -4,3 +4,4 @@
 
 [resource]
 base_font = ExtResource("1_6gmge")
+baseline_offset = -0.05

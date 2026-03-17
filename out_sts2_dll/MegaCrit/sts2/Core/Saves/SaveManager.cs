@@ -379,29 +379,40 @@ public class SaveManager : IProfileIdProvider
 	private void CleanupStaleCurrentRunSaveForProfile(int profileId, string runSaveFileName)
 	{
 		string runSavePath = RunSaveManager.GetRunSavePath(profileId, runSaveFileName);
-		if (!_saveStore.FileExists(runSavePath))
+		string text = runSavePath + ".backup";
+		string text2 = null;
+		if (_saveStore.FileExists(runSavePath))
+		{
+			text2 = runSavePath;
+		}
+		else if (_saveStore.FileExists(text))
+		{
+			text2 = text;
+		}
+		if (text2 == null)
 		{
 			return;
 		}
 		try
 		{
-			string text = _saveStore.ReadFile(runSavePath);
-			if (text == null)
+			string text3 = _saveStore.ReadFile(text2);
+			if (text3 == null)
 			{
-				Log.Warn("Could not read " + runSavePath + ", skipping staleness check");
+				Log.Warn("Could not read " + text2 + ", skipping staleness check");
 				return;
 			}
-			long? value = ExtractStartTimeFromRunSave(text);
+			long? value = ExtractStartTimeFromRunSave(text3);
 			if (!value.HasValue)
 			{
-				Log.Warn("Could not extract start_time from " + runSavePath + ", skipping staleness check");
+				Log.Warn("Could not extract start_time from " + text2 + ", skipping staleness check");
 				return;
 			}
-			string text2 = Path.Combine(RunHistorySaveManager.GetHistoryPath(profileId), $"{value}.run");
-			if (_saveStore.FileExists(text2))
+			string text4 = Path.Combine(RunHistorySaveManager.GetHistoryPath(profileId), $"{value}.run");
+			if (_saveStore.FileExists(text4))
 			{
-				Log.Warn($"Deleting stale {runSaveFileName} for profile {profileId}: run with StartTime {value} already exists in history at {text2}");
+				Log.Warn($"Deleting stale {runSaveFileName} for profile {profileId}: run with StartTime {value} already exists in history at {text4}");
 				_saveStore.DeleteFile(runSavePath);
+				_saveStore.DeleteFile(runSavePath + ".backup");
 			}
 		}
 		catch (Exception ex)

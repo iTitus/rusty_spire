@@ -210,7 +210,7 @@ public sealed class ThievingHopper : MonsterModel
 				}
 			}
 			CardModel cardToSteal = base.RunRng.CombatCardGeneration.NextItem(items);
-			await CardPileCmd.RemoveFromCombat(cardToSteal, isBeingPlayed: false);
+			await CardPileCmd.RemoveFromCombat(cardToSteal);
 			cardsToSteal.Add(cardToSteal);
 		}
 		await Cmd.Wait(0.6f);

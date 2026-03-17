@@ -97,6 +97,8 @@ public class NModdingScreen : NSubmenu
 		node2.GetNode<MegaLabel>("Visuals/Label").SetTextAutoSize(new LocString("settings_ui", "MODDING_SCREEN.MAKE_MODS_BUTTON").GetFormattedText());
 		GetNode<MegaRichTextLabel>("%InstalledModsTitle").SetTextAutoSize(new LocString("settings_ui", "MODDING_SCREEN.INSTALLED_MODS_TITLE").GetFormattedText());
 		GetNode<MegaRichTextLabel>("%PendingChangesLabel").SetTextAutoSize(new LocString("settings_ui", "MODDING_SCREEN.PENDING_CHANGES_WARNING").GetFormattedText());
+		node2.Visible = false;
+		node.Visible = false;
 		_pendingChangesWarning.Visible = false;
 		ModManager.OnModDetected += OnNewModDetected;
 		ConnectSignals();

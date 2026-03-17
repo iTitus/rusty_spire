@@ -315,7 +315,10 @@ public class NJoinFriendScreen : NSubmenu
 		}
 		finally
 		{
-			_loadingOverlay.Visible = false;
+			if (GodotObject.IsInstanceValid(this))
+			{
+				_loadingOverlay.Visible = false;
+			}
 		}
 	}
 

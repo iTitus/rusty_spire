@@ -11,7 +11,7 @@ namespace MegaCrit.Sts2.Core.Factories;
 
 public static class RelicFactory
 {
-	private static RelicModel FallbackRelic => ModelDb.Relic<Circlet>();
+	public static RelicModel FallbackRelic => ModelDb.Relic<Circlet>();
 
 	public static RelicModel PullNextRelicFromFront(Player player, Rng rng)
 	{

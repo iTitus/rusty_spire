@@ -367,7 +367,8 @@ public class NSendFeedbackScreen : Control, IScreenContext
 			gameVersion = (releaseInfo?.Version ?? GitHelper.ShortCommitId ?? "unknown"),
 			uniqueId = SaveManager.Instance.Progress.UniqueId,
 			commit = (text ?? "unknown"),
-			platformBranch = PlatformUtil.GetPlatformBranch()
+			platformBranch = PlatformUtil.GetPlatformBranch(),
+			sessionId = SentryService.SessionId
 		};
 		byte[] screenshotBytes = _screenshotBytes;
 		int currentProfileId = SaveManager.Instance.CurrentProfileId;

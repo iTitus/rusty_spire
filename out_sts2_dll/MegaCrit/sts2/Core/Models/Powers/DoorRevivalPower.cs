@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Monsters;
@@ -60,7 +62,11 @@ public sealed class DoorRevivalPower : PowerModel
 	{
 		GetInternalData<Data>().isHalfDead = false;
 		Door door = (Door)base.Owner.Monster;
-		await CreatureCmd.SetMaxHp(base.Owner, base.Owner.Monster.MinInitialHp);
+		IReadOnlyList<Player> players = base.CombatState.Players;
+		int count = players.Count;
+		int currentActIndex = base.CombatState.RunState.CurrentActIndex;
+		decimal amount = Creature.ScaleHpForMultiplayer(base.Owner.Monster.MinInitialHp, base.CombatState.Encounter, count, currentActIndex);
+		await CreatureCmd.SetMaxHp(base.Owner, amount);
 		await CreatureCmd.Heal(base.Owner, base.Owner.MaxHp);
 		door.PrepareForRevival();
 		door.Close();

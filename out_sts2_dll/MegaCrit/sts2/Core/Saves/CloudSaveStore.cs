@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Logging;
@@ -44,7 +45,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		try
 		{
 			CloudStore.WriteFile(path, content);
-			LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+			SyncLocalTimestamp(path);
 		}
 		catch (InvalidOperationException ex)
 		{
@@ -58,7 +59,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		try
 		{
 			CloudStore.WriteFile(path, bytes);
-			LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+			SyncLocalTimestamp(path);
 		}
 		catch (InvalidOperationException ex)
 		{
@@ -72,7 +73,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		try
 		{
 			await CloudStore.WriteFileAsync(path, content);
-			LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+			SyncLocalTimestamp(path);
 		}
 		catch (InvalidOperationException ex)
 		{
@@ -86,7 +87,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		try
 		{
 			await CloudStore.WriteFileAsync(path, bytes);
-			LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+			SyncLocalTimestamp(path);
 		}
 		catch (InvalidOperationException ex)
 		{
@@ -192,7 +193,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 				Log.Info($"Copying {path} from cloud to local. Local file exists: {flag2} Cloud save time: {lastModifiedTime} Local save time: {dateTimeOffset}");
 				string content = await CloudStore.ReadFileAsync(path);
 				await LocalStore.WriteFileAsync(path, content);
-				LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+				SyncLocalTimestamp(path);
 			}
 			else
 			{
@@ -203,6 +204,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		{
 			Log.Info("Deleting " + path + " because it does not exist on remote");
 			LocalStore.DeleteFile(path);
+			LocalStore.DeleteFile(path + ".backup");
 		}
 		else
 		{
@@ -256,7 +258,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 					Log.Debug("Immediately forgetting " + path);
 					CloudStore.ForgetFile(path);
 				}
-				LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+				SyncLocalTimestamp(path);
 				return;
 			}
 			catch (InvalidOperationException ex)
@@ -298,7 +300,7 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 		}
 		foreach (string item in list)
 		{
-			if (!filePathsRead.Contains(item))
+			if (!filePathsRead.Contains(item) && !item.EndsWith(".backup"))
 			{
 				string path = directoryPath + "/" + item;
 				int bytesToWrite = LocalStore.GetFileSize(path);
@@ -343,6 +345,18 @@ public class CloudSaveStore : ICloudSaveStore, ISaveStore
 				CloudStore.ForgetFile(text3);
 				list.RemoveAt(list.Count - 1);
 			}
+		}
+	}
+
+	private void SyncLocalTimestamp(string path)
+	{
+		try
+		{
+			LocalStore.SetLastModifiedTime(path, CloudStore.GetLastModifiedTime(path));
+		}
+		catch (IOException ex)
+		{
+			Log.Warn("Failed to sync timestamp for " + path + ", will re-sync on next launch: " + ex.Message);
 		}
 	}
 }

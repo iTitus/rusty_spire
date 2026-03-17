@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqi4gxm4welfn"]
 
-[ext_resource type="SpineSkeletonDataResource" uid="uid://jiijygxeiaid" path="res://animations/monsters/kaiser_crab/infested_boss_skeleton_data.tres" id="1_lke34"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://jiijygxeiaid" path="res://animations/monsters/kaiser_crab/kaiser_crab_skeleton_data.tres" id="1_lke34"]
 
 [node name="InfestedBoss" type="Node2D"]
 

@@ -89,6 +89,7 @@ public sealed class BowlbugRock : MonsterModel
 		{
 			SfxCmd.Play("event:/sfx/enemy/enemy_attacks/workbug_rock/workbug_rock_stun");
 			await CreatureCmd.TriggerAnim(base.Creature, "Stun", 0.6f);
+			await CreatureCmd.Stun(base.Creature, DizzyMove);
 		}
 	}
 

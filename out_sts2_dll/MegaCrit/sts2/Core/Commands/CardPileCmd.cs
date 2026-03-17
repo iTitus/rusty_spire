@@ -70,12 +70,12 @@ public static class CardPileCmd
 		}
 	}
 
-	public static async Task RemoveFromCombat(CardModel card, bool isBeingPlayed, bool skipVisuals = false)
+	public static async Task RemoveFromCombat(CardModel card, bool skipVisuals = false)
 	{
-		await RemoveFromCombat(new global::_003C_003Ez__ReadOnlySingleElementList<CardModel>(card), isBeingPlayed, skipVisuals);
+		await RemoveFromCombat(new global::_003C_003Ez__ReadOnlySingleElementList<CardModel>(card), skipVisuals);
 	}
 
-	public static async Task RemoveFromCombat(IEnumerable<CardModel> cards, bool isBeingPlayed, bool skipVisuals = false)
+	public static async Task RemoveFromCombat(IEnumerable<CardModel> cards, bool skipVisuals = false)
 	{
 		if (!cards.Any())
 		{
@@ -93,7 +93,7 @@ public static class CardPileCmd
 			{
 				throw new InvalidOperationException("Card must be in a combat pile for it to be removed");
 			}
-			if ((!isBeingPlayed || card.Type != CardType.Power) && !skipVisuals)
+			if ((card.Pile.Type != PileType.Play || card.Type != CardType.Power) && !skipVisuals)
 			{
 				NCard nCard = NCard.FindOnTable(card);
 				if (nCard != null)
@@ -250,7 +250,8 @@ public static class CardPileCmd
 			{
 				throw new InvalidOperationException(card5.Id.Entry + " has no owner.");
 			}
-			if (card5.Owner.Creature.IsDead)
+			Creature creature = card5.Owner.Creature;
+			if ((card5.IsInCombat && creature.CombatState == null) || creature.IsDead)
 			{
 				CardPileAddResult item = new CardPileAddResult
 				{
@@ -277,13 +278,9 @@ public static class CardPileCmd
 					throw new InvalidOperationException(card5.Id.Entry + " must be added to a RunState before adding it to your deck.");
 				}
 			}
-			else
+			else if (card5.IsInCombat && creature.CombatState != null && !creature.CombatState.ContainsCard(card5))
 			{
-				CombatState combatState = card5.Owner.Creature.CombatState;
-				if (combatState == null || !combatState.ContainsCard(card5))
-				{
-					throw new InvalidOperationException(card5.Id.Entry + " must be added to a CombatState before adding it to this pile.");
-				}
+				throw new InvalidOperationException(card5.Id.Entry + " must be added to a CombatState before adding it to this pile.");
 			}
 			if (card5.UpgradePreviewType.IsPreview())
 			{
@@ -355,12 +352,12 @@ public static class CardPileCmd
 				if (cards2 != null)
 				{
 					num = ((cards2.Count >= 10) ? 1 : 0);
-					goto IL_0535;
+					goto IL_054b;
 				}
 			}
 			num = 0;
-			goto IL_0535;
-			IL_0535:
+			goto IL_054b;
+			IL_054b:
 			bool isFullHandAdd = (byte)num != 0;
 			if (isFullHandAdd)
 			{
@@ -389,7 +386,7 @@ public static class CardPileCmd
 				{
 					if (oldPile == null)
 					{
-						goto IL_064c;
+						goto IL_0662;
 					}
 					switch (oldPile.Type)
 					{
@@ -399,18 +396,18 @@ public static class CardPileCmd
 					case PileType.Deck:
 						break;
 					default:
-						goto IL_064c;
+						goto IL_0662;
 					}
 					flag5 = true;
-					goto IL_064f;
+					goto IL_0665;
 				}
-				goto IL_0653;
+				goto IL_0669;
 			}
-			goto IL_06dd;
-			IL_064f:
+			goto IL_06f3;
+			IL_0665:
 			flag4 = flag5;
-			goto IL_0653;
-			IL_06dd:
+			goto IL_0669;
+			IL_06f3:
 			CardModel card2 = card;
 			if (oldPile != null)
 			{
@@ -448,7 +445,7 @@ public static class CardPileCmd
 				cardNode?.UpdateVisuals(targetPile.Type, CardPreviewMode.Normal);
 			}
 			continue;
-			IL_0653:
+			IL_0669:
 			bool flag6 = flag4;
 			if (flag6)
 			{
@@ -468,10 +465,10 @@ public static class CardPileCmd
 			{
 				cardNodes.Add(cardNode);
 			}
-			goto IL_06dd;
-			IL_064c:
+			goto IL_06f3;
+			IL_0662:
 			flag5 = false;
-			goto IL_064f;
+			goto IL_0665;
 		}
 		Tween tween = null;
 		if (cardNodes.Count != 0)
@@ -812,6 +809,10 @@ public static class CardPileCmd
 			if (!drawPileCards.Contains(item2))
 			{
 				await Add(item2, drawPile);
+				if (CombatManager.Instance.IsOverOrEnding)
+				{
+					return;
+				}
 				float num = timeBetweenCardAdds + Rng.Chaotic.NextFloat((0f - randomTimeBetweenCardAdds) * 0.5f, randomTimeBetweenCardAdds * 0.5f);
 				waitTimeAccumulator += num;
 				if ((double)waitTimeAccumulator >= ((SceneTree)Engine.GetMainLoop()).Root.GetProcessDeltaTime())
@@ -826,7 +827,10 @@ public static class CardPileCmd
 			}
 		}
 		await Cmd.CustomScaledWait(0.2f, 0.5f);
-		await Hook.AfterShuffle(player.Creature.CombatState, choiceContext, player);
+		if (!CombatManager.Instance.IsOverOrEnding)
+		{
+			await Hook.AfterShuffle(player.Creature.CombatState, choiceContext, player);
+		}
 	}
 
 	public static async Task AutoPlayFromDrawPile(PlayerChoiceContext choiceContext, Player player, int count, CardPilePosition position, bool forceExhaust)

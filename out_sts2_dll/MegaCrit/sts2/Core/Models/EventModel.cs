@@ -51,7 +51,7 @@ public abstract class EventModel : AbstractModel
 
 	public override bool ShouldReceiveCombatHooks => false;
 
-	protected virtual string LocTable => "events";
+	public virtual string LocTable => "events";
 
 	public LocString Title => L10NLookup(base.Id.Entry + ".title");
 

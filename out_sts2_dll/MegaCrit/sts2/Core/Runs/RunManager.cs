@@ -400,7 +400,12 @@ public class RunManager : IRunLobbyListener
 		SerializableRun serializableRun = new SerializableRun
 		{
 			SchemaVersion = latestSchemaVersion,
-			Acts = runState.Acts.Select((ActModel a) => a.ToSave()).ToList(),
+			Acts = runState.Acts.Zip(save.Acts, delegate(ActModel act, SerializableActModel savedAct)
+			{
+				SerializableActModel serializableActModel = act.ToSave();
+				serializableActModel.SavedMap = savedAct.SavedMap;
+				return serializableActModel;
+			}).ToList(),
 			Modifiers = runState.Modifiers.Select((ModifierModel m) => m.ToSerializable()).ToList(),
 			DailyTime = save.DailyTime,
 			CurrentActIndex = runState.CurrentActIndex,
@@ -485,6 +490,10 @@ public class RunManager : IRunLobbyListener
 
 	public async Task FinalizeStartingRelics()
 	{
+		if (State == null)
+		{
+			return;
+		}
 		foreach (Player player in State.Players)
 		{
 			foreach (RelicModel relic in player.Relics)
@@ -557,7 +566,7 @@ public class RunManager : IRunLobbyListener
 			{
 				SavedMapsToLoad = null;
 			}
-			map = Hook.ModifyGeneratedMap(State, map, State.CurrentActIndex);
+			map = Hook.ModifyGeneratedMapLate(State, map, State.CurrentActIndex);
 			await Hook.AfterMapGenerated(State, map, State.CurrentActIndex);
 		}
 		else
@@ -576,6 +585,10 @@ public class RunManager : IRunLobbyListener
 
 	public Task EnterMapCoord(MapCoord coord)
 	{
+		if (State == null)
+		{
+			return Task.CompletedTask;
+		}
 		if (!State.AddVisitedMapCoord(coord))
 		{
 			return Task.CompletedTask;
@@ -585,26 +598,37 @@ public class RunManager : IRunLobbyListener
 
 	public async Task LoadIntoLatestMapCoord(AbstractRoom? preFinishedRoom)
 	{
-		if (State.VisitedMapCoords.Count > 0)
+		if (State != null)
 		{
-			RunManager runManager = this;
-			IReadOnlyList<MapCoord> visitedMapCoords = State.VisitedMapCoords;
-			await runManager.EnterMapCoordInternal(visitedMapCoords[visitedMapCoords.Count - 1], preFinishedRoom, saveGame: false);
-		}
-		else
-		{
-			await EnterRoomInternal(new MapRoom());
+			if (State.VisitedMapCoords.Count > 0)
+			{
+				RunManager runManager = this;
+				IReadOnlyList<MapCoord> visitedMapCoords = State.VisitedMapCoords;
+				await runManager.EnterMapCoordInternal(visitedMapCoords[visitedMapCoords.Count - 1], preFinishedRoom, saveGame: false);
+			}
+			else
+			{
+				await EnterRoomInternal(new MapRoom());
+			}
 		}
 	}
 
 	private Task EnterMapCoordInternal(MapCoord coord, AbstractRoom? preFinishedRoom, bool saveGame)
 	{
+		if (State == null)
+		{
+			return Task.CompletedTask;
+		}
 		MapPoint point = State.Map.GetPoint(coord);
 		return EnterMapPointInternal(coord.row + 1, point.PointType, coord, preFinishedRoom, saveGame);
 	}
 
 	public async Task EnterMapPointInternal(int actFloor, MapPointType pointType, MapCoord? coord, AbstractRoom? preFinishedRoom, bool saveGame)
 	{
+		if (State == null)
+		{
+			return;
+		}
 		using (new NetLoadingHandle(NetService))
 		{
 			if (State.MapPointHistory.Count > 0)
@@ -837,15 +861,22 @@ public class RunManager : IRunLobbyListener
 
 	private async Task ExitCurrentRooms()
 	{
-		while (State.CurrentRoomCount > 0)
+		if (State != null)
 		{
-			await ExitCurrentRoom();
+			while (State.CurrentRoomCount > 0)
+			{
+				await ExitCurrentRoom();
+			}
+			NRun.Instance?.GlobalUi.TopBar.RoomIcon.DebugClearMapPointTypeOverride();
 		}
-		NRun.Instance?.GlobalUi.TopBar.RoomIcon.DebugClearMapPointTypeOverride();
 	}
 
-	private async Task<AbstractRoom> ExitCurrentRoom()
+	private async Task<AbstractRoom?> ExitCurrentRoom()
 	{
+		if (State == null)
+		{
+			return null;
+		}
 		AbstractRoom currentRoom = State.PopCurrentRoom();
 		await currentRoom.Exit(State);
 		this.RoomExited?.Invoke();
@@ -854,6 +885,10 @@ public class RunManager : IRunLobbyListener
 
 	private async Task EnterRoomInternal(AbstractRoom room, bool isRestoringRoomStackBase = false)
 	{
+		if (State == null)
+		{
+			return;
+		}
 		bool flag = isRestoringRoomStackBase;
 		bool flag2 = flag;
 		bool flag3;
@@ -863,24 +898,18 @@ public class RunManager : IRunLobbyListener
 			{
 				if (combatRoom.IsPreFinished)
 				{
-					goto IL_0065;
+					goto IL_0072;
 				}
 			}
 			else if (room is EventRoom { IsPreFinished: not false })
 			{
-				goto IL_0065;
+				goto IL_0072;
 			}
 			flag3 = false;
-			goto IL_006d;
+			goto IL_007a;
 		}
-		goto IL_0070;
-		IL_006d:
-		flag2 = flag3;
-		goto IL_0070;
-		IL_0065:
-		flag3 = true;
-		goto IL_006d;
-		IL_0070:
+		goto IL_007d;
+		IL_007d:
 		bool runExternalEffects = !flag2;
 		State.PushRoom(room);
 		if (runExternalEffects && !(room is MapRoom))
@@ -902,6 +931,13 @@ public class RunManager : IRunLobbyListener
 		}
 		NRunMusicController.Instance?.UpdateAmbience();
 		this.RoomEntered?.Invoke();
+		return;
+		IL_007a:
+		flag2 = flag3;
+		goto IL_007d;
+		IL_0072:
+		flag3 = true;
+		goto IL_007a;
 	}
 
 	public async Task EnterRoom(AbstractRoom room)
@@ -912,6 +948,10 @@ public class RunManager : IRunLobbyListener
 
 	public async Task EnterRoomWithoutExitingCurrentRoom(AbstractRoom room, bool fadeToBlack)
 	{
+		if (State == null)
+		{
+			return;
+		}
 		CombatStateSynchronizer.StartSync();
 		using (new NetLoadingHandle(NetService))
 		{
@@ -939,6 +979,10 @@ public class RunManager : IRunLobbyListener
 
 	public async Task EnterNextAct()
 	{
+		if (State == null)
+		{
+			return;
+		}
 		using (new NetLoadingHandle(NetService))
 		{
 			if (State.CurrentActIndex >= State.Acts.Count - 1)
@@ -966,14 +1010,21 @@ public class RunManager : IRunLobbyListener
 
 	private async Task WinRun()
 	{
-		EventRoom eventRoom = (EventRoom)State.CurrentRoom;
-		((TheArchitect)eventRoom.LocalMutableEvent).TriggerVictory();
-		OnEnded(isVictory: true);
-		await GuaranteeKillAllPlayers();
+		if (State != null)
+		{
+			EventRoom eventRoom = (EventRoom)State.CurrentRoom;
+			((TheArchitect)eventRoom.LocalMutableEvent).TriggerVictory();
+			OnEnded(isVictory: true);
+			await GuaranteeKillAllPlayers();
+		}
 	}
 
 	public async Task EnterAct(int currentActIndex, bool doTransition = true)
 	{
+		if (State == null)
+		{
+			return;
+		}
 		if (TestMode.IsOff)
 		{
 			await NGame.Instance.Transition.RoomFadeOut();
@@ -1004,15 +1055,18 @@ public class RunManager : IRunLobbyListener
 
 	public async Task SetActInternal(int actIndex)
 	{
-		State.CurrentActIndex = actIndex;
-		State.ClearVisitedMapCoordsDebug();
-		State.Odds.UnknownMapPoint.ResetToBase();
-		AfterLocationChanged();
-		await PreloadManager.LoadActAssets(State.Act);
-		await GenerateMap();
-		NMapScreen.Instance?.SetTravelEnabled(enabled: false);
-		NRunMusicController.Instance?.UpdateMusic();
-		UpdateRichPresence();
+		if (State != null)
+		{
+			State.CurrentActIndex = actIndex;
+			State.ClearVisitedMapCoordsDebug();
+			State.Odds.UnknownMapPoint.ResetToBase();
+			AfterLocationChanged();
+			await PreloadManager.LoadActAssets(State.Act);
+			await GenerateMap();
+			NMapScreen.Instance?.SetTravelEnabled(enabled: false);
+			NRunMusicController.Instance?.UpdateMusic();
+			UpdateRichPresence();
+		}
 	}
 
 	private void UpdateRichPresence()
@@ -1028,6 +1082,10 @@ public class RunManager : IRunLobbyListener
 
 	public async Task ProceedFromTerminalRewardsScreen()
 	{
+		if (State == null)
+		{
+			return;
+		}
 		if (State.CurrentRoomCount > 1)
 		{
 			if (State.CurrentRoom is CombatRoom { ShouldResumeParentEventAfterCombat: not false })
@@ -1047,11 +1105,21 @@ public class RunManager : IRunLobbyListener
 
 	private async Task ResumePreviousRoom()
 	{
-		ClearScreens();
-		AbstractRoom exitedRoom = await ExitCurrentRoom();
-		await State.CurrentRoom.Resume(exitedRoom, State);
-		NRunMusicController.Instance?.UpdateTrack();
-		await FadeIn();
+		if (State != null)
+		{
+			ClearScreens();
+			AbstractRoom abstractRoom = await ExitCurrentRoom();
+			if (abstractRoom != null)
+			{
+				await State.CurrentRoom.Resume(abstractRoom, State);
+				NRunMusicController.Instance?.UpdateTrack();
+				await FadeIn();
+			}
+			else
+			{
+				Log.Error("Current room returned null while exiting.");
+			}
+		}
 	}
 
 	private void AfterLocationChanged()
@@ -1087,7 +1155,6 @@ public class RunManager : IRunLobbyListener
 		{
 			NCapstoneContainer.Instance.Close();
 			NMapScreen.Instance.Close(animateOut: false);
-			ActionQueueSet.Reset();
 		}
 		catch (Exception value)
 		{
@@ -1107,6 +1174,10 @@ public class RunManager : IRunLobbyListener
 
 	private async Task GuaranteeKillAllPlayers()
 	{
+		if (State == null)
+		{
+			return;
+		}
 		foreach (Player player in State.Players)
 		{
 			await CreatureCmd.Kill(player.Creature, force: true);
@@ -1139,15 +1210,13 @@ public class RunManager : IRunLobbyListener
 		try
 		{
 			_runHistoryWasUploaded = false;
+			ActionQueueSet.Reset();
 			NAudioManager.Instance?.StopAllLoops();
 			NOverlayStack.Instance?.Clear();
 			NCapstoneContainer.Instance?.CleanUp();
 			NMapScreen.Instance?.CleanUp();
 			NModalContainer.Instance?.Clear();
-			if (graceful)
-			{
-				CombatManager.Instance.Reset();
-			}
+			CombatManager.Instance.Reset(graceful);
 			CombatReplayWriter.Dispose();
 			ActionQueueSynchronizer.Dispose();
 			PlayerChoiceSynchronizer.Dispose();
@@ -1256,7 +1325,7 @@ public class RunManager : IRunLobbyListener
 
 	private void UpdatePlayerStatsInMapPointHistory()
 	{
-		if (TestMode.IsOn)
+		if (TestMode.IsOn || State == null)
 		{
 			return;
 		}
@@ -1319,7 +1388,6 @@ public class RunManager : IRunLobbyListener
 	{
 		NCapstoneContainer.Instance?.Close();
 		NMapScreen.Instance?.Close(animateOut: false);
-		ActionQueueSet.Reset();
 		if (TestMode.IsOff)
 		{
 			await NGame.Instance.ReturnToMainMenuAfterRun();

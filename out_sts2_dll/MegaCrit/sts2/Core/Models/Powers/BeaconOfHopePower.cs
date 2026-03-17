@@ -10,13 +10,28 @@ namespace MegaCrit.Sts2.Core.Models.Powers;
 
 public sealed class BeaconOfHopePower : PowerModel
 {
+	private bool _hasAlreadyBeenGivenBlock;
+
 	public override PowerType Type => PowerType.Buff;
 
 	public override PowerStackType StackType => PowerStackType.Counter;
 
+	private bool HasAlreadyBeenGivenBlock
+	{
+		get
+		{
+			return _hasAlreadyBeenGivenBlock;
+		}
+		set
+		{
+			AssertMutable();
+			_hasAlreadyBeenGivenBlock = value;
+		}
+	}
+
 	public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
 	{
-		if (amount < 1m || creature != base.Owner || base.CombatState.CurrentSide != base.Owner.Side)
+		if (amount < 1m || creature != base.Owner || base.CombatState.CurrentSide != base.Owner.Side || HasAlreadyBeenGivenBlock)
 		{
 			return;
 		}
@@ -28,9 +43,11 @@ public sealed class BeaconOfHopePower : PowerModel
 		{
 			return;
 		}
+		HasAlreadyBeenGivenBlock = true;
 		foreach (Creature item in enumerable)
 		{
 			await CreatureCmd.GainBlock(item, amountToGive, ValueProp.Unpowered, null);
 		}
+		HasAlreadyBeenGivenBlock = false;
 	}
 }

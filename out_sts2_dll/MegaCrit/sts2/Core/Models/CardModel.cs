@@ -1217,7 +1217,7 @@ public abstract class CardModel : AbstractModel
 			return Owner.PlayerCombatState?.Stars ?? 0;
 		}
 		CardPile pile = Pile;
-		if (pile != null && pile.IsCombatPile)
+		if (pile != null && pile.IsCombatPile && CombatState != null)
 		{
 			return (int)Hook.ModifyStarCost(CombatState, this, CurrentStarCost);
 		}
@@ -1517,7 +1517,7 @@ public abstract class CardModel : AbstractModel
 			switch (resultPileType)
 			{
 			case PileType.None:
-				await CardPileCmd.RemoveFromCombat(this, isBeingPlayed: true, skipCardPileVisuals);
+				await CardPileCmd.RemoveFromCombat(this, skipCardPileVisuals);
 				break;
 			case PileType.Exhaust:
 				await CardCmd.Exhaust(choiceContext, this, causedByEthereal: false, skipCardPileVisuals);
@@ -1601,7 +1601,7 @@ public abstract class CardModel : AbstractModel
 		{
 			if (IsDupe)
 			{
-				await CardPileCmd.RemoveFromCombat(this, isBeingPlayed: false);
+				await CardPileCmd.RemoveFromCombat(this);
 			}
 			else if (ExhaustOnNextPlay || Keywords.Contains(CardKeyword.Exhaust))
 			{

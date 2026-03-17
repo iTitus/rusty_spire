@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://dc53k4pb33owu"]
 
 [ext_resource type="Script" uid="uid://cghtlla3sw0po" path="res://src/Core/Nodes/Combat/NCreatureVisuals.cs" id="1_42n2h"]
-[ext_resource type="SpineSkeletonDataResource" uid="uid://o0stcp11mby6" path="res://animations/monsters/sludge_spinner/oil_spill_skel_data.tres" id="2_jqdtm"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://o0stcp11mby6" path="res://animations/monsters/sludge_spinner/sludge_spinner_skel_data.tres" id="2_jqdtm"]
 [ext_resource type="Script" uid="uid://dcpvvssmw212q" path="res://src/Core/Nodes/Vfx/NOilSpillVfx.cs" id="3_2h67g"]
 [ext_resource type="Texture2D" uid="uid://c57rbc1pc1rv7" path="res://images/vfx/monsters/sludge_spinner/sludge_spinner_particle_1.png" id="3_c4hov"]
 [ext_resource type="Texture2D" uid="uid://qit3ftwukvd1" path="res://images/vfx/monsters/sludge_spinner/sludge_spinner_drop_particle.png" id="5_0kg54"]
@@ -212,8 +212,8 @@ scale = Vector2(0.25, 0.25)
 slot_name = "oil_barf_slot"
 show_behind_parent = true
 z_as_relative = false
-position = Vector2(-86.8483, -1196.74)
-rotation = 2.70758
+position = Vector2(-82.48249, -1206.9629)
+rotation = 2.585615
 
 [node name="RainDropParticles" type="GPUParticles2D" parent="Visuals/MouthSpraySlot"]
 show_behind_parent = true
@@ -250,8 +250,8 @@ show_behind_parent = true
 [node name="MouthDribbleBoneNode" type="SpineBoneNode" parent="Visuals"]
 bone_name = "cheek_leak_bone"
 show_behind_parent = true
-position = Vector2(-34.5114, -1262.17)
-scale = Vector2(1, 1)
+position = Vector2(-38.283836, -1280.4694)
+scale = Vector2(0.99999994, 1.0000001)
 
 [node name="DribbleParticles" type="GPUParticles2D" parent="Visuals/MouthDribbleBoneNode"]
 show_behind_parent = true
@@ -266,8 +266,8 @@ process_material = SubResource("ParticleProcessMaterial_aflh1")
 [node name="testBone" type="SpineBoneNode" parent="Visuals"]
 bone_name = "oil_barf_bone"
 show_behind_parent = true
-position = Vector2(-86.8483, -1196.74)
-rotation = 2.70758
+position = Vector2(-82.48249, -1206.9629)
+rotation = 2.585615
 
 [node name="NOilSpillVfx" type="Node" parent="Visuals"]
 script = ExtResource("3_2h67g")

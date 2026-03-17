@@ -17,12 +17,25 @@ public class DiscardPotionGameAction : GameAction
 
 	public override ulong OwnerId => _player.NetId;
 
-	public override GameActionType ActionType => GameActionType.NonCombat;
+	public override GameActionType ActionType
+	{
+		get
+		{
+			if (!WasEnqueuedInCombat)
+			{
+				return GameActionType.NonCombat;
+			}
+			return GameActionType.CombatPlayPhaseOnly;
+		}
+	}
 
-	public DiscardPotionGameAction(Player player, uint potionSlotIndex)
+	public bool WasEnqueuedInCombat { get; }
+
+	public DiscardPotionGameAction(Player player, uint potionSlotIndex, bool isCombatInProgress)
 	{
 		_player = player;
 		_potionSlotIndex = potionSlotIndex;
+		WasEnqueuedInCombat = isCombatInProgress;
 	}
 
 	protected override async Task ExecuteAction()
@@ -44,12 +57,13 @@ public class DiscardPotionGameAction : GameAction
 	{
 		return new NetDiscardPotionGameAction
 		{
-			potionSlotIndex = _potionSlotIndex
+			potionSlotIndex = _potionSlotIndex,
+			wasEnqueuedInCombat = WasEnqueuedInCombat
 		};
 	}
 
 	public override string ToString()
 	{
-		return $"{"NetDiscardPotionGameAction"} for player {_player.NetId} potion slot: {_potionSlotIndex}";
+		return $"{"NetDiscardPotionGameAction"} for player {_player.NetId} potion slot: {_potionSlotIndex} in combat: {WasEnqueuedInCombat}";
 	}
 }

@@ -31,7 +31,7 @@ public abstract class AncientEventModel : EventModel
 
 	private string? _debugOption;
 
-	protected override string LocTable => "ancients";
+	public override string LocTable => "ancients";
 
 	public LocString Epithet => L10NLookup(base.Id.Entry + ".epithet");
 

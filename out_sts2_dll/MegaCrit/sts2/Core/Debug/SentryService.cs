@@ -27,9 +27,17 @@ public static class SentryService
 
 	private static readonly StringName _setUserMethod = new StringName("set_user");
 
+	private static readonly StringName _setTagMethod = new StringName("set_tag");
+
 	private static IDisposable? _sentryInstance;
 
+	private static float _sampleRate = 1f;
+
+	private static readonly string _sessionId = Guid.NewGuid().ToString();
+
 	public static bool IsEnabled { get; private set; }
+
+	public static string SessionId => _sessionId;
 
 	public static void Initialize()
 	{
@@ -66,7 +74,11 @@ public static class SentryService
 				{
 					return (SentryEvent?)null;
 				}
-				return (ModManager.LoadedMods.Count > 0) ? null : sentryEvent;
+				if (ModManager.LoadedMods.Count > 0)
+				{
+					return (SentryEvent?)null;
+				}
+				return (System.Random.Shared.NextDouble() >= (double)_sampleRate) ? null : sentryEvent;
 			});
 		});
 		IsEnabled = SentrySdk.IsEnabled;
@@ -78,6 +90,7 @@ public static class SentryService
 		SentrySdk.ConfigureScope(delegate(Scope scope)
 		{
 			scope.SetTag("sdk", "dotnet");
+			scope.SetTag("session_id", _sessionId);
 			if (releaseInfo != null)
 			{
 				scope.SetTag("branch", releaseInfo.Branch);
@@ -85,6 +98,7 @@ public static class SentryService
 				scope.SetExtra("build_date", releaseInfo.Date.ToString("o"));
 			}
 		});
+		SetGdExtensionTag("session_id", _sessionId);
 		Log.LogCallback += OnLogCallback;
 		Log.Info("[Sentry.NET] Initialized: env=" + environment + ", release=" + release);
 	}
@@ -139,6 +153,48 @@ public static class SentryService
 		}
 	}
 
+	private static void SetGdExtensionTag(string key, string value)
+	{
+		try
+		{
+			if (Engine.HasSingleton(_sentrySdkSingleton))
+			{
+				GodotObject singleton = Engine.GetSingleton(_sentrySdkSingleton);
+				singleton.Call(_setTagMethod, key, value);
+			}
+		}
+		catch (Exception ex)
+		{
+			Log.Warn("[Sentry] Failed to set GDExtension tag: " + ex.Message);
+		}
+	}
+
+	public static void SetPlatformBranch(string? branch)
+	{
+		if (!IsEnabled)
+		{
+			return;
+		}
+		_sampleRate = branch switch
+		{
+			"public" => 0.1f, 
+			"private-beta" => 1f, 
+			"public-beta" => 0.2f, 
+			_ => (branch != null) ? 0.1f : 0f, 
+		};
+		if (_sampleRate == 0f)
+		{
+			Log.Info("[Sentry.NET] Disabled: no platform branch (non-Steam build)");
+			Shutdown();
+			return;
+		}
+		SentrySdk.ConfigureScope(delegate(Scope scope)
+		{
+			scope.SetTag("platform.branch", branch);
+		});
+		Log.Info($"[Sentry.NET] Platform branch: {branch}, sample rate: {_sampleRate:P0}");
+	}
+
 	public static void AddBreadcrumb(string message, string category = "app", BreadcrumbLevel level = BreadcrumbLevel.Info)
 	{
 		if (IsEnabled)
@@ -154,6 +210,18 @@ public static class SentryService
 			SentrySdk.CaptureException(ex, delegate(Scope scope)
 			{
 				AttachGameState(scope);
+			});
+		}
+	}
+
+	public static void CaptureException(Exception ex, Action<Scope> configureScope)
+	{
+		if (IsEnabled)
+		{
+			SentrySdk.CaptureException(ex, delegate(Scope scope)
+			{
+				AttachGameState(scope);
+				configureScope(scope);
 			});
 		}
 	}
@@ -219,6 +287,7 @@ public static class SentryService
 		SentrySdk.ConfigureScope(delegate(Scope scope)
 		{
 			scope.SetTag("sdk", "dotnet");
+			scope.SetTag("session_id", _sessionId);
 			scope.SetTag("source", "dev-console-test");
 		});
 		Log.Info("[Sentry.NET] Initialized for testing via dev console");
@@ -248,12 +317,12 @@ public static class SentryService
 			string currentSceneName = GetCurrentSceneName();
 			if (currentSceneName != null)
 			{
-				scope.SetExtra("game.scene", currentSceneName);
+				scope.SetTag("game.scene", currentSceneName);
 			}
 			RunState runState = RunManager.Instance.DebugOnlyGetState();
 			if (RunManager.Instance.IsInProgress && runState != null)
 			{
-				scope.SetExtra("game.in_run", true);
+				scope.SetTag("game.in_run", "true");
 				scope.SetExtra("game.seed", runState.Rng.StringSeed);
 				scope.SetExtra("game.ascension", runState.AscensionLevel);
 				scope.SetExtra("game.act", runState.CurrentActIndex + 1);
@@ -269,7 +338,7 @@ public static class SentryService
 			}
 			else
 			{
-				scope.SetExtra("game.in_run", false);
+				scope.SetTag("game.in_run", "false");
 			}
 			CombatState combatState = CombatManager.Instance.DebugOnlyGetState();
 			if (combatState != null)

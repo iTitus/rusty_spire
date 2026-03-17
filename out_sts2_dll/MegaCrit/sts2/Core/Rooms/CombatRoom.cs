@@ -121,7 +121,7 @@ public class CombatRoom : AbstractRoom, ICombatRoomVisuals
 
 	public override Task Exit(IRunState? runState)
 	{
-		CombatManager.Instance.Reset();
+		CombatManager.Instance.Reset(graceful: true);
 		if (IsPreFinished)
 		{
 			foreach (Creature item in CombatState.PlayerCreatures.ToList())

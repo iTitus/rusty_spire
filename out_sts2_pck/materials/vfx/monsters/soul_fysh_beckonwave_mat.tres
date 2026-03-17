@@ -6,7 +6,7 @@
 
 [resource]
 shader = ExtResource("1_7lnun")
-shader_parameter/ColorParameter = Color(1, 0.763333, 0.29, 1)
+shader_parameter/ColorParameter = Color(0.81, 0.81, 0.81, 1)
 shader_parameter/step = Vector2(0.56, 0.72)
 shader_parameter/edgeMask = ExtResource("2_l5s7n")
 shader_parameter/startingOffset = 0.0

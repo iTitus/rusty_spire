@@ -28,7 +28,7 @@ public static class MapPathPruning
 	public static List<List<MapPoint[]>> FindMatchingSegments(MapPoint startingMapPoint)
 	{
 		List<List<MapPoint>> list = FindAllPaths(startingMapPoint);
-		Dictionary<string, List<MapPoint[]>> segments = new Dictionary<string, List<MapPoint[]>>();
+		SortedDictionary<string, List<MapPoint[]>> segments = new SortedDictionary<string, List<MapPoint[]>>(StringComparer.Ordinal);
 		foreach (List<MapPoint> item in list)
 		{
 			AddSegmentsToDictionary(item, segments);
@@ -175,7 +175,7 @@ public static class MapPathPruning
 		return false;
 	}
 
-	private static List<List<MapPoint[]>> GetDuplicateSegments(Dictionary<string, List<MapPoint[]>> segments)
+	private static List<List<MapPoint[]>> GetDuplicateSegments(IDictionary<string, List<MapPoint[]>> segments)
 	{
 		return segments.Values.Where((List<MapPoint[]> segmentList) => segmentList.Count > 1).ToList();
 	}

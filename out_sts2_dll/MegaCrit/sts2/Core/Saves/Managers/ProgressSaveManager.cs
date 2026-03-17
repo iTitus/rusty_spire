@@ -577,11 +577,14 @@ public class ProgressSaveManager
 			select e.Id);
 		HashSet<string> reachableSet = new HashSet<string>();
 		Queue<string> queue = new Queue<string>();
+		string id = EpochModel.Get<NeowEpoch>().Id;
+		reachableSet.Add(id);
+		queue.Enqueue(id);
 		foreach (SerializableEpoch epoch in Progress.Epochs)
 		{
-			bool flag = epoch.Id != EpochModel.Get<NeowEpoch>().Id;
+			bool flag = epoch.Id == id;
 			bool flag2 = flag;
-			if (flag2)
+			if (!flag2)
 			{
 				EpochState state = epoch.State;
 				bool flag3 = ((state == EpochState.None || (uint)(state - 2) <= 1u) ? true : false);
@@ -595,8 +598,8 @@ public class ProgressSaveManager
 		}
 		while (queue.Count > 0)
 		{
-			string id = queue.Dequeue();
-			EpochModel[] timelineExpansion = EpochModel.Get(id).GetTimelineExpansion();
+			string id2 = queue.Dequeue();
+			EpochModel[] timelineExpansion = EpochModel.Get(id2).GetTimelineExpansion();
 			foreach (EpochModel epochModel in timelineExpansion)
 			{
 				if (!reachableSet.Contains(epochModel.Id))

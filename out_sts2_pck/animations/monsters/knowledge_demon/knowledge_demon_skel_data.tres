@@ -1,4 +1,4 @@
-[gd_resource type="SpineSkeletonDataResource" load_steps=10 format=3 uid="uid://b57tafaib63hl"]
+[gd_resource type="SpineSkeletonDataResource" load_steps=12 format=3 uid="uid://b57tafaib63hl"]
 
 [ext_resource type="SpineAtlasResource" uid="uid://b0evo45ja7dar" path="res://animations/monsters/knowledge_demon/knowledge_demon.atlas" id="1_e0nxh"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://c28aoy3xtu8w1" path="res://animations/monsters/knowledge_demon/knowledge_demon.skel" id="2_aodqb"]
@@ -33,8 +33,18 @@ from = "idle_loop"
 to = "hurt"
 mix = 0.02
 
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_srwwm"]
+from = "idle_loop"
+to = "brain_rot"
+mix = 0.2
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_212vu"]
+from = "hurt"
+to = "idle_loop"
+mix = 0.05
+
 [resource]
 atlas_res = ExtResource("1_e0nxh")
 skeleton_file_res = ExtResource("2_aodqb")
 default_mix = 0.05
-animation_mixes = [SubResource("SpineAnimationMix_e0nxh"), SubResource("SpineAnimationMix_aodqb"), SubResource("SpineAnimationMix_06re6"), SubResource("SpineAnimationMix_dsr80"), SubResource("SpineAnimationMix_obkq5"), SubResource("SpineAnimationMix_oxv3n"), SubResource("SpineAnimationMix_d7n5e")]
+animation_mixes = [SubResource("SpineAnimationMix_e0nxh"), SubResource("SpineAnimationMix_aodqb"), SubResource("SpineAnimationMix_06re6"), SubResource("SpineAnimationMix_dsr80"), SubResource("SpineAnimationMix_obkq5"), SubResource("SpineAnimationMix_oxv3n"), SubResource("SpineAnimationMix_d7n5e"), SubResource("SpineAnimationMix_srwwm"), SubResource("SpineAnimationMix_212vu")]

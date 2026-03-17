@@ -24,10 +24,10 @@ public sealed class Charge : CardModel
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
 		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-		List<CardModel> cards = (from c in PileType.Draw.GetPile(base.Owner).Cards
+		List<CardModel> cardsIn = (from c in PileType.Draw.GetPile(base.Owner).Cards
 			orderby c.Rarity, c.Id
 			select c).ToList();
-		List<CardModel> list = (await CardSelectCmd.FromSimpleGrid(choiceContext, cards, base.Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, base.DynamicVars.Cards.IntValue))).ToList();
+		List<CardModel> list = (await CardSelectCmd.FromSimpleGrid(choiceContext, cardsIn, base.Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, base.DynamicVars.Cards.IntValue))).ToList();
 		foreach (CardModel item in list)
 		{
 			CardPileAddResult? cardPileAddResult = await CardCmd.TransformTo<MinionStrike>(item);

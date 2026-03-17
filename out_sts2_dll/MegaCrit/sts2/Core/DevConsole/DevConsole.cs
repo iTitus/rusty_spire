@@ -146,11 +146,11 @@ public class DevConsole
 		List<string> list2 = new List<string>();
 		foreach (string possibleToken in possibleTokens)
 		{
-			if (possibleToken.StartsWith(partialToken, StringComparison.CurrentCultureIgnoreCase))
+			if (possibleToken.StartsWith(partialToken, StringComparison.OrdinalIgnoreCase))
 			{
 				list.Add(possibleToken);
 			}
-			else if (possibleToken.Contains(partialToken, StringComparison.CurrentCultureIgnoreCase))
+			else if (possibleToken.Contains(partialToken, StringComparison.OrdinalIgnoreCase))
 			{
 				list2.Add(possibleToken);
 			}

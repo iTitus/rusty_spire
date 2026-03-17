@@ -51,6 +51,7 @@ public class EventOption
 		IsLocked = OnChosen == null;
 		DisableOnChosen = true;
 		HistoryName = title;
+		eventModel.Owner?.Character.AddDetailsTo(Description);
 	}
 
 	public EventOption(EventModel eventModel, Func<Task>? onChosen, string textKey, IEnumerable<IHoverTip> hoverTips)
@@ -63,6 +64,7 @@ public class EventOption
 		IsLocked = OnChosen == null;
 		DisableOnChosen = true;
 		HistoryName = Title;
+		eventModel.Owner?.Character.AddDetailsTo(Description);
 	}
 
 	public EventOption(EventModel eventModel, Func<Task>? onChosen, string textKey, params IHoverTip[] hoverTips)
@@ -123,6 +125,11 @@ public class EventOption
 	public EventOption ThatDoesDamage(decimal damage)
 	{
 		return ThatWillKillPlayerIf((Player p) => (decimal)p.Creature.CurrentHp <= damage);
+	}
+
+	public EventOption ThatDecreasesMaxHp(decimal value)
+	{
+		return ThatWillKillPlayerIf((Player p) => (decimal)p.Creature.MaxHp <= value);
 	}
 
 	public EventOption ThatWillKillPlayerIf(Func<Player, bool> willKillPlayer)

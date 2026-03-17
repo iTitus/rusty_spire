@@ -510,7 +510,7 @@ public class NRunHistory : NSubmenu
 			{
 				eventModel = ModelDb.Event<DeprecatedEvent>();
 			}
-			LocString locString2 = new LocString("events", eventModel.Id.Entry + ".loss");
+			LocString locString2 = new LocString(eventModel.LocTable, eventModel.Id.Entry + ".loss");
 			byId.AddDetailsTo(locString2);
 			locString2.Add("event", eventModel.Title);
 			stringBuilder.Append(locString2.GetFormattedText());

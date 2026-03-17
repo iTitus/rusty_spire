@@ -96,13 +96,13 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	private JsonTypeInfo<MapPointType>? _MapPointType;
 
-	private JsonTypeInfo<DisabledMod>? _DisabledMod;
-
 	private JsonTypeInfo<ModManifest>? _ModManifest;
 
 	private JsonTypeInfo<ModSettings>? _ModSettings;
 
 	private JsonTypeInfo<ModSource>? _ModSource;
+
+	private JsonTypeInfo<SettingsSaveMod>? _SettingsSaveMod;
 
 	private JsonTypeInfo<ModelId>? _ModelId;
 
@@ -274,7 +274,7 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	private JsonTypeInfo<List<MapCoord>>? _ListMapCoord;
 
-	private JsonTypeInfo<List<DisabledMod>>? _ListDisabledMod;
+	private JsonTypeInfo<List<SettingsSaveMod>>? _ListSettingsSaveMod;
 
 	private JsonTypeInfo<List<ModelId>>? _ListModelId;
 
@@ -451,13 +451,13 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	public JsonTypeInfo<MapPointType> MapPointType => _MapPointType ?? (_MapPointType = (JsonTypeInfo<MapPointType>)base.Options.GetTypeInfo(typeof(MapPointType)));
 
-	public JsonTypeInfo<DisabledMod> DisabledMod => _DisabledMod ?? (_DisabledMod = (JsonTypeInfo<DisabledMod>)base.Options.GetTypeInfo(typeof(DisabledMod)));
-
 	public JsonTypeInfo<ModManifest> ModManifest => _ModManifest ?? (_ModManifest = (JsonTypeInfo<ModManifest>)base.Options.GetTypeInfo(typeof(ModManifest)));
 
 	public JsonTypeInfo<ModSettings> ModSettings => _ModSettings ?? (_ModSettings = (JsonTypeInfo<ModSettings>)base.Options.GetTypeInfo(typeof(ModSettings)));
 
 	public JsonTypeInfo<ModSource> ModSource => _ModSource ?? (_ModSource = (JsonTypeInfo<ModSource>)base.Options.GetTypeInfo(typeof(ModSource)));
+
+	public JsonTypeInfo<SettingsSaveMod> SettingsSaveMod => _SettingsSaveMod ?? (_SettingsSaveMod = (JsonTypeInfo<SettingsSaveMod>)base.Options.GetTypeInfo(typeof(SettingsSaveMod)));
 
 	public JsonTypeInfo<ModelId> ModelId => _ModelId ?? (_ModelId = (JsonTypeInfo<ModelId>)base.Options.GetTypeInfo(typeof(ModelId)));
 
@@ -629,7 +629,7 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	public JsonTypeInfo<List<MapCoord>> ListMapCoord => _ListMapCoord ?? (_ListMapCoord = (JsonTypeInfo<List<MapCoord>>)base.Options.GetTypeInfo(typeof(List<MapCoord>)));
 
-	public JsonTypeInfo<List<DisabledMod>> ListDisabledMod => _ListDisabledMod ?? (_ListDisabledMod = (JsonTypeInfo<List<DisabledMod>>)base.Options.GetTypeInfo(typeof(List<DisabledMod>)));
+	public JsonTypeInfo<List<SettingsSaveMod>> ListSettingsSaveMod => _ListSettingsSaveMod ?? (_ListSettingsSaveMod = (JsonTypeInfo<List<SettingsSaveMod>>)base.Options.GetTypeInfo(typeof(List<SettingsSaveMod>)));
 
 	public JsonTypeInfo<List<ModelId>> ListModelId => _ListModelId ?? (_ListModelId = (JsonTypeInfo<List<ModelId>>)base.Options.GetTypeInfo(typeof(List<ModelId>)));
 
@@ -1156,74 +1156,6 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		return jsonTypeInfo;
 	}
 
-	private JsonTypeInfo<DisabledMod> Create_DisabledMod(JsonSerializerOptions options)
-	{
-		if (!TryGetTypeInfoForRuntimeCustomConverter(options, out JsonTypeInfo<DisabledMod> jsonTypeInfo))
-		{
-			JsonObjectInfoValues<DisabledMod> objectInfo = new JsonObjectInfoValues<DisabledMod>
-			{
-				ObjectCreator = () => new DisabledMod(),
-				ObjectWithParameterizedConstructorCreator = null,
-				PropertyMetadataInitializer = (JsonSerializerContext _) => DisabledModPropInit(options),
-				ConstructorParameterMetadataInitializer = null,
-				ConstructorAttributeProviderFactory = () => typeof(DisabledMod).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Array.Empty<Type>(), null),
-				SerializeHandler = null
-			};
-			jsonTypeInfo = JsonMetadataServices.CreateObjectInfo(options, objectInfo);
-			jsonTypeInfo.NumberHandling = null;
-		}
-		jsonTypeInfo.OriginatingResolver = this;
-		return jsonTypeInfo;
-	}
-
-	private static JsonPropertyInfo[] DisabledModPropInit(JsonSerializerOptions options)
-	{
-		JsonPropertyInfo[] array = new JsonPropertyInfo[2];
-		JsonPropertyInfoValues<string> jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
-		jsonPropertyInfoValues.IsProperty = true;
-		jsonPropertyInfoValues.IsPublic = true;
-		jsonPropertyInfoValues.IsVirtual = false;
-		jsonPropertyInfoValues.DeclaringType = typeof(DisabledMod);
-		jsonPropertyInfoValues.Converter = null;
-		jsonPropertyInfoValues.Getter = (object obj) => ((DisabledMod)obj).Name;
-		jsonPropertyInfoValues.Setter = delegate(object obj, string? value)
-		{
-			((DisabledMod)obj).Name = value;
-		};
-		jsonPropertyInfoValues.IgnoreCondition = null;
-		jsonPropertyInfoValues.HasJsonInclude = false;
-		jsonPropertyInfoValues.IsExtensionData = false;
-		jsonPropertyInfoValues.NumberHandling = null;
-		jsonPropertyInfoValues.PropertyName = "Name";
-		jsonPropertyInfoValues.JsonPropertyName = "name";
-		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(DisabledMod).GetProperty("Name", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(string), Array.Empty<Type>(), null);
-		JsonPropertyInfoValues<string> propertyInfo = jsonPropertyInfoValues;
-		array[0] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo);
-		array[0].IsGetNullable = false;
-		array[0].IsSetNullable = false;
-		JsonPropertyInfoValues<ModSource> jsonPropertyInfoValues2 = new JsonPropertyInfoValues<ModSource>();
-		jsonPropertyInfoValues2.IsProperty = true;
-		jsonPropertyInfoValues2.IsPublic = true;
-		jsonPropertyInfoValues2.IsVirtual = false;
-		jsonPropertyInfoValues2.DeclaringType = typeof(DisabledMod);
-		jsonPropertyInfoValues2.Converter = null;
-		jsonPropertyInfoValues2.Getter = (object obj) => ((DisabledMod)obj).Source;
-		jsonPropertyInfoValues2.Setter = delegate(object obj, ModSource value)
-		{
-			((DisabledMod)obj).Source = value;
-		};
-		jsonPropertyInfoValues2.IgnoreCondition = null;
-		jsonPropertyInfoValues2.HasJsonInclude = false;
-		jsonPropertyInfoValues2.IsExtensionData = false;
-		jsonPropertyInfoValues2.NumberHandling = null;
-		jsonPropertyInfoValues2.PropertyName = "Source";
-		jsonPropertyInfoValues2.JsonPropertyName = "source";
-		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(DisabledMod).GetProperty("Source", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(ModSource), Array.Empty<Type>(), null);
-		JsonPropertyInfoValues<ModSource> propertyInfo2 = jsonPropertyInfoValues2;
-		array[1] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo2);
-		return array;
-	}
-
 	private JsonTypeInfo<ModManifest> Create_ModManifest(JsonSerializerOptions options)
 	{
 		if (!TryGetTypeInfoForRuntimeCustomConverter(options, out JsonTypeInfo<ModManifest> jsonTypeInfo))
@@ -1246,25 +1178,25 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	private static JsonPropertyInfo[] ModManifestPropInit(JsonSerializerOptions options)
 	{
-		JsonPropertyInfo[] array = new JsonPropertyInfo[5];
+		JsonPropertyInfo[] array = new JsonPropertyInfo[9];
 		JsonPropertyInfoValues<string> jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
 		jsonPropertyInfoValues.IsProperty = false;
 		jsonPropertyInfoValues.IsPublic = true;
 		jsonPropertyInfoValues.IsVirtual = false;
 		jsonPropertyInfoValues.DeclaringType = typeof(ModManifest);
 		jsonPropertyInfoValues.Converter = null;
-		jsonPropertyInfoValues.Getter = (object obj) => ((ModManifest)obj).pckName;
+		jsonPropertyInfoValues.Getter = (object obj) => ((ModManifest)obj).id;
 		jsonPropertyInfoValues.Setter = delegate(object obj, string? value)
 		{
-			((ModManifest)obj).pckName = value;
+			((ModManifest)obj).id = value;
 		};
 		jsonPropertyInfoValues.IgnoreCondition = null;
 		jsonPropertyInfoValues.HasJsonInclude = false;
 		jsonPropertyInfoValues.IsExtensionData = false;
 		jsonPropertyInfoValues.NumberHandling = null;
-		jsonPropertyInfoValues.PropertyName = "pckName";
-		jsonPropertyInfoValues.JsonPropertyName = "pck_name";
-		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(ModManifest).GetField("pckName", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		jsonPropertyInfoValues.PropertyName = "id";
+		jsonPropertyInfoValues.JsonPropertyName = "id";
+		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(ModManifest).GetField("id", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 		JsonPropertyInfoValues<string> propertyInfo = jsonPropertyInfoValues;
 		array[0] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo);
 		jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
@@ -1347,6 +1279,86 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(ModManifest).GetField("version", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 		JsonPropertyInfoValues<string> propertyInfo5 = jsonPropertyInfoValues;
 		array[4] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo5);
+		JsonPropertyInfoValues<bool> jsonPropertyInfoValues2 = new JsonPropertyInfoValues<bool>();
+		jsonPropertyInfoValues2.IsProperty = false;
+		jsonPropertyInfoValues2.IsPublic = true;
+		jsonPropertyInfoValues2.IsVirtual = false;
+		jsonPropertyInfoValues2.DeclaringType = typeof(ModManifest);
+		jsonPropertyInfoValues2.Converter = null;
+		jsonPropertyInfoValues2.Getter = (object obj) => ((ModManifest)obj).hasPck;
+		jsonPropertyInfoValues2.Setter = delegate(object obj, bool value)
+		{
+			((ModManifest)obj).hasPck = value;
+		};
+		jsonPropertyInfoValues2.IgnoreCondition = null;
+		jsonPropertyInfoValues2.HasJsonInclude = false;
+		jsonPropertyInfoValues2.IsExtensionData = false;
+		jsonPropertyInfoValues2.NumberHandling = null;
+		jsonPropertyInfoValues2.PropertyName = "hasPck";
+		jsonPropertyInfoValues2.JsonPropertyName = "has_pck";
+		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(ModManifest).GetField("hasPck", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		JsonPropertyInfoValues<bool> propertyInfo6 = jsonPropertyInfoValues2;
+		array[5] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo6);
+		jsonPropertyInfoValues2 = new JsonPropertyInfoValues<bool>();
+		jsonPropertyInfoValues2.IsProperty = false;
+		jsonPropertyInfoValues2.IsPublic = true;
+		jsonPropertyInfoValues2.IsVirtual = false;
+		jsonPropertyInfoValues2.DeclaringType = typeof(ModManifest);
+		jsonPropertyInfoValues2.Converter = null;
+		jsonPropertyInfoValues2.Getter = (object obj) => ((ModManifest)obj).hasDll;
+		jsonPropertyInfoValues2.Setter = delegate(object obj, bool value)
+		{
+			((ModManifest)obj).hasDll = value;
+		};
+		jsonPropertyInfoValues2.IgnoreCondition = null;
+		jsonPropertyInfoValues2.HasJsonInclude = false;
+		jsonPropertyInfoValues2.IsExtensionData = false;
+		jsonPropertyInfoValues2.NumberHandling = null;
+		jsonPropertyInfoValues2.PropertyName = "hasDll";
+		jsonPropertyInfoValues2.JsonPropertyName = "has_dll";
+		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(ModManifest).GetField("hasDll", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		JsonPropertyInfoValues<bool> propertyInfo7 = jsonPropertyInfoValues2;
+		array[6] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo7);
+		JsonPropertyInfoValues<List<string>> jsonPropertyInfoValues3 = new JsonPropertyInfoValues<List<string>>();
+		jsonPropertyInfoValues3.IsProperty = false;
+		jsonPropertyInfoValues3.IsPublic = true;
+		jsonPropertyInfoValues3.IsVirtual = false;
+		jsonPropertyInfoValues3.DeclaringType = typeof(ModManifest);
+		jsonPropertyInfoValues3.Converter = null;
+		jsonPropertyInfoValues3.Getter = (object obj) => ((ModManifest)obj).dependencies;
+		jsonPropertyInfoValues3.Setter = delegate(object obj, List<string>? value)
+		{
+			((ModManifest)obj).dependencies = value;
+		};
+		jsonPropertyInfoValues3.IgnoreCondition = null;
+		jsonPropertyInfoValues3.HasJsonInclude = false;
+		jsonPropertyInfoValues3.IsExtensionData = false;
+		jsonPropertyInfoValues3.NumberHandling = null;
+		jsonPropertyInfoValues3.PropertyName = "dependencies";
+		jsonPropertyInfoValues3.JsonPropertyName = "dependencies";
+		jsonPropertyInfoValues3.AttributeProviderFactory = () => typeof(ModManifest).GetField("dependencies", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		JsonPropertyInfoValues<List<string>> propertyInfo8 = jsonPropertyInfoValues3;
+		array[7] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo8);
+		jsonPropertyInfoValues2 = new JsonPropertyInfoValues<bool>();
+		jsonPropertyInfoValues2.IsProperty = false;
+		jsonPropertyInfoValues2.IsPublic = true;
+		jsonPropertyInfoValues2.IsVirtual = false;
+		jsonPropertyInfoValues2.DeclaringType = typeof(ModManifest);
+		jsonPropertyInfoValues2.Converter = null;
+		jsonPropertyInfoValues2.Getter = (object obj) => ((ModManifest)obj).affectsGameplay;
+		jsonPropertyInfoValues2.Setter = delegate(object obj, bool value)
+		{
+			((ModManifest)obj).affectsGameplay = value;
+		};
+		jsonPropertyInfoValues2.IgnoreCondition = null;
+		jsonPropertyInfoValues2.HasJsonInclude = false;
+		jsonPropertyInfoValues2.IsExtensionData = false;
+		jsonPropertyInfoValues2.NumberHandling = null;
+		jsonPropertyInfoValues2.PropertyName = "affectsGameplay";
+		jsonPropertyInfoValues2.JsonPropertyName = "affects_gameplay";
+		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(ModManifest).GetField("affectsGameplay", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		JsonPropertyInfoValues<bool> propertyInfo9 = jsonPropertyInfoValues2;
+		array[8] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo9);
 		return array;
 	}
 
@@ -1393,25 +1405,25 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(ModSettings).GetProperty("PlayerAgreedToModLoading", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(bool), Array.Empty<Type>(), null);
 		JsonPropertyInfoValues<bool> propertyInfo = jsonPropertyInfoValues;
 		array[0] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo);
-		JsonPropertyInfoValues<List<DisabledMod>> jsonPropertyInfoValues2 = new JsonPropertyInfoValues<List<DisabledMod>>();
+		JsonPropertyInfoValues<List<SettingsSaveMod>> jsonPropertyInfoValues2 = new JsonPropertyInfoValues<List<SettingsSaveMod>>();
 		jsonPropertyInfoValues2.IsProperty = true;
 		jsonPropertyInfoValues2.IsPublic = true;
 		jsonPropertyInfoValues2.IsVirtual = false;
 		jsonPropertyInfoValues2.DeclaringType = typeof(ModSettings);
 		jsonPropertyInfoValues2.Converter = null;
-		jsonPropertyInfoValues2.Getter = (object obj) => ((ModSettings)obj).DisabledMods;
-		jsonPropertyInfoValues2.Setter = delegate(object obj, List<DisabledMod>? value)
+		jsonPropertyInfoValues2.Getter = (object obj) => ((ModSettings)obj).ModList;
+		jsonPropertyInfoValues2.Setter = delegate(object obj, List<SettingsSaveMod>? value)
 		{
-			((ModSettings)obj).DisabledMods = value;
+			((ModSettings)obj).ModList = value;
 		};
 		jsonPropertyInfoValues2.IgnoreCondition = null;
 		jsonPropertyInfoValues2.HasJsonInclude = false;
 		jsonPropertyInfoValues2.IsExtensionData = false;
 		jsonPropertyInfoValues2.NumberHandling = null;
-		jsonPropertyInfoValues2.PropertyName = "DisabledMods";
-		jsonPropertyInfoValues2.JsonPropertyName = "disabled_mods";
-		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(ModSettings).GetProperty("DisabledMods", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(List<DisabledMod>), Array.Empty<Type>(), null);
-		JsonPropertyInfoValues<List<DisabledMod>> propertyInfo2 = jsonPropertyInfoValues2;
+		jsonPropertyInfoValues2.PropertyName = "ModList";
+		jsonPropertyInfoValues2.JsonPropertyName = "mod_list";
+		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(ModSettings).GetProperty("ModList", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(List<SettingsSaveMod>), Array.Empty<Type>(), null);
+		JsonPropertyInfoValues<List<SettingsSaveMod>> propertyInfo2 = jsonPropertyInfoValues2;
 		array[1] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo2);
 		array[1].IsGetNullable = false;
 		array[1].IsSetNullable = false;
@@ -1426,6 +1438,94 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		}
 		jsonTypeInfo.OriginatingResolver = this;
 		return jsonTypeInfo;
+	}
+
+	private JsonTypeInfo<SettingsSaveMod> Create_SettingsSaveMod(JsonSerializerOptions options)
+	{
+		if (!TryGetTypeInfoForRuntimeCustomConverter(options, out JsonTypeInfo<SettingsSaveMod> jsonTypeInfo))
+		{
+			JsonObjectInfoValues<SettingsSaveMod> objectInfo = new JsonObjectInfoValues<SettingsSaveMod>
+			{
+				ObjectCreator = () => new SettingsSaveMod(),
+				ObjectWithParameterizedConstructorCreator = null,
+				PropertyMetadataInitializer = (JsonSerializerContext _) => SettingsSaveModPropInit(options),
+				ConstructorParameterMetadataInitializer = null,
+				ConstructorAttributeProviderFactory = () => typeof(SettingsSaveMod).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Array.Empty<Type>(), null),
+				SerializeHandler = null
+			};
+			jsonTypeInfo = JsonMetadataServices.CreateObjectInfo(options, objectInfo);
+			jsonTypeInfo.NumberHandling = null;
+		}
+		jsonTypeInfo.OriginatingResolver = this;
+		return jsonTypeInfo;
+	}
+
+	private static JsonPropertyInfo[] SettingsSaveModPropInit(JsonSerializerOptions options)
+	{
+		JsonPropertyInfo[] array = new JsonPropertyInfo[3];
+		JsonPropertyInfoValues<string> jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
+		jsonPropertyInfoValues.IsProperty = true;
+		jsonPropertyInfoValues.IsPublic = true;
+		jsonPropertyInfoValues.IsVirtual = false;
+		jsonPropertyInfoValues.DeclaringType = typeof(SettingsSaveMod);
+		jsonPropertyInfoValues.Converter = null;
+		jsonPropertyInfoValues.Getter = (object obj) => ((SettingsSaveMod)obj).Id;
+		jsonPropertyInfoValues.Setter = delegate(object obj, string? value)
+		{
+			((SettingsSaveMod)obj).Id = value;
+		};
+		jsonPropertyInfoValues.IgnoreCondition = null;
+		jsonPropertyInfoValues.HasJsonInclude = false;
+		jsonPropertyInfoValues.IsExtensionData = false;
+		jsonPropertyInfoValues.NumberHandling = null;
+		jsonPropertyInfoValues.PropertyName = "Id";
+		jsonPropertyInfoValues.JsonPropertyName = "id";
+		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(SettingsSaveMod).GetProperty("Id", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(string), Array.Empty<Type>(), null);
+		JsonPropertyInfoValues<string> propertyInfo = jsonPropertyInfoValues;
+		array[0] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo);
+		array[0].IsGetNullable = false;
+		array[0].IsSetNullable = false;
+		JsonPropertyInfoValues<ModSource> jsonPropertyInfoValues2 = new JsonPropertyInfoValues<ModSource>();
+		jsonPropertyInfoValues2.IsProperty = true;
+		jsonPropertyInfoValues2.IsPublic = true;
+		jsonPropertyInfoValues2.IsVirtual = false;
+		jsonPropertyInfoValues2.DeclaringType = typeof(SettingsSaveMod);
+		jsonPropertyInfoValues2.Converter = null;
+		jsonPropertyInfoValues2.Getter = (object obj) => ((SettingsSaveMod)obj).Source;
+		jsonPropertyInfoValues2.Setter = delegate(object obj, ModSource value)
+		{
+			((SettingsSaveMod)obj).Source = value;
+		};
+		jsonPropertyInfoValues2.IgnoreCondition = null;
+		jsonPropertyInfoValues2.HasJsonInclude = false;
+		jsonPropertyInfoValues2.IsExtensionData = false;
+		jsonPropertyInfoValues2.NumberHandling = null;
+		jsonPropertyInfoValues2.PropertyName = "Source";
+		jsonPropertyInfoValues2.JsonPropertyName = "source";
+		jsonPropertyInfoValues2.AttributeProviderFactory = () => typeof(SettingsSaveMod).GetProperty("Source", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(ModSource), Array.Empty<Type>(), null);
+		JsonPropertyInfoValues<ModSource> propertyInfo2 = jsonPropertyInfoValues2;
+		array[1] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo2);
+		JsonPropertyInfoValues<bool> jsonPropertyInfoValues3 = new JsonPropertyInfoValues<bool>();
+		jsonPropertyInfoValues3.IsProperty = true;
+		jsonPropertyInfoValues3.IsPublic = true;
+		jsonPropertyInfoValues3.IsVirtual = false;
+		jsonPropertyInfoValues3.DeclaringType = typeof(SettingsSaveMod);
+		jsonPropertyInfoValues3.Converter = null;
+		jsonPropertyInfoValues3.Getter = (object obj) => ((SettingsSaveMod)obj).IsEnabled;
+		jsonPropertyInfoValues3.Setter = delegate(object obj, bool value)
+		{
+			((SettingsSaveMod)obj).IsEnabled = value;
+		};
+		jsonPropertyInfoValues3.IgnoreCondition = null;
+		jsonPropertyInfoValues3.HasJsonInclude = false;
+		jsonPropertyInfoValues3.IsExtensionData = false;
+		jsonPropertyInfoValues3.NumberHandling = null;
+		jsonPropertyInfoValues3.PropertyName = "IsEnabled";
+		jsonPropertyInfoValues3.JsonPropertyName = "is_enabled";
+		jsonPropertyInfoValues3.AttributeProviderFactory = () => typeof(SettingsSaveMod).GetProperty("IsEnabled", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, typeof(bool), Array.Empty<Type>(), null);
+		JsonPropertyInfoValues<bool> propertyInfo3 = jsonPropertyInfoValues3;
+		array[2] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo3);
+		return array;
 	}
 
 	private JsonTypeInfo<ModelId> Create_ModelId(JsonSerializerOptions options)
@@ -1540,7 +1640,7 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 
 	private static JsonPropertyInfo[] FeedbackDataPropInit(JsonSerializerOptions options)
 	{
-		JsonPropertyInfo[] array = new JsonPropertyInfo[6];
+		JsonPropertyInfo[] array = new JsonPropertyInfo[7];
 		JsonPropertyInfoValues<string> jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
 		jsonPropertyInfoValues.IsProperty = false;
 		jsonPropertyInfoValues.IsPublic = true;
@@ -1671,6 +1771,28 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(FeedbackData).GetField("platformBranch", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 		JsonPropertyInfoValues<string> propertyInfo6 = jsonPropertyInfoValues;
 		array[5] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo6);
+		jsonPropertyInfoValues = new JsonPropertyInfoValues<string>();
+		jsonPropertyInfoValues.IsProperty = false;
+		jsonPropertyInfoValues.IsPublic = true;
+		jsonPropertyInfoValues.IsVirtual = false;
+		jsonPropertyInfoValues.DeclaringType = typeof(FeedbackData);
+		jsonPropertyInfoValues.Converter = null;
+		jsonPropertyInfoValues.Getter = (object obj) => ((FeedbackData)obj).sessionId;
+		jsonPropertyInfoValues.Setter = delegate(object obj, string? value)
+		{
+			Unsafe.Unbox<FeedbackData>(obj).sessionId = value;
+		};
+		jsonPropertyInfoValues.IgnoreCondition = null;
+		jsonPropertyInfoValues.HasJsonInclude = false;
+		jsonPropertyInfoValues.IsExtensionData = false;
+		jsonPropertyInfoValues.NumberHandling = null;
+		jsonPropertyInfoValues.PropertyName = "sessionId";
+		jsonPropertyInfoValues.JsonPropertyName = "session_id";
+		jsonPropertyInfoValues.AttributeProviderFactory = () => typeof(FeedbackData).GetField("sessionId", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+		JsonPropertyInfoValues<string> propertyInfo7 = jsonPropertyInfoValues;
+		array[6] = JsonMetadataServices.CreatePropertyInfo(options, propertyInfo7);
+		array[6].IsGetNullable = false;
+		array[6].IsSetNullable = false;
 		return array;
 	}
 
@@ -10812,16 +10934,16 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		return jsonTypeInfo;
 	}
 
-	private JsonTypeInfo<List<DisabledMod>> Create_ListDisabledMod(JsonSerializerOptions options)
+	private JsonTypeInfo<List<SettingsSaveMod>> Create_ListSettingsSaveMod(JsonSerializerOptions options)
 	{
-		if (!TryGetTypeInfoForRuntimeCustomConverter(options, out JsonTypeInfo<List<DisabledMod>> jsonTypeInfo))
+		if (!TryGetTypeInfoForRuntimeCustomConverter(options, out JsonTypeInfo<List<SettingsSaveMod>> jsonTypeInfo))
 		{
-			JsonCollectionInfoValues<List<DisabledMod>> collectionInfo = new JsonCollectionInfoValues<List<DisabledMod>>
+			JsonCollectionInfoValues<List<SettingsSaveMod>> collectionInfo = new JsonCollectionInfoValues<List<SettingsSaveMod>>
 			{
-				ObjectCreator = () => new List<DisabledMod>(),
+				ObjectCreator = () => new List<SettingsSaveMod>(),
 				SerializeHandler = null
 			};
-			jsonTypeInfo = JsonMetadataServices.CreateListInfo<List<DisabledMod>, DisabledMod>(options, collectionInfo);
+			jsonTypeInfo = JsonMetadataServices.CreateListInfo<List<SettingsSaveMod>, SettingsSaveMod>(options, collectionInfo);
 			jsonTypeInfo.NumberHandling = null;
 		}
 		jsonTypeInfo.OriginatingResolver = this;
@@ -11816,10 +11938,6 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		{
 			return Create_MapPointType(options);
 		}
-		if (type == typeof(DisabledMod))
-		{
-			return Create_DisabledMod(options);
-		}
 		if (type == typeof(ModManifest))
 		{
 			return Create_ModManifest(options);
@@ -11831,6 +11949,10 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		if (type == typeof(ModSource))
 		{
 			return Create_ModSource(options);
+		}
+		if (type == typeof(SettingsSaveMod))
+		{
+			return Create_SettingsSaveMod(options);
 		}
 		if (type == typeof(ModelId))
 		{
@@ -12172,9 +12294,9 @@ internal class MegaCritSerializerContext : JsonSerializerContext, IJsonTypeInfoR
 		{
 			return Create_ListMapCoord(options);
 		}
-		if (type == typeof(List<DisabledMod>))
+		if (type == typeof(List<SettingsSaveMod>))
 		{
-			return Create_ListDisabledMod(options);
+			return Create_ListSettingsSaveMod(options);
 		}
 		if (type == typeof(List<ModelId>))
 		{

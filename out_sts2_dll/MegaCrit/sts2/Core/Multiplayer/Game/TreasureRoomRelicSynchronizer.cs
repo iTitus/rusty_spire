@@ -75,7 +75,7 @@ public class TreasureRoomRelicSynchronizer
 			if (Hook.ShouldGenerateTreasure(runState, player))
 			{
 				RelicRarity rarity = RelicFactory.RollRarity(_rng);
-				RelicModel item = TryGetRelicForTutorial(runState.UnlockState) ?? _sharedGrabBag.PullFromFront(rarity, runState);
+				RelicModel item = TryGetRelicForTutorial(runState.UnlockState) ?? _sharedGrabBag.PullFromFront(rarity, runState) ?? RelicFactory.FallbackRelic;
 				_currentRelics.Add(item);
 			}
 		}

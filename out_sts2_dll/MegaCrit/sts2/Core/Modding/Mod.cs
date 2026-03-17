@@ -6,7 +6,7 @@ public class Mod
 {
 	public ModSource modSource;
 
-	public required string pckName;
+	public required string path;
 
 	public bool wasLoaded;
 

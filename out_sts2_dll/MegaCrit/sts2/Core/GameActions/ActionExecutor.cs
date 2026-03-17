@@ -131,7 +131,14 @@ public class ActionExecutor
 						Log.Error($"GameAction {readyAction} completed with exception: {actionTask.Exception}");
 					}
 				}
-				if (CombatManager.Instance.IsInProgress)
+				bool isInProgress = CombatManager.Instance.IsInProgress;
+				bool flag = isInProgress;
+				if (flag)
+				{
+					bool flag2 = ((readyAction is EndPlayerTurnAction || readyAction is ReadyToBeginEnemyTurnAction) ? true : false);
+					flag = !flag2;
+				}
+				if (flag)
 				{
 					await CombatManager.Instance.CheckWinCondition();
 				}

@@ -33,7 +33,7 @@ public sealed class UnrestSite : EventModel
 		return new global::_003C_003Ez__ReadOnlyArray<EventOption>(new EventOption[2]
 		{
 			new EventOption(this, Rest, "UNREST_SITE.pages.INITIAL.options.REST", HoverTipFactory.FromCardWithCardHoverTips<PoorSleep>()),
-			new EventOption(this, Kill, "UNREST_SITE.pages.INITIAL.options.KILL")
+			new EventOption(this, Kill, "UNREST_SITE.pages.INITIAL.options.KILL").ThatDecreasesMaxHp(base.DynamicVars["MaxHpLoss"].BaseValue)
 		});
 	}
 

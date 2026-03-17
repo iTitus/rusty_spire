@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Godot;
+using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Localization.Formatters;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
@@ -24,9 +25,24 @@ namespace MegaCrit.Sts2.Core.Localization;
 
 public class LocManager
 {
+	private class PreOverrideState
+	{
+		public required string language;
+
+		public bool overridesActive;
+
+		public required IReadOnlyList<LocValidationError> validationErrors;
+
+		public required Dictionary<string, LocTable> tables;
+	}
+
 	public delegate void LocaleChangeCallback();
 
 	private Dictionary<string, LocTable> _tables = new Dictionary<string, LocTable>();
+
+	private Dictionary<string, LocTable>? _engTables;
+
+	private PreOverrideState? _stateBeforeOverridingWithEnglish;
 
 	private static SmartFormatter _smartFormatter = null;
 
@@ -184,7 +200,7 @@ public class LocManager
 		}
 		string text = "Language code " + language + " could not be mapped to CultureInfo! Add a new manual mapping";
 		Log.Error(text);
-		SentrySdk.CaptureMessage(text);
+		SentryService.CaptureMessage(text);
 		return System.Globalization.CultureInfo.GetCultureInfo("en-us");
 	}
 
@@ -231,7 +247,7 @@ public class LocManager
 			string text = $"message={ex.Message}\ntable={locString.LocTable} key={locString.LocEntryKey} variables={ToString(variables)}";
 			Log.Error("Localization formatting error! " + text);
 			string errorPattern = Regex.Replace(ex.Message.Split('\n')[0], " at \\d+$", "");
-			SentrySdk.CaptureException(new LocException(text), delegate(Scope scope)
+			SentryService.CaptureException(new LocException(text), delegate(Scope scope)
 			{
 				scope.SetFingerprint("LocException", errorPattern);
 			});
@@ -282,13 +298,16 @@ public class LocManager
 	[MemberNotNull(new string[] { "CultureInfo", "Language" })]
 	public void SetLanguage(string language)
 	{
-		(Dictionary<string, LocTable> tables, bool overridesActive, List<LocValidationError> validationErrors) tuple = LoadTablesFromPath(language);
-		Dictionary<string, LocTable> item = tuple.tables;
-		bool item2 = tuple.overridesActive;
-		List<LocValidationError> item3 = tuple.validationErrors;
-		_tables = item;
-		OverridesActive = item2;
-		ValidationErrors = item3.AsReadOnly();
+		var (tables, overridesActive, validationErrors) = LoadTablesFromPath(language);
+		SetLanguageInternal(language, tables, overridesActive, validationErrors);
+	}
+
+	[MemberNotNull(new string[] { "CultureInfo", "Language" })]
+	private void SetLanguageInternal(string language, Dictionary<string, LocTable> tables, bool overridesActive, List<LocValidationError> validationErrors)
+	{
+		_tables = tables;
+		OverridesActive = overridesActive;
+		ValidationErrors = validationErrors.AsReadOnly();
 		Language = language;
 		if (OverridesActive)
 		{
@@ -305,7 +324,46 @@ public class LocManager
 		}
 	}
 
-	private static (Dictionary<string, LocTable> tables, bool overridesActive, List<LocValidationError> validationErrors) LoadTablesFromPath(string language)
+	public void StartOverridingLanguageAsEnglish()
+	{
+		if (_engTables == null)
+		{
+			if (!OverridesActive && Language == "eng")
+			{
+				_engTables = _tables;
+			}
+			else
+			{
+				(Dictionary<string, LocTable>, bool, List<LocValidationError>) tuple = LoadTablesFromPath("eng", allowOverride: false);
+				(_engTables, _, _) = tuple;
+				if (tuple.Item2)
+				{
+					throw new InvalidOperationException("Overrides should never be active when overriding as english!");
+				}
+			}
+		}
+		_stateBeforeOverridingWithEnglish = new PreOverrideState
+		{
+			language = Language,
+			overridesActive = OverridesActive,
+			validationErrors = ValidationErrors,
+			tables = _tables
+		};
+		SetLanguageInternal("eng", _engTables, overridesActive: false, new List<LocValidationError>());
+	}
+
+	public void StopOverridingLanguageAsEnglish()
+	{
+		if (_stateBeforeOverridingWithEnglish == null)
+		{
+			Log.Error("StopOverridingLanguageAsEnglish called, but we aren't overriding with english!");
+			return;
+		}
+		SetLanguageInternal(_stateBeforeOverridingWithEnglish.language, _stateBeforeOverridingWithEnglish.tables, _stateBeforeOverridingWithEnglish.overridesActive, _stateBeforeOverridingWithEnglish.validationErrors.ToList());
+		_stateBeforeOverridingWithEnglish = null;
+	}
+
+	private static (Dictionary<string, LocTable> tables, bool overridesActive, List<LocValidationError> validationErrors) LoadTablesFromPath(string language, bool allowOverride = true)
 	{
 		Dictionary<string, LocTable> dictionary = null;
 		if (language != "eng")
@@ -349,7 +407,7 @@ public class LocManager
 			}
 			LocTable fallback = dictionary?.GetValueOrDefault(fileNameWithoutExtension);
 			LocTable locTable = new LocTable(fileNameWithoutExtension, dictionary3, fallback);
-			if (!flag)
+			if (!flag && allowOverride)
 			{
 				if (flag3 && TryLoadWeblateNestedOverrides(text2, language, item2, locTable, list))
 				{

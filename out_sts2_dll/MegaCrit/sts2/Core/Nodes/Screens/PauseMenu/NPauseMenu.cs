@@ -230,7 +230,6 @@ public class NPauseMenu : NSubmenu
 		_disconnectButton.Disable();
 		_saveAndQuitButton.Disable();
 		_backButton.Disable();
-		RunManager.Instance.ActionQueueSet.Reset();
 		NRunMusicController.Instance.StopMusic();
 		await NGame.Instance.ReturnToMainMenu();
 	}

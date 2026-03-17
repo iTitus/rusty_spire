@@ -1,4 +1,4 @@
-[gd_scene load_steps=1246 format=3 uid="uid://cxw3vcumabkw4"]
+[gd_scene load_steps=1248 format=3 uid="uid://cxw3vcumabkw4"]
 
 [ext_resource type="Texture2D" uid="uid://dita23ifir6qb" path="res://images/rooms/overgrowth/overgrowth_00.png" id="1_k6085"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://b8e4wst5vt8xh" path="res://animations/characters/ironclad/ironclad_skel_data.tres" id="3_kg4hr"]
@@ -121,6 +121,7 @@
 [ext_resource type="PackedScene" uid="uid://dw1rpjeat2m3p" path="res://scenes/vfx/wormy_impact/vfx_wormy_impact_ground_flipbook.tscn" id="117_7lu0x"]
 [ext_resource type="PackedScene" uid="uid://xgswpjfh4n0w" path="res://scenes/vfx/wormy_impact/vfx_wormy_impact_air_flipbook.tscn" id="118_xebgd"]
 [ext_resource type="PackedScene" uid="uid://cjqmvk64j2qoj" path="res://scenes/vfx/common/vfx_common_outward_streaks.tscn" id="121_7lu0x"]
+[ext_resource type="Shader" uid="uid://c66gb6g7tup3n" path="res://shaders/hsv.gdshader" id="121_lnau3"]
 [ext_resource type="Script" uid="uid://vcdry8tj1xb2" path="res://src/gdscript/testing/gaseous_screen_tester.gd" id="123_84qw1"]
 [ext_resource type="PackedScene" uid="uid://b1xi488cri1wk" path="res://scenes/vfx/ui/vfx_low_hp_border.tscn" id="123_41406"]
 [ext_resource type="Material" uid="uid://c5pcr18nqub46" path="res://materials/vfx/ui/vfx_ui_gaseous_screen.tres" id="123_ny88h"]
@@ -6797,6 +6798,13 @@ hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
 anim_offset_max = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q372g"]
+resource_local_to_scene = true
+shader = ExtResource("121_lnau3")
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 1.0
+
 [sub_resource type="Curve" id="Curve_gorpx"]
 _data = [Vector2(0.2551724, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.002529502), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -6881,17 +6889,17 @@ preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
 unique_name_in_owner = true
+visible = false
 position = Vector2(408, 734)
 scale = Vector2(0.35, 0.35)
 
 [node name="Defect" type="SpineSprite" parent="Entities"]
 skeleton_data_res = ExtResource("3_yxndf")
 preview_skin = "Default"
-preview_animation = "-- Empty --"
+preview_animation = "cast"
 preview_frame = false
 preview_time = 0.0
 unique_name_in_owner = true
-visible = false
 position = Vector2(408, 734)
 scale = Vector2(0.15, 0.15)
 
@@ -8666,6 +8674,9 @@ visible = false
 visible = false
 offset_left = 0.0
 offset_right = 1280.0
+
+[node name="AscensionIcon" parent="UiVfxContainer/TopBar/LeftAlignedStuff/PortraitContainer/TopBarPortraitTip" index="1"]
+material = SubResource("ShaderMaterial_q372g")
 
 [node name="AscensionLabel" parent="UiVfxContainer/TopBar/LeftAlignedStuff/PortraitContainer/TopBarPortraitTip/AscensionIcon" index="0"]
 theme_override_font_sizes/font_size = 14

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1chsoaeakleb"]
+[gd_scene load_steps=18 format=3 uid="uid://c1chsoaeakleb"]
 
 [ext_resource type="Script" uid="uid://0fhtbmre0npn" path="res://src/Core/Nodes/Screens/StatsScreen/NStatsScreen.cs" id="1_3brhs"]
 [ext_resource type="PackedScene" uid="uid://cfcqxx8wkmljw" path="res://scenes/screens/settings_tab.tscn" id="2_geqrk"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="4_bpojc"]
 [ext_resource type="Script" uid="uid://dtfio45agppyj" path="res://addons/mega_text/MegaLabel.cs" id="5_mkllf"]
 [ext_resource type="PackedScene" uid="uid://cga165o6isk0q" path="res://scenes/ui/share_button.tscn" id="6_qy44f"]
-[ext_resource type="Script" uid="uid://bkvp2ktyewq10" path="res://src/Core/Nodes/Screens/StatsScreen/NShareStatsButton.cs" id="7_cqgdn"]
 [ext_resource type="Texture2D" uid="uid://o5lbua" path="res://images/atlases/ui_atlas.sprites/card/card_unplayable_icon.tres" id="8_murhp"]
 [ext_resource type="Script" uid="uid://co8qrg0wac6ti" path="res://src/Core/Nodes/Screens/StatsScreen/NStatsTabManager.cs" id="10_murhp"]
 [ext_resource type="Texture2D" uid="uid://b5x513mavmk5v" path="res://images/ui/placeholder_controller_icon.png" id="12_murhp"]
@@ -201,7 +200,6 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 0
 grow_vertical = 0
-script = ExtResource("7_cqgdn")
 
 [node name="TextureRect" type="TextureRect" parent="StatsGrid/ShareButton"]
 layout_mode = 1

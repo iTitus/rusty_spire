@@ -80,7 +80,7 @@ using RiderTestRunner;
 [assembly: AssemblyCopyright("© 2023 Mega Crit Games")]
 [assembly: AssemblyDescription("sts2")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
-[assembly: AssemblyInformationalVersion("0.1.0+cb602cefd883e8595b7f709863489a88c2a32765")]
+[assembly: AssemblyInformationalVersion("0.1.0+7ac1f450a64da4851710db715a4f267c2617cbd0")]
 [assembly: AssemblyProduct("sts2")]
 [assembly: AssemblyTitle("sts2")]
 [assembly: AssemblyHasScripts(new Type[]

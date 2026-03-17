@@ -44,7 +44,7 @@ public static class OneTimeInitialization
 			{
 				SettingsReadResult = SaveManager.Instance.InitSettingsData();
 			}
-			ModManager.Initialize();
+			ModManager.Initialize(new ModManagerFileIo(), SaveManager.Instance.SettingsSave.ModSettings);
 			UserDataPathProvider.IsRunningModded = ModManager.LoadedMods.Count > 0;
 			LocManager.Initialize();
 			ModelDb.Init();

@@ -90,7 +90,7 @@ public class NModMenuRow : NClickableControl
 			selectionHighlight.Modulate = modulate;
 			node.IsTicked = !(SaveManager.Instance.SettingsSave.ModSettings?.IsModDisabled(Mod) ?? false);
 			node.Connect(NTickbox.SignalName.Toggled, Callable.From<NTickbox>(OnTickboxToggled));
-			node2.Text = Mod.manifest?.name ?? Mod.pckName;
+			node2.Text = Mod.manifest?.name ?? Mod.manifest?.id ?? "<null>";
 			node3.Texture = GetPlatformIcon(Mod.modSource);
 			node2.Modulate = (Mod.wasLoaded ? Colors.White : StsColors.gray);
 			node3.Modulate = (Mod.wasLoaded ? Colors.White : StsColors.gray);
@@ -155,13 +155,12 @@ public class NModMenuRow : NClickableControl
 		{
 			ModSettings modSettings = (settingsSave.ModSettings = new ModSettings());
 		}
-		if (tickbox.IsTicked)
+		foreach (SettingsSaveMod mod in SaveManager.Instance.SettingsSave.ModSettings.ModList)
 		{
-			SaveManager.Instance.SettingsSave.ModSettings.DisabledMods.RemoveAll((DisabledMod m) => m.Name == Mod.pckName && m.Source == Mod.modSource);
-		}
-		else
-		{
-			SaveManager.Instance.SettingsSave.ModSettings.DisabledMods.Add(new DisabledMod(Mod));
+			if (mod.Id == Mod?.manifest?.id)
+			{
+				mod.IsEnabled = tickbox.IsTicked;
+			}
 		}
 		_screen.OnModEnabledOrDisabled();
 	}

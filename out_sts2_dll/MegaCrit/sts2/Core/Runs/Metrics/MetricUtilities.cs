@@ -93,8 +93,7 @@ public static class MetricUtilities
 			{
 				return;
 			}
-			string language = LocManager.Instance.Language;
-			LocManager.Instance.SetLanguage("eng");
+			LocManager.Instance.StartOverridingLanguageAsEnglish();
 			try
 			{
 				ModelId killedByEncounter = ModelId.none;
@@ -109,6 +108,7 @@ public static class MetricUtilities
 					select new EncounterMetric(e.Rooms.Last().ModelId.Entry, int.Min(e.GetEntry(localPlayerId).DamageTaken, localPlayer.MaxHp), e.Rooms.Last().TurnsTaken + 1)).ToList();
 				List<EventChoiceMetric> eventChoices = (from e in list
 					where e.Rooms.First().RoomType == RoomType.Event && e.GetEntry(localPlayerId).EventChoices.Count > 0
+					where e.MapPointType != MapPointType.Ancient
 					select new EventChoiceMetric(e, localPlayerId)).ToList();
 				List<CardChoiceMetric> cardChoices = (from e in list
 					where e.GetEntry(localPlayerId).CardChoices.Count > 0
@@ -160,7 +160,7 @@ public static class MetricUtilities
 			}
 			finally
 			{
-				LocManager.Instance.SetLanguage(language);
+				LocManager.Instance.StopOverridingLanguageAsEnglish();
 			}
 		}
 	}

@@ -3563,1272 +3563,1275 @@ public static class AbstractModelSubtypes
 	private static readonly Type _t1176 = typeof(MockPreventDeathPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1177 = typeof(MockRevivePower);
+	private static readonly Type _t1177 = typeof(MockResetCombatOnShufflePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1178 = typeof(MockTemporaryStrengthLossPower);
+	private static readonly Type _t1178 = typeof(MockRevivePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1179 = typeof(MonarchsGazePower);
+	private static readonly Type _t1179 = typeof(MockTemporaryStrengthLossPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1180 = typeof(MonarchsGazeStrengthDownPower);
+	private static readonly Type _t1180 = typeof(MonarchsGazePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1181 = typeof(MonologuePower);
+	private static readonly Type _t1181 = typeof(MonarchsGazeStrengthDownPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1182 = typeof(NecroMasteryPower);
+	private static readonly Type _t1182 = typeof(MonologuePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1183 = typeof(NemesisPower);
+	private static readonly Type _t1183 = typeof(NecroMasteryPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1184 = typeof(NeurosurgePower);
+	private static readonly Type _t1184 = typeof(NemesisPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1185 = typeof(NightmarePower);
+	private static readonly Type _t1185 = typeof(NeurosurgePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1186 = typeof(NoBlockPower);
+	private static readonly Type _t1186 = typeof(NightmarePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1187 = typeof(NoDrawPower);
+	private static readonly Type _t1187 = typeof(NoBlockPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1188 = typeof(NostalgiaPower);
+	private static readonly Type _t1188 = typeof(NoDrawPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1189 = typeof(NoxiousFumesPower);
+	private static readonly Type _t1189 = typeof(NostalgiaPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1190 = typeof(OblivionPower);
+	private static readonly Type _t1190 = typeof(NoxiousFumesPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1191 = typeof(OneTwoPunchPower);
+	private static readonly Type _t1191 = typeof(OblivionPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1192 = typeof(OrbitPower);
+	private static readonly Type _t1192 = typeof(OneTwoPunchPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1193 = typeof(OutbreakPower);
+	private static readonly Type _t1193 = typeof(OrbitPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1194 = typeof(PagestormPower);
+	private static readonly Type _t1194 = typeof(OutbreakPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1195 = typeof(PainfulStabsPower);
+	private static readonly Type _t1195 = typeof(PagestormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1196 = typeof(PaleBlueDotPower);
+	private static readonly Type _t1196 = typeof(PainfulStabsPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1197 = typeof(PanachePower);
+	private static readonly Type _t1197 = typeof(PaleBlueDotPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1198 = typeof(PaperCutsPower);
+	private static readonly Type _t1198 = typeof(PanachePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1199 = typeof(ParryPower);
+	private static readonly Type _t1199 = typeof(PaperCutsPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1200 = typeof(PersonalHivePower);
+	private static readonly Type _t1200 = typeof(ParryPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1201 = typeof(PhantomBladesPower);
+	private static readonly Type _t1201 = typeof(PersonalHivePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1202 = typeof(PiercingWailPower);
+	private static readonly Type _t1202 = typeof(PhantomBladesPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1203 = typeof(PillarOfCreationPower);
+	private static readonly Type _t1203 = typeof(PiercingWailPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1204 = typeof(PlatingPower);
+	private static readonly Type _t1204 = typeof(PillarOfCreationPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1205 = typeof(PlowPower);
+	private static readonly Type _t1205 = typeof(PlatingPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1206 = typeof(PoisonPower);
+	private static readonly Type _t1206 = typeof(PlowPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1207 = typeof(PossessSpeedPower);
+	private static readonly Type _t1207 = typeof(PoisonPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1208 = typeof(PossessStrengthPower);
+	private static readonly Type _t1208 = typeof(PossessSpeedPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1209 = typeof(PrepTimePower);
+	private static readonly Type _t1209 = typeof(PossessStrengthPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1210 = typeof(PyrePower);
+	private static readonly Type _t1210 = typeof(PrepTimePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1211 = typeof(RadiancePower);
+	private static readonly Type _t1211 = typeof(PyrePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1212 = typeof(RagePower);
+	private static readonly Type _t1212 = typeof(RadiancePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1213 = typeof(RampartPower);
+	private static readonly Type _t1213 = typeof(RagePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1214 = typeof(RavenousPower);
+	private static readonly Type _t1214 = typeof(RampartPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1215 = typeof(ReaperFormPower);
+	private static readonly Type _t1215 = typeof(RavenousPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1216 = typeof(ReattachPower);
+	private static readonly Type _t1216 = typeof(ReaperFormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1217 = typeof(ReboundPower);
+	private static readonly Type _t1217 = typeof(ReattachPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1218 = typeof(ReflectPower);
+	private static readonly Type _t1218 = typeof(ReboundPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1219 = typeof(RegenPower);
+	private static readonly Type _t1219 = typeof(ReflectPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1220 = typeof(ReptileTrinketPower);
+	private static readonly Type _t1220 = typeof(RegenPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1221 = typeof(RetainHandPower);
+	private static readonly Type _t1221 = typeof(ReptileTrinketPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1222 = typeof(RingingPower);
+	private static readonly Type _t1222 = typeof(RetainHandPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1223 = typeof(RitualPower);
+	private static readonly Type _t1223 = typeof(RingingPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1224 = typeof(RollingBoulderPower);
+	private static readonly Type _t1224 = typeof(RitualPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1225 = typeof(RoyaltiesPower);
+	private static readonly Type _t1225 = typeof(RollingBoulderPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1226 = typeof(RupturePower);
+	private static readonly Type _t1226 = typeof(RoyaltiesPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1227 = typeof(SandpitPower);
+	private static readonly Type _t1227 = typeof(RupturePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1228 = typeof(SeekingEdgePower);
+	private static readonly Type _t1228 = typeof(SandpitPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1229 = typeof(SelfFormingClayPower);
+	private static readonly Type _t1229 = typeof(SeekingEdgePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1230 = typeof(SentryModePower);
+	private static readonly Type _t1230 = typeof(SelfFormingClayPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1231 = typeof(SerpentFormPower);
+	private static readonly Type _t1231 = typeof(SentryModePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1232 = typeof(SetupStrikePower);
+	private static readonly Type _t1232 = typeof(SerpentFormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1233 = typeof(ShacklingPotionPower);
+	private static readonly Type _t1233 = typeof(SetupStrikePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1234 = typeof(ShadowmeldPower);
+	private static readonly Type _t1234 = typeof(ShacklingPotionPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1235 = typeof(ShadowStepPower);
+	private static readonly Type _t1235 = typeof(ShadowmeldPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1236 = typeof(ShriekPower);
+	private static readonly Type _t1236 = typeof(ShadowStepPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1237 = typeof(ShrinkPower);
+	private static readonly Type _t1237 = typeof(ShriekPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1238 = typeof(ShroudPower);
+	private static readonly Type _t1238 = typeof(ShrinkPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1239 = typeof(SicEmPower);
+	private static readonly Type _t1239 = typeof(ShroudPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1240 = typeof(SignalBoostPower);
+	private static readonly Type _t1240 = typeof(SicEmPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1241 = typeof(SkittishPower);
+	private static readonly Type _t1241 = typeof(SignalBoostPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1242 = typeof(SleightOfFleshPower);
+	private static readonly Type _t1242 = typeof(SkittishPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1243 = typeof(SlipperyPower);
+	private static readonly Type _t1243 = typeof(SleightOfFleshPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1244 = typeof(SlothPower);
+	private static readonly Type _t1244 = typeof(SlipperyPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1245 = typeof(SlowPower);
+	private static readonly Type _t1245 = typeof(SlothPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1246 = typeof(SlumberPower);
+	private static readonly Type _t1246 = typeof(SlowPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1247 = typeof(SmoggyPower);
+	private static readonly Type _t1247 = typeof(SlumberPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1248 = typeof(SmokestackPower);
+	private static readonly Type _t1248 = typeof(SmoggyPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1249 = typeof(SneakyPower);
+	private static readonly Type _t1249 = typeof(SmokestackPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1250 = typeof(SoarPower);
+	private static readonly Type _t1250 = typeof(SneakyPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1251 = typeof(SpectrumShiftPower);
+	private static readonly Type _t1251 = typeof(SoarPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1252 = typeof(SpeedPotionPower);
+	private static readonly Type _t1252 = typeof(SpectrumShiftPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1253 = typeof(SpeedsterPower);
+	private static readonly Type _t1253 = typeof(SpeedPotionPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1254 = typeof(SpinnerPower);
+	private static readonly Type _t1254 = typeof(SpeedsterPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1255 = typeof(SpiritOfAshPower);
+	private static readonly Type _t1255 = typeof(SpinnerPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1256 = typeof(StampedePower);
+	private static readonly Type _t1256 = typeof(SpiritOfAshPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1257 = typeof(StarNextTurnPower);
+	private static readonly Type _t1257 = typeof(StampedePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1258 = typeof(SteamEruptionPower);
+	private static readonly Type _t1258 = typeof(StarNextTurnPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1259 = typeof(StockPower);
+	private static readonly Type _t1259 = typeof(SteamEruptionPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1260 = typeof(StormPower);
+	private static readonly Type _t1260 = typeof(StockPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1261 = typeof(StranglePower);
+	private static readonly Type _t1261 = typeof(StormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1262 = typeof(StratagemPower);
+	private static readonly Type _t1262 = typeof(StranglePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1263 = typeof(StrengthPower);
+	private static readonly Type _t1263 = typeof(StratagemPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1264 = typeof(SubroutinePower);
+	private static readonly Type _t1264 = typeof(StrengthPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1265 = typeof(SuckPower);
+	private static readonly Type _t1265 = typeof(SubroutinePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1266 = typeof(SummonNextTurnPower);
+	private static readonly Type _t1266 = typeof(SuckPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1267 = typeof(SurprisePower);
+	private static readonly Type _t1267 = typeof(SummonNextTurnPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1268 = typeof(SurroundedPower);
+	private static readonly Type _t1268 = typeof(SurprisePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1269 = typeof(SwipePower);
+	private static readonly Type _t1269 = typeof(SurroundedPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1270 = typeof(SwordSagePower);
+	private static readonly Type _t1270 = typeof(SwipePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1271 = typeof(SynchronizePower);
+	private static readonly Type _t1271 = typeof(SwordSagePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1272 = typeof(TagTeamPower);
+	private static readonly Type _t1272 = typeof(SynchronizePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1273 = typeof(TangledPower);
+	private static readonly Type _t1273 = typeof(TagTeamPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1274 = typeof(TankPower);
+	private static readonly Type _t1274 = typeof(TangledPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1275 = typeof(TenderPower);
+	private static readonly Type _t1275 = typeof(TankPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1276 = typeof(TerritorialPower);
+	private static readonly Type _t1276 = typeof(TenderPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1277 = typeof(TheBombPower);
+	private static readonly Type _t1277 = typeof(TerritorialPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1278 = typeof(TheGambitPower);
+	private static readonly Type _t1278 = typeof(TheBombPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1279 = typeof(TheHuntPower);
+	private static readonly Type _t1279 = typeof(TheGambitPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1280 = typeof(TheSealedThronePower);
+	private static readonly Type _t1280 = typeof(TheHuntPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1281 = typeof(ThieveryPower);
+	private static readonly Type _t1281 = typeof(TheSealedThronePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1282 = typeof(ThornsPower);
+	private static readonly Type _t1282 = typeof(ThieveryPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1283 = typeof(ThunderPower);
+	private static readonly Type _t1283 = typeof(ThornsPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1284 = typeof(ToolsOfTheTradePower);
+	private static readonly Type _t1284 = typeof(ThunderPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1285 = typeof(ToricToughnessPower);
+	private static readonly Type _t1285 = typeof(ToolsOfTheTradePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1286 = typeof(TrackingPower);
+	private static readonly Type _t1286 = typeof(ToricToughnessPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1287 = typeof(TrashToTreasurePower);
+	private static readonly Type _t1287 = typeof(TrackingPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1288 = typeof(TyrannyPower);
+	private static readonly Type _t1288 = typeof(TrashToTreasurePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1289 = typeof(UnmovablePower);
+	private static readonly Type _t1289 = typeof(TyrannyPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1290 = typeof(VeilpiercerPower);
+	private static readonly Type _t1290 = typeof(UnmovablePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1291 = typeof(ViciousPower);
+	private static readonly Type _t1291 = typeof(VeilpiercerPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1292 = typeof(VigorPower);
+	private static readonly Type _t1292 = typeof(ViciousPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1293 = typeof(VitalSparkPower);
+	private static readonly Type _t1293 = typeof(VigorPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1294 = typeof(VoidFormPower);
+	private static readonly Type _t1294 = typeof(VitalSparkPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1295 = typeof(VulnerablePower);
+	private static readonly Type _t1295 = typeof(VoidFormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1296 = typeof(WasteAwayPower);
+	private static readonly Type _t1296 = typeof(VulnerablePower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1297 = typeof(WeakPower);
+	private static readonly Type _t1297 = typeof(WasteAwayPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1298 = typeof(WellLaidPlansPower);
+	private static readonly Type _t1298 = typeof(WeakPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1299 = typeof(WraithFormPower);
+	private static readonly Type _t1299 = typeof(WellLaidPlansPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1300 = typeof(DefectRelicPool);
+	private static readonly Type _t1300 = typeof(WraithFormPower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1301 = typeof(DeprecatedRelicPool);
+	private static readonly Type _t1301 = typeof(DefectRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1302 = typeof(EventRelicPool);
+	private static readonly Type _t1302 = typeof(DeprecatedRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1303 = typeof(FallbackRelicPool);
+	private static readonly Type _t1303 = typeof(EventRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1304 = typeof(IroncladRelicPool);
+	private static readonly Type _t1304 = typeof(FallbackRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1305 = typeof(NecrobinderRelicPool);
+	private static readonly Type _t1305 = typeof(IroncladRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1306 = typeof(RegentRelicPool);
+	private static readonly Type _t1306 = typeof(NecrobinderRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1307 = typeof(SharedRelicPool);
+	private static readonly Type _t1307 = typeof(RegentRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1308 = typeof(SilentRelicPool);
+	private static readonly Type _t1308 = typeof(SharedRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1309 = typeof(Akabeko);
+	private static readonly Type _t1309 = typeof(SilentRelicPool);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1310 = typeof(AlchemicalCoffer);
+	private static readonly Type _t1310 = typeof(Akabeko);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1311 = typeof(AmethystAubergine);
+	private static readonly Type _t1311 = typeof(AlchemicalCoffer);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1312 = typeof(Anchor);
+	private static readonly Type _t1312 = typeof(AmethystAubergine);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1313 = typeof(ArcaneScroll);
+	private static readonly Type _t1313 = typeof(Anchor);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1314 = typeof(ArchaicTooth);
+	private static readonly Type _t1314 = typeof(ArcaneScroll);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1315 = typeof(ArtOfWar);
+	private static readonly Type _t1315 = typeof(ArchaicTooth);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1316 = typeof(Astrolabe);
+	private static readonly Type _t1316 = typeof(ArtOfWar);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1317 = typeof(BagOfMarbles);
+	private static readonly Type _t1317 = typeof(Astrolabe);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1318 = typeof(BagOfPreparation);
+	private static readonly Type _t1318 = typeof(BagOfMarbles);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1319 = typeof(BeatingRemnant);
+	private static readonly Type _t1319 = typeof(BagOfPreparation);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1320 = typeof(BeautifulBracelet);
+	private static readonly Type _t1320 = typeof(BeatingRemnant);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1321 = typeof(Bellows);
+	private static readonly Type _t1321 = typeof(BeautifulBracelet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1322 = typeof(BeltBuckle);
+	private static readonly Type _t1322 = typeof(Bellows);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1323 = typeof(BigHat);
+	private static readonly Type _t1323 = typeof(BeltBuckle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1324 = typeof(BigMushroom);
+	private static readonly Type _t1324 = typeof(BigHat);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1325 = typeof(BiiigHug);
+	private static readonly Type _t1325 = typeof(BigMushroom);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1326 = typeof(BingBong);
+	private static readonly Type _t1326 = typeof(BiiigHug);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1327 = typeof(BlackBlood);
+	private static readonly Type _t1327 = typeof(BingBong);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1328 = typeof(BlackStar);
+	private static readonly Type _t1328 = typeof(BlackBlood);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1329 = typeof(BlessedAntler);
+	private static readonly Type _t1329 = typeof(BlackStar);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1330 = typeof(BloodSoakedRose);
+	private static readonly Type _t1330 = typeof(BlessedAntler);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1331 = typeof(BloodVial);
+	private static readonly Type _t1331 = typeof(BloodSoakedRose);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1332 = typeof(BoneFlute);
+	private static readonly Type _t1332 = typeof(BloodVial);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1333 = typeof(BoneTea);
+	private static readonly Type _t1333 = typeof(BoneFlute);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1334 = typeof(Bookmark);
+	private static readonly Type _t1334 = typeof(BoneTea);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1335 = typeof(BookOfFiveRings);
+	private static readonly Type _t1335 = typeof(Bookmark);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1336 = typeof(BookRepairKnife);
+	private static readonly Type _t1336 = typeof(BookOfFiveRings);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1337 = typeof(BoomingConch);
+	private static readonly Type _t1337 = typeof(BookRepairKnife);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1338 = typeof(BoundPhylactery);
+	private static readonly Type _t1338 = typeof(BoomingConch);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1339 = typeof(BowlerHat);
+	private static readonly Type _t1339 = typeof(BoundPhylactery);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1340 = typeof(Bread);
+	private static readonly Type _t1340 = typeof(BowlerHat);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1341 = typeof(BrilliantScarf);
+	private static readonly Type _t1341 = typeof(Bread);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1342 = typeof(Brimstone);
+	private static readonly Type _t1342 = typeof(BrilliantScarf);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1343 = typeof(BronzeScales);
+	private static readonly Type _t1343 = typeof(Brimstone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1344 = typeof(BurningBlood);
+	private static readonly Type _t1344 = typeof(BronzeScales);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1345 = typeof(BurningSticks);
+	private static readonly Type _t1345 = typeof(BurningBlood);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1346 = typeof(MegaCrit.Sts2.Core.Models.Relics.Byrdpip);
+	private static readonly Type _t1346 = typeof(BurningSticks);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1347 = typeof(CallingBell);
+	private static readonly Type _t1347 = typeof(MegaCrit.Sts2.Core.Models.Relics.Byrdpip);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1348 = typeof(Candelabra);
+	private static readonly Type _t1348 = typeof(CallingBell);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1349 = typeof(CaptainsWheel);
+	private static readonly Type _t1349 = typeof(Candelabra);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1350 = typeof(Cauldron);
+	private static readonly Type _t1350 = typeof(CaptainsWheel);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1351 = typeof(CentennialPuzzle);
+	private static readonly Type _t1351 = typeof(Cauldron);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1352 = typeof(Chandelier);
+	private static readonly Type _t1352 = typeof(CentennialPuzzle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1353 = typeof(CharonsAshes);
+	private static readonly Type _t1353 = typeof(Chandelier);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1354 = typeof(ChemicalX);
+	private static readonly Type _t1354 = typeof(CharonsAshes);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1355 = typeof(ChoicesParadox);
+	private static readonly Type _t1355 = typeof(ChemicalX);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1356 = typeof(ChosenCheese);
+	private static readonly Type _t1356 = typeof(ChoicesParadox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1357 = typeof(Circlet);
+	private static readonly Type _t1357 = typeof(ChosenCheese);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1358 = typeof(Claws);
+	private static readonly Type _t1358 = typeof(Circlet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1359 = typeof(CloakClasp);
+	private static readonly Type _t1359 = typeof(Claws);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1360 = typeof(CrackedCore);
+	private static readonly Type _t1360 = typeof(CloakClasp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1361 = typeof(Crossbow);
+	private static readonly Type _t1361 = typeof(CrackedCore);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1362 = typeof(CursedPearl);
+	private static readonly Type _t1362 = typeof(Crossbow);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1363 = typeof(DarkstonePeriapt);
+	private static readonly Type _t1363 = typeof(CursedPearl);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1364 = typeof(DataDisk);
+	private static readonly Type _t1364 = typeof(DarkstonePeriapt);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1365 = typeof(DaughterOfTheWind);
+	private static readonly Type _t1365 = typeof(DataDisk);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1366 = typeof(DelicateFrond);
+	private static readonly Type _t1366 = typeof(DaughterOfTheWind);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1367 = typeof(DemonTongue);
+	private static readonly Type _t1367 = typeof(DelicateFrond);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1368 = typeof(DeprecatedRelic);
+	private static readonly Type _t1368 = typeof(DemonTongue);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1369 = typeof(DiamondDiadem);
+	private static readonly Type _t1369 = typeof(DeprecatedRelic);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1370 = typeof(DingyRug);
+	private static readonly Type _t1370 = typeof(DiamondDiadem);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1371 = typeof(DistinguishedCape);
+	private static readonly Type _t1371 = typeof(DingyRug);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1372 = typeof(DivineDestiny);
+	private static readonly Type _t1372 = typeof(DistinguishedCape);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1373 = typeof(DivineRight);
+	private static readonly Type _t1373 = typeof(DivineDestiny);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1374 = typeof(DollysMirror);
+	private static readonly Type _t1374 = typeof(DivineRight);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1375 = typeof(DragonFruit);
+	private static readonly Type _t1375 = typeof(DollysMirror);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1376 = typeof(DreamCatcher);
+	private static readonly Type _t1376 = typeof(DragonFruit);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1377 = typeof(Driftwood);
+	private static readonly Type _t1377 = typeof(DreamCatcher);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1378 = typeof(DustyTome);
+	private static readonly Type _t1378 = typeof(Driftwood);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1379 = typeof(Ectoplasm);
+	private static readonly Type _t1379 = typeof(DustyTome);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1380 = typeof(ElectricShrymp);
+	private static readonly Type _t1380 = typeof(Ectoplasm);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1381 = typeof(EmberTea);
+	private static readonly Type _t1381 = typeof(ElectricShrymp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1382 = typeof(EmotionChip);
+	private static readonly Type _t1382 = typeof(EmberTea);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1383 = typeof(EmptyCage);
+	private static readonly Type _t1383 = typeof(EmotionChip);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1384 = typeof(EternalFeather);
+	private static readonly Type _t1384 = typeof(EmptyCage);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1385 = typeof(FakeAnchor);
+	private static readonly Type _t1385 = typeof(EternalFeather);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1386 = typeof(FakeBloodVial);
+	private static readonly Type _t1386 = typeof(FakeAnchor);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1387 = typeof(FakeHappyFlower);
+	private static readonly Type _t1387 = typeof(FakeBloodVial);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1388 = typeof(FakeLeesWaffle);
+	private static readonly Type _t1388 = typeof(FakeHappyFlower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1389 = typeof(FakeMango);
+	private static readonly Type _t1389 = typeof(FakeLeesWaffle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1390 = typeof(FakeMerchantsRug);
+	private static readonly Type _t1390 = typeof(FakeMango);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1391 = typeof(FakeOrichalcum);
+	private static readonly Type _t1391 = typeof(FakeMerchantsRug);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1392 = typeof(FakeSneckoEye);
+	private static readonly Type _t1392 = typeof(FakeOrichalcum);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1393 = typeof(FakeStrikeDummy);
+	private static readonly Type _t1393 = typeof(FakeSneckoEye);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1394 = typeof(FakeVenerableTeaSet);
+	private static readonly Type _t1394 = typeof(FakeStrikeDummy);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1395 = typeof(FencingManual);
+	private static readonly Type _t1395 = typeof(FakeVenerableTeaSet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1396 = typeof(FestivePopper);
+	private static readonly Type _t1396 = typeof(FencingManual);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1397 = typeof(Fiddle);
+	private static readonly Type _t1397 = typeof(FestivePopper);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1398 = typeof(ForgottenSoul);
+	private static readonly Type _t1398 = typeof(Fiddle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1399 = typeof(FragrantMushroom);
+	private static readonly Type _t1399 = typeof(ForgottenSoul);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1400 = typeof(FresnelLens);
+	private static readonly Type _t1400 = typeof(FragrantMushroom);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1401 = typeof(FrozenEgg);
+	private static readonly Type _t1401 = typeof(FresnelLens);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1402 = typeof(FuneraryMask);
+	private static readonly Type _t1402 = typeof(FrozenEgg);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1403 = typeof(FurCoat);
+	private static readonly Type _t1403 = typeof(FuneraryMask);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1404 = typeof(GalacticDust);
+	private static readonly Type _t1404 = typeof(FurCoat);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1405 = typeof(GamblingChip);
+	private static readonly Type _t1405 = typeof(GalacticDust);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1406 = typeof(GamePiece);
+	private static readonly Type _t1406 = typeof(GamblingChip);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1407 = typeof(GhostSeed);
+	private static readonly Type _t1407 = typeof(GamePiece);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1408 = typeof(Girya);
+	private static readonly Type _t1408 = typeof(GhostSeed);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1409 = typeof(GlassEye);
+	private static readonly Type _t1409 = typeof(Girya);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1410 = typeof(Glitter);
+	private static readonly Type _t1410 = typeof(GlassEye);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1411 = typeof(GnarledHammer);
+	private static readonly Type _t1411 = typeof(Glitter);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1412 = typeof(GoldenCompass);
+	private static readonly Type _t1412 = typeof(GnarledHammer);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1413 = typeof(GoldenPearl);
+	private static readonly Type _t1413 = typeof(GoldenCompass);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1414 = typeof(GoldPlatedCables);
+	private static readonly Type _t1414 = typeof(GoldenPearl);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1415 = typeof(Gorget);
+	private static readonly Type _t1415 = typeof(GoldPlatedCables);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1416 = typeof(GremlinHorn);
+	private static readonly Type _t1416 = typeof(Gorget);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1417 = typeof(HandDrill);
+	private static readonly Type _t1417 = typeof(GremlinHorn);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1418 = typeof(HappyFlower);
+	private static readonly Type _t1418 = typeof(HandDrill);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1419 = typeof(HelicalDart);
+	private static readonly Type _t1419 = typeof(HappyFlower);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1420 = typeof(HistoryCourse);
+	private static readonly Type _t1420 = typeof(HelicalDart);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1421 = typeof(HornCleat);
+	private static readonly Type _t1421 = typeof(HistoryCourse);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1422 = typeof(IceCream);
+	private static readonly Type _t1422 = typeof(HornCleat);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1423 = typeof(InfusedCore);
+	private static readonly Type _t1423 = typeof(IceCream);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1424 = typeof(IntimidatingHelmet);
+	private static readonly Type _t1424 = typeof(InfusedCore);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1425 = typeof(IronClub);
+	private static readonly Type _t1425 = typeof(IntimidatingHelmet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1426 = typeof(IvoryTile);
+	private static readonly Type _t1426 = typeof(IronClub);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1427 = typeof(JeweledMask);
+	private static readonly Type _t1427 = typeof(IvoryTile);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1428 = typeof(JewelryBox);
+	private static readonly Type _t1428 = typeof(JeweledMask);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1429 = typeof(JossPaper);
+	private static readonly Type _t1429 = typeof(JewelryBox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1430 = typeof(JuzuBracelet);
+	private static readonly Type _t1430 = typeof(JossPaper);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1431 = typeof(Kifuda);
+	private static readonly Type _t1431 = typeof(JuzuBracelet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1432 = typeof(Kunai);
+	private static readonly Type _t1432 = typeof(Kifuda);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1433 = typeof(Kusarigama);
+	private static readonly Type _t1433 = typeof(Kunai);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1434 = typeof(Lantern);
+	private static readonly Type _t1434 = typeof(Kusarigama);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1435 = typeof(LargeCapsule);
+	private static readonly Type _t1435 = typeof(Lantern);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1436 = typeof(LastingCandy);
+	private static readonly Type _t1436 = typeof(LargeCapsule);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1437 = typeof(LavaLamp);
+	private static readonly Type _t1437 = typeof(LastingCandy);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1438 = typeof(LavaRock);
+	private static readonly Type _t1438 = typeof(LavaLamp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1439 = typeof(LeadPaperweight);
+	private static readonly Type _t1439 = typeof(LavaRock);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1440 = typeof(LeafyPoultice);
+	private static readonly Type _t1440 = typeof(LeadPaperweight);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1441 = typeof(LeesWaffle);
+	private static readonly Type _t1441 = typeof(LeafyPoultice);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1442 = typeof(LetterOpener);
+	private static readonly Type _t1442 = typeof(LeesWaffle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1443 = typeof(LizardTail);
+	private static readonly Type _t1443 = typeof(LetterOpener);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1444 = typeof(LoomingFruit);
+	private static readonly Type _t1444 = typeof(LizardTail);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1445 = typeof(LordsParasol);
+	private static readonly Type _t1445 = typeof(LoomingFruit);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1446 = typeof(LostCoffer);
+	private static readonly Type _t1446 = typeof(LordsParasol);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1447 = typeof(MegaCrit.Sts2.Core.Models.Relics.LostWisp);
+	private static readonly Type _t1447 = typeof(LostCoffer);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1448 = typeof(LuckyFysh);
+	private static readonly Type _t1448 = typeof(MegaCrit.Sts2.Core.Models.Relics.LostWisp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1449 = typeof(LunarPastry);
+	private static readonly Type _t1449 = typeof(LuckyFysh);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1450 = typeof(Mango);
+	private static readonly Type _t1450 = typeof(LunarPastry);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1451 = typeof(MassiveScroll);
+	private static readonly Type _t1451 = typeof(Mango);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1452 = typeof(MawBank);
+	private static readonly Type _t1452 = typeof(MassiveScroll);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1453 = typeof(MealTicket);
+	private static readonly Type _t1453 = typeof(MawBank);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1454 = typeof(MeatCleaver);
+	private static readonly Type _t1454 = typeof(MealTicket);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1455 = typeof(MeatOnTheBone);
+	private static readonly Type _t1455 = typeof(MeatCleaver);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1456 = typeof(MembershipCard);
+	private static readonly Type _t1456 = typeof(MeatOnTheBone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1457 = typeof(MercuryHourglass);
+	private static readonly Type _t1457 = typeof(MembershipCard);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1458 = typeof(Metronome);
+	private static readonly Type _t1458 = typeof(MercuryHourglass);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1459 = typeof(MiniatureCannon);
+	private static readonly Type _t1459 = typeof(Metronome);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1460 = typeof(MiniatureTent);
+	private static readonly Type _t1460 = typeof(MiniatureCannon);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1461 = typeof(MiniRegent);
+	private static readonly Type _t1461 = typeof(MiniatureTent);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1462 = typeof(MoltenEgg);
+	private static readonly Type _t1462 = typeof(MiniRegent);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1463 = typeof(MrStruggles);
+	private static readonly Type _t1463 = typeof(MoltenEgg);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1464 = typeof(MummifiedHand);
+	private static readonly Type _t1464 = typeof(MrStruggles);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1465 = typeof(MusicBox);
+	private static readonly Type _t1465 = typeof(MummifiedHand);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1466 = typeof(MysticLighter);
+	private static readonly Type _t1466 = typeof(MusicBox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1467 = typeof(NeowsTorment);
+	private static readonly Type _t1467 = typeof(MysticLighter);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1468 = typeof(NewLeaf);
+	private static readonly Type _t1468 = typeof(NeowsTorment);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1469 = typeof(NinjaScroll);
+	private static readonly Type _t1469 = typeof(NewLeaf);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1470 = typeof(Nunchaku);
+	private static readonly Type _t1470 = typeof(NinjaScroll);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1471 = typeof(NutritiousOyster);
+	private static readonly Type _t1471 = typeof(Nunchaku);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1472 = typeof(NutritiousSoup);
+	private static readonly Type _t1472 = typeof(NutritiousOyster);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1473 = typeof(OddlySmoothStone);
+	private static readonly Type _t1473 = typeof(NutritiousSoup);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1474 = typeof(OldCoin);
+	private static readonly Type _t1474 = typeof(OddlySmoothStone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1475 = typeof(OrangeDough);
+	private static readonly Type _t1475 = typeof(OldCoin);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1476 = typeof(Orichalcum);
+	private static readonly Type _t1476 = typeof(OrangeDough);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1477 = typeof(OrnamentalFan);
+	private static readonly Type _t1477 = typeof(Orichalcum);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1478 = typeof(Orrery);
+	private static readonly Type _t1478 = typeof(OrnamentalFan);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1479 = typeof(PaelsBlood);
+	private static readonly Type _t1479 = typeof(Orrery);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1480 = typeof(PaelsClaw);
+	private static readonly Type _t1480 = typeof(PaelsBlood);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1481 = typeof(PaelsEye);
+	private static readonly Type _t1481 = typeof(PaelsClaw);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1482 = typeof(PaelsFlesh);
+	private static readonly Type _t1482 = typeof(PaelsEye);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1483 = typeof(PaelsGrowth);
+	private static readonly Type _t1483 = typeof(PaelsFlesh);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1484 = typeof(PaelsHorn);
+	private static readonly Type _t1484 = typeof(PaelsGrowth);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1485 = typeof(MegaCrit.Sts2.Core.Models.Relics.PaelsLegion);
+	private static readonly Type _t1485 = typeof(PaelsHorn);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1486 = typeof(PaelsTears);
+	private static readonly Type _t1486 = typeof(MegaCrit.Sts2.Core.Models.Relics.PaelsLegion);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1487 = typeof(PaelsTooth);
+	private static readonly Type _t1487 = typeof(PaelsTears);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1488 = typeof(PaelsWing);
+	private static readonly Type _t1488 = typeof(PaelsTooth);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1489 = typeof(PandorasBox);
+	private static readonly Type _t1489 = typeof(PaelsWing);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1490 = typeof(Pantograph);
+	private static readonly Type _t1490 = typeof(PandorasBox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1491 = typeof(PaperKrane);
+	private static readonly Type _t1491 = typeof(Pantograph);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1492 = typeof(PaperPhrog);
+	private static readonly Type _t1492 = typeof(PaperKrane);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1493 = typeof(ParryingShield);
+	private static readonly Type _t1493 = typeof(PaperPhrog);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1494 = typeof(Pear);
+	private static readonly Type _t1494 = typeof(ParryingShield);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1495 = typeof(Pendulum);
+	private static readonly Type _t1495 = typeof(Pear);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1496 = typeof(PenNib);
+	private static readonly Type _t1496 = typeof(Pendulum);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1497 = typeof(Permafrost);
+	private static readonly Type _t1497 = typeof(PenNib);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1498 = typeof(PetrifiedToad);
+	private static readonly Type _t1498 = typeof(Permafrost);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1499 = typeof(PhilosophersStone);
+	private static readonly Type _t1499 = typeof(PetrifiedToad);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1500 = typeof(PhylacteryUnbound);
+	private static readonly Type _t1500 = typeof(PhilosophersStone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1501 = typeof(Planisphere);
+	private static readonly Type _t1501 = typeof(PhylacteryUnbound);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1502 = typeof(Pocketwatch);
+	private static readonly Type _t1502 = typeof(Planisphere);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1503 = typeof(PollinousCore);
+	private static readonly Type _t1503 = typeof(Pocketwatch);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1504 = typeof(Pomander);
+	private static readonly Type _t1504 = typeof(PollinousCore);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1505 = typeof(PotionBelt);
+	private static readonly Type _t1505 = typeof(Pomander);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1506 = typeof(PowerCell);
+	private static readonly Type _t1506 = typeof(PotionBelt);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1507 = typeof(PrayerWheel);
+	private static readonly Type _t1507 = typeof(PowerCell);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1508 = typeof(PrecariousShears);
+	private static readonly Type _t1508 = typeof(PrayerWheel);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1509 = typeof(PreciseScissors);
+	private static readonly Type _t1509 = typeof(PrecariousShears);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1510 = typeof(PreservedFog);
+	private static readonly Type _t1510 = typeof(PreciseScissors);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1511 = typeof(PrismaticGem);
+	private static readonly Type _t1511 = typeof(PreservedFog);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1512 = typeof(PumpkinCandle);
+	private static readonly Type _t1512 = typeof(PrismaticGem);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1513 = typeof(PunchDagger);
+	private static readonly Type _t1513 = typeof(PumpkinCandle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1514 = typeof(RadiantPearl);
+	private static readonly Type _t1514 = typeof(PunchDagger);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1515 = typeof(RainbowRing);
+	private static readonly Type _t1515 = typeof(RadiantPearl);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1516 = typeof(RazorTooth);
+	private static readonly Type _t1516 = typeof(RainbowRing);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1517 = typeof(RedMask);
+	private static readonly Type _t1517 = typeof(RazorTooth);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1518 = typeof(RedSkull);
+	private static readonly Type _t1518 = typeof(RedMask);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1519 = typeof(Regalite);
+	private static readonly Type _t1519 = typeof(RedSkull);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1520 = typeof(RegalPillow);
+	private static readonly Type _t1520 = typeof(Regalite);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1521 = typeof(ReptileTrinket);
+	private static readonly Type _t1521 = typeof(RegalPillow);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1522 = typeof(RingingTriangle);
+	private static readonly Type _t1522 = typeof(ReptileTrinket);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1523 = typeof(RingOfTheDrake);
+	private static readonly Type _t1523 = typeof(RingingTriangle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1524 = typeof(RingOfTheSnake);
+	private static readonly Type _t1524 = typeof(RingOfTheDrake);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1525 = typeof(RippleBasin);
+	private static readonly Type _t1525 = typeof(RingOfTheSnake);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1526 = typeof(RoyalPoison);
+	private static readonly Type _t1526 = typeof(RippleBasin);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1527 = typeof(RoyalStamp);
+	private static readonly Type _t1527 = typeof(RoyalPoison);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1528 = typeof(RuinedHelmet);
+	private static readonly Type _t1528 = typeof(RoyalStamp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1529 = typeof(RunicCapacitor);
+	private static readonly Type _t1529 = typeof(RuinedHelmet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1530 = typeof(RunicPyramid);
+	private static readonly Type _t1530 = typeof(RunicCapacitor);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1531 = typeof(Sai);
+	private static readonly Type _t1531 = typeof(RunicPyramid);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1532 = typeof(SandCastle);
+	private static readonly Type _t1532 = typeof(Sai);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1533 = typeof(ScreamingFlagon);
+	private static readonly Type _t1533 = typeof(SandCastle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1534 = typeof(ScrollBoxes);
+	private static readonly Type _t1534 = typeof(ScreamingFlagon);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1535 = typeof(SeaGlass);
+	private static readonly Type _t1535 = typeof(ScrollBoxes);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1536 = typeof(SealOfGold);
+	private static readonly Type _t1536 = typeof(SeaGlass);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1537 = typeof(SelfFormingClay);
+	private static readonly Type _t1537 = typeof(SealOfGold);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1538 = typeof(SereTalon);
+	private static readonly Type _t1538 = typeof(SelfFormingClay);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1539 = typeof(Shovel);
+	private static readonly Type _t1539 = typeof(SereTalon);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1540 = typeof(Shuriken);
+	private static readonly Type _t1540 = typeof(Shovel);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1541 = typeof(SignetRing);
+	private static readonly Type _t1541 = typeof(Shuriken);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1542 = typeof(SilverCrucible);
+	private static readonly Type _t1542 = typeof(SignetRing);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1543 = typeof(SlingOfCourage);
+	private static readonly Type _t1543 = typeof(SilverCrucible);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1544 = typeof(SmallCapsule);
+	private static readonly Type _t1544 = typeof(SlingOfCourage);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1545 = typeof(SneckoEye);
+	private static readonly Type _t1545 = typeof(SmallCapsule);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1546 = typeof(SneckoSkull);
+	private static readonly Type _t1546 = typeof(SneckoEye);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1547 = typeof(Sozu);
+	private static readonly Type _t1547 = typeof(SneckoSkull);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1548 = typeof(SparklingRouge);
+	private static readonly Type _t1548 = typeof(Sozu);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1549 = typeof(SpikedGauntlets);
+	private static readonly Type _t1549 = typeof(SparklingRouge);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1550 = typeof(StoneCalendar);
+	private static readonly Type _t1550 = typeof(SpikedGauntlets);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1551 = typeof(StoneCracker);
+	private static readonly Type _t1551 = typeof(StoneCalendar);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1552 = typeof(StoneHumidifier);
+	private static readonly Type _t1552 = typeof(StoneCracker);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1553 = typeof(Storybook);
+	private static readonly Type _t1553 = typeof(StoneHumidifier);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1554 = typeof(Strawberry);
+	private static readonly Type _t1554 = typeof(Storybook);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1555 = typeof(StrikeDummy);
+	private static readonly Type _t1555 = typeof(Strawberry);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1556 = typeof(SturdyClamp);
+	private static readonly Type _t1556 = typeof(StrikeDummy);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1557 = typeof(SwordOfJade);
+	private static readonly Type _t1557 = typeof(SturdyClamp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1558 = typeof(SwordOfStone);
+	private static readonly Type _t1558 = typeof(SwordOfJade);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1559 = typeof(SymbioticVirus);
+	private static readonly Type _t1559 = typeof(SwordOfStone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1560 = typeof(TanxsWhistle);
+	private static readonly Type _t1560 = typeof(SymbioticVirus);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1561 = typeof(TeaOfDiscourtesy);
+	private static readonly Type _t1561 = typeof(TanxsWhistle);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1562 = typeof(TheAbacus);
+	private static readonly Type _t1562 = typeof(TeaOfDiscourtesy);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1563 = typeof(TheBoot);
+	private static readonly Type _t1563 = typeof(TheAbacus);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1564 = typeof(TheCourier);
+	private static readonly Type _t1564 = typeof(TheBoot);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1565 = typeof(ThrowingAxe);
+	private static readonly Type _t1565 = typeof(TheCourier);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1566 = typeof(Tingsha);
+	private static readonly Type _t1566 = typeof(ThrowingAxe);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1567 = typeof(TinyMailbox);
+	private static readonly Type _t1567 = typeof(Tingsha);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1568 = typeof(ToastyMittens);
+	private static readonly Type _t1568 = typeof(TinyMailbox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1569 = typeof(Toolbox);
+	private static readonly Type _t1569 = typeof(ToastyMittens);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1570 = typeof(TouchOfOrobas);
+	private static readonly Type _t1570 = typeof(Toolbox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1571 = typeof(ToughBandages);
+	private static readonly Type _t1571 = typeof(TouchOfOrobas);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1572 = typeof(ToxicEgg);
+	private static readonly Type _t1572 = typeof(ToughBandages);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1573 = typeof(ToyBox);
+	private static readonly Type _t1573 = typeof(ToxicEgg);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1574 = typeof(TriBoomerang);
+	private static readonly Type _t1574 = typeof(ToyBox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1575 = typeof(TungstenRod);
+	private static readonly Type _t1575 = typeof(TriBoomerang);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1576 = typeof(TuningFork);
+	private static readonly Type _t1576 = typeof(TungstenRod);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1577 = typeof(TwistedFunnel);
+	private static readonly Type _t1577 = typeof(TuningFork);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1578 = typeof(UnceasingTop);
+	private static readonly Type _t1578 = typeof(TwistedFunnel);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1579 = typeof(UndyingSigil);
+	private static readonly Type _t1579 = typeof(UnceasingTop);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1580 = typeof(UnsettlingLamp);
+	private static readonly Type _t1580 = typeof(UndyingSigil);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1581 = typeof(Vajra);
+	private static readonly Type _t1581 = typeof(UnsettlingLamp);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1582 = typeof(Vambrace);
+	private static readonly Type _t1582 = typeof(Vajra);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1583 = typeof(VelvetChoker);
+	private static readonly Type _t1583 = typeof(Vambrace);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1584 = typeof(VenerableTeaSet);
+	private static readonly Type _t1584 = typeof(VelvetChoker);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1585 = typeof(VeryHotCocoa);
+	private static readonly Type _t1585 = typeof(VenerableTeaSet);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1586 = typeof(VexingPuzzlebox);
+	private static readonly Type _t1586 = typeof(VeryHotCocoa);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1587 = typeof(VitruvianMinion);
+	private static readonly Type _t1587 = typeof(VexingPuzzlebox);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1588 = typeof(WarHammer);
+	private static readonly Type _t1588 = typeof(VitruvianMinion);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1589 = typeof(WarPaint);
+	private static readonly Type _t1589 = typeof(WarHammer);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1590 = typeof(Whetstone);
+	private static readonly Type _t1590 = typeof(WarPaint);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1591 = typeof(WhisperingEarring);
+	private static readonly Type _t1591 = typeof(Whetstone);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1592 = typeof(WhiteBeastStatue);
+	private static readonly Type _t1592 = typeof(WhisperingEarring);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1593 = typeof(WhiteStar);
+	private static readonly Type _t1593 = typeof(WhiteBeastStatue);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1594 = typeof(WingCharm);
+	private static readonly Type _t1594 = typeof(WhiteStar);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1595 = typeof(WongoCustomerAppreciationBadge);
+	private static readonly Type _t1595 = typeof(WingCharm);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1596 = typeof(WongosMysteryTicket);
+	private static readonly Type _t1596 = typeof(WongoCustomerAppreciationBadge);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1597 = typeof(YummyCookie);
+	private static readonly Type _t1597 = typeof(WongosMysteryTicket);
 
 	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
-	private static readonly Type _t1598 = typeof(MultiplayerScalingModel);
+	private static readonly Type _t1598 = typeof(YummyCookie);
 
-	private static readonly Type[] _subtypes = new Type[1599]
+	[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties)]
+	private static readonly Type _t1599 = typeof(MultiplayerScalingModel);
+
+	private static readonly Type[] _subtypes = new Type[1600]
 	{
 		_t0, _t1, _t2, _t3, _t4, _t5, _t6, _t7, _t8, _t9,
 		_t10, _t11, _t12, _t13, _t14, _t15, _t16, _t17, _t18, _t19,
@@ -4989,10 +4992,10 @@ public static class AbstractModelSubtypes
 		_t1560, _t1561, _t1562, _t1563, _t1564, _t1565, _t1566, _t1567, _t1568, _t1569,
 		_t1570, _t1571, _t1572, _t1573, _t1574, _t1575, _t1576, _t1577, _t1578, _t1579,
 		_t1580, _t1581, _t1582, _t1583, _t1584, _t1585, _t1586, _t1587, _t1588, _t1589,
-		_t1590, _t1591, _t1592, _t1593, _t1594, _t1595, _t1596, _t1597, _t1598
+		_t1590, _t1591, _t1592, _t1593, _t1594, _t1595, _t1596, _t1597, _t1598, _t1599
 	};
 
-	public static int Count => 1599;
+	public static int Count => 1600;
 
 	public static IReadOnlyList<Type> All => _subtypes;
 

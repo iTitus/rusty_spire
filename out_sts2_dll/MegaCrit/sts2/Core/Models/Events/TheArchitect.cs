@@ -53,7 +53,7 @@ public sealed class TheArchitect : EventModel
 
 	public override EncounterModel CanonicalEncounter => ModelDb.Encounter<TheArchitectEventEncounter>();
 
-	protected override string LocTable => "ancients";
+	public override string LocTable => "ancients";
 
 	private AncientDialogue? Dialogue
 	{

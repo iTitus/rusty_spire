@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Relics;
 using MegaCrit.Sts2.Core.Nodes.Screens.ScreenContext;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -127,11 +128,13 @@ public class NMultiplayerPlayerStateContainer : Control
 
 	private void UpdateNavigation()
 	{
+		Control control = ActiveScreenContext.Instance.GetCurrentScreen()?.FocusedControlFromTopBar;
+		NodePath nodePath = (control.IsValid() ? control.GetPath() : null);
 		for (int i = 0; i < GetChildCount(); i++)
 		{
 			Control hitbox = GetChild<NMultiplayerPlayerState>(i).Hitbox;
 			hitbox.FocusNeighborTop = ((i > 0) ? GetChild<NMultiplayerPlayerState>(i - 1).Hitbox.GetPath() : null);
-			hitbox.FocusNeighborBottom = ((i < GetChildCount() - 1) ? GetChild<NMultiplayerPlayerState>(i + 1).Hitbox.GetPath() : ActiveScreenContext.Instance.GetCurrentScreen()?.FocusedControlFromTopBar?.GetPath());
+			hitbox.FocusNeighborBottom = ((i < GetChildCount() - 1) ? GetChild<NMultiplayerPlayerState>(i + 1).Hitbox.GetPath() : nodePath);
 		}
 	}
 

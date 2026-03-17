@@ -391,11 +391,7 @@ public class NGame : Control
 		ReadSaveResult<SerializableProgress> progressReadResult = SaveManager.Instance.InitProgressData();
 		ReadSaveResult<PrefsSave> prefsReadResult = SaveManager.Instance.InitPrefsData();
 		SentryService.SetUserContext(SaveManager.Instance.Progress.UniqueId);
-		string platformBranch = PlatformUtil.GetPlatformBranch();
-		if (platformBranch != null)
-		{
-			SentryService.SetTag("platform.branch", platformBranch);
-		}
+		SentryService.SetPlatformBranch(PlatformUtil.GetPlatformBranch());
 		_screenShake.SetMultiplier(NScreenshakePaginator.GetShakeMultiplier(SaveManager.Instance.PrefsSave.ScreenShakeOptionIndex));
 		if (!OS.HasFeature("editor") && SaveManager.Instance.PrefsSave.FastMode == FastModeType.Instant)
 		{

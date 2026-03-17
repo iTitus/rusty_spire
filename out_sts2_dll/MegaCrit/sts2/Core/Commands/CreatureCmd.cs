@@ -320,6 +320,24 @@ public static class CreatureCmd
 				NRun.Instance.ShowGameOverScreen(serializableRun);
 			}
 		}
+		else
+		{
+			if (!CombatManager.Instance.IsInProgress)
+			{
+				return;
+			}
+			foreach (Creature item2 in creatures.ToList())
+			{
+				if (item2 != null)
+				{
+					CombatState combatState = item2.CombatState;
+					if (combatState != null && combatState.CurrentSide == CombatSide.Player && item2.IsDead && item2.IsPlayer)
+					{
+						PlayerCmd.EndTurn(item2.Player, canBackOut: false);
+					}
+				}
+			}
+		}
 	}
 
 	private static async Task KillWithoutCheckingWinCondition(Creature creature, bool force, int recursion = 0)
@@ -572,13 +590,13 @@ public static class CreatureCmd
 		{
 			throw new ArgumentException("amount must be non-negative. Use LoseMaxHp for max HP loss.");
 		}
-		await SetMaxHp(creature, (decimal)creature.MaxHp + amount);
+		decimal num = await SetMaxHp(creature, (decimal)creature.MaxHp + amount);
 		MapPointHistoryEntry mapPointHistoryEntry = creature.Player?.RunState.CurrentMapPointHistoryEntry;
 		if (mapPointHistoryEntry != null)
 		{
-			mapPointHistoryEntry.GetEntry(creature.Player.NetId).MaxHpGained += (int)amount;
+			mapPointHistoryEntry.GetEntry(creature.Player.NetId).MaxHpGained += (int)num;
 		}
-		await Heal(creature, amount);
+		await Heal(creature, num);
 	}
 
 	public static async Task LoseMaxHp(PlayerChoiceContext choiceContext, Creature creature, decimal amount, bool isFromCard)
@@ -587,26 +605,29 @@ public static class CreatureCmd
 		{
 			throw new ArgumentException("amount must be non-negative. Use GainMaxHp for max HP gain.");
 		}
-		decimal num = (decimal)creature.MaxHp - amount;
+		decimal newMaxHp = (decimal)creature.MaxHp - amount;
 		MapPointHistoryEntry mapPointHistoryEntry = creature.Player?.RunState.CurrentMapPointHistoryEntry;
 		if (mapPointHistoryEntry != null)
 		{
 			mapPointHistoryEntry.GetEntry(creature.Player.NetId).MaxHpLost += (int)amount;
 		}
-		if (num < (decimal)creature.CurrentHp)
+		if (newMaxHp < (decimal)creature.CurrentHp)
 		{
-			await Damage(choiceContext, creature, (decimal)creature.CurrentHp - num, isFromCard ? (ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move) : (ValueProp.Unblockable | ValueProp.Unpowered), null, null);
+			await Damage(choiceContext, creature, (decimal)creature.CurrentHp - newMaxHp, isFromCard ? (ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move) : (ValueProp.Unblockable | ValueProp.Unpowered), null, null);
 		}
-		await SetMaxHp(creature, (decimal)creature.MaxHp - amount);
+		await SetMaxHp(creature, Math.Max(1.0m, newMaxHp));
 	}
 
-	public static async Task SetMaxHp(Creature creature, decimal amount)
+	public static async Task<decimal> SetMaxHp(Creature creature, decimal amount)
 	{
+		int oldMaxHp = creature.MaxHp;
 		creature.SetMaxHpInternal(Math.Max(0m, amount));
+		int newMaxHp = creature.MaxHp;
 		if (creature.MaxHp <= 0)
 		{
 			await Kill(creature);
 		}
+		return newMaxHp - oldMaxHp;
 	}
 
 	public static async Task SetMaxAndCurrentHp(Creature creature, decimal amount)

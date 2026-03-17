@@ -117,8 +117,8 @@ public class NodePool<T> : INodePool where T : Node, IPoolable
 			else
 			{
 				Log.Error($"Tried to free object {obj} ({obj.GetType()}) back to pool {typeof(NodePool<T>)} but it's not part of the pool!");
+				obj.QueueFreeSafelyNoPool();
 			}
-			obj.QueueFreeSafelyNoPool();
 		}
 		else
 		{

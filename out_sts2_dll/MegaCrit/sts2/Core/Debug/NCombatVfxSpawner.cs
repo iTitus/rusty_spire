@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Godot;
 using Godot.Bridge;
+using Godot.Collections;
 using Godot.NativeInterop;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Helpers;
@@ -128,7 +129,8 @@ public class NCombatVfxSpawner : Control
 
 	private void TestFunctionA(bool shiftPressed)
 	{
-		_lowHpBorderVfx.Play();
+		NSweepingBeamVfx child = NSweepingBeamVfx.Create(_defectEyePosition.GlobalPosition, new Array<Vector2> { _enemyPosition.GlobalPosition });
+		_combatVfxContainer.AddChildSafely(child);
 	}
 
 	private void TestFunctionB(bool shiftPressed)

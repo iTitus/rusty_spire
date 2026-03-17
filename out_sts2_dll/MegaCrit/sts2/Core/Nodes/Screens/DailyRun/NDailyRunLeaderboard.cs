@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Godot;
 using Godot.Bridge;
@@ -92,6 +93,8 @@ public class NDailyRunLeaderboard : Control
 
 	private bool _hasNegativeScore;
 
+	private CancellationTokenSource? _loadCts;
+
 	private static readonly LocString _titleLoc = new LocString("main_menu_ui", "DAILY_RUN_MENU.LEADERBOARDS.title");
 
 	private static readonly LocString _scoreLoc = new LocString("main_menu_ui", "DAILY_RUN_MENU.LEADERBOARDS.noScore");
@@ -134,6 +137,8 @@ public class NDailyRunLeaderboard : Control
 
 	public void Cleanup()
 	{
+		_loadCts?.Cancel();
+		_loadCts?.Dispose();
 		_leftArrow.Visible = false;
 		_rightArrow.Visible = false;
 		_loadingIndicator.Visible = false;
@@ -176,6 +181,9 @@ public class NDailyRunLeaderboard : Control
 
 	private async Task LoadLeaderboard(DateTimeOffset dateTime, int page)
 	{
+		_loadCts?.Dispose();
+		_loadCts = new CancellationTokenSource();
+		CancellationToken ct = _loadCts.Token;
 		ClearEntries();
 		_rightArrow.Disable();
 		_leftArrow.Disable();
@@ -183,57 +191,63 @@ public class NDailyRunLeaderboard : Control
 		_noFriendsIndicator.Visible = false;
 		_noScoresIndicator.Visible = false;
 		_loadingIndicator.Visible = true;
-		string leaderboardName = DailyRunUtility.GetLeaderboardName(dateTime, _playersInRun.Count);
-		DateTimeOffset dateTime2 = dateTime - TimeSpan.FromDays(1);
-		DateTimeOffset rightLeaderboardTime = dateTime + TimeSpan.FromDays(1);
-		Task<ILeaderboardHandle?> mainTask = LeaderboardManager.GetLeaderboard(leaderboardName);
-		Task<ILeaderboardHandle?> leftTask = LeaderboardManager.GetLeaderboard(DailyRunUtility.GetLeaderboardName(dateTime2, _playersInRun.Count));
-		Task<ILeaderboardHandle?> rightTask = LeaderboardManager.GetLeaderboard(DailyRunUtility.GetLeaderboardName(rightLeaderboardTime, _playersInRun.Count));
-		global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>> buffer = default(global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>);
-		global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 0) = mainTask;
-		global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 1) = leftTask;
-		global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 2) = rightTask;
-		await Task.WhenAll(global::_003CPrivateImplementationDetails_003E.InlineArrayAsReadOnlySpan<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(in buffer, 3));
-		ILeaderboardHandle handle = await mainTask;
-		if (handle != null)
+		try
 		{
-			List<LeaderboardEntry> list = await LeaderboardManager.QueryLeaderboard(handle, LeaderboardQueryType.Global, page * 10, 10);
-			_noScoresIndicator.Visible = list.Count <= 0;
-			FillEntries(list);
-			_leftArrow.Visible = true;
-			_rightArrow.Visible = true;
-			if (page > 0)
+			string leaderboardName = DailyRunUtility.GetLeaderboardName(dateTime, _playersInRun.Count);
+			DateTimeOffset dateTime2 = dateTime - TimeSpan.FromDays(1);
+			DateTimeOffset rightLeaderboardTime = dateTime + TimeSpan.FromDays(1);
+			Task<ILeaderboardHandle?> mainTask = LeaderboardManager.GetLeaderboard(leaderboardName);
+			Task<ILeaderboardHandle?> leftTask = LeaderboardManager.GetLeaderboard(DailyRunUtility.GetLeaderboardName(dateTime2, _playersInRun.Count));
+			Task<ILeaderboardHandle?> rightTask = LeaderboardManager.GetLeaderboard(DailyRunUtility.GetLeaderboardName(rightLeaderboardTime, _playersInRun.Count));
+			global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>> buffer = default(global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>);
+			global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 0) = mainTask;
+			global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 1) = leftTask;
+			global::_003CPrivateImplementationDetails_003E.InlineArrayElementRef<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(ref buffer, 2) = rightTask;
+			await Task.WhenAll(global::_003CPrivateImplementationDetails_003E.InlineArrayAsReadOnlySpan<global::_003C_003Ey__InlineArray3<Task<ILeaderboardHandle>>, Task<ILeaderboardHandle>>(in buffer, 3)).WaitAsync(ct);
+			ILeaderboardHandle handle = await mainTask;
+			if (handle != null)
 			{
-				_leftArrow.Enable();
+				List<LeaderboardEntry> list = await LeaderboardManager.QueryLeaderboard(handle, LeaderboardQueryType.Global, page * 10, 10).WaitAsync(ct);
+				_noScoresIndicator.Visible = list.Count <= 0;
+				FillEntries(list);
+				_leftArrow.Visible = true;
+				_rightArrow.Visible = true;
+				if (page > 0)
+				{
+					_leftArrow.Enable();
+				}
+				else
+				{
+					_leftArrow.Disable();
+				}
+				if (page * 10 + 10 < LeaderboardManager.GetLeaderboardEntryCount(handle) && !_hasNegativeScore)
+				{
+					_rightArrow.Enable();
+				}
+				else
+				{
+					_rightArrow.Disable();
+				}
 			}
 			else
 			{
-				_leftArrow.Disable();
+				_noScoresIndicator.Visible = true;
+				_leftArrow.Visible = false;
+				_rightArrow.Visible = false;
 			}
-			if (page * 10 + 10 < LeaderboardManager.GetLeaderboardEntryCount(handle) && !_hasNegativeScore)
+			bool hasLeftLeaderboard = await leftTask != null;
+			bool rightArrowEnabled = await rightTask != null || rightLeaderboardTime == _todaysDailyTime;
+			_currentPage = page;
+			_paginator.Enable(hasLeftLeaderboard, rightArrowEnabled);
+			_loadingIndicator.Visible = false;
+			if (_noScoreUploadIndicator != null && _todaysDailyTime == dateTime)
 			{
-				_rightArrow.Enable();
-			}
-			else
-			{
-				_rightArrow.Disable();
+				bool flag = await DailyRunUtility.ShouldUploadScore(handle, _playersInRun).WaitAsync(ct);
+				_noScoreUploadIndicator.Visible = !flag;
 			}
 		}
-		else
+		catch (OperationCanceledException)
 		{
-			_noScoresIndicator.Visible = true;
-			_leftArrow.Visible = false;
-			_rightArrow.Visible = false;
-		}
-		bool hasLeftLeaderboard = await leftTask != null;
-		bool rightArrowEnabled = await rightTask != null || rightLeaderboardTime == _todaysDailyTime;
-		_currentPage = page;
-		_paginator.Enable(hasLeftLeaderboard, rightArrowEnabled);
-		_loadingIndicator.Visible = false;
-		if (_noScoreUploadIndicator != null && _todaysDailyTime == dateTime)
-		{
-			bool flag = await DailyRunUtility.ShouldUploadScore(handle, _playersInRun);
-			_noScoreUploadIndicator.Visible = !flag;
 		}
 	}
 

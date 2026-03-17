@@ -1216,10 +1216,15 @@ public static class Hook
 			map = item.ModifyGeneratedMap(runState, map, actIndex);
 			item.InvokeExecutionFinished();
 		}
-		foreach (AbstractModel item2 in runState.IterateHookListeners(null))
+		return ModifyGeneratedMapLate(runState, map, actIndex);
+	}
+
+	public static ActMap ModifyGeneratedMapLate(IRunState runState, ActMap map, int actIndex)
+	{
+		foreach (AbstractModel item in runState.IterateHookListeners(null))
 		{
-			map = item2.ModifyGeneratedMapLate(runState, map, actIndex);
-			item2.InvokeExecutionFinished();
+			map = item.ModifyGeneratedMapLate(runState, map, actIndex);
+			item.InvokeExecutionFinished();
 		}
 		return map;
 	}

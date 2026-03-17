@@ -188,12 +188,13 @@ public static class CardSelectCmd
 		return result;
 	}
 
-	public static async Task<IEnumerable<CardModel>> FromSimpleGrid(PlayerChoiceContext context, IReadOnlyList<CardModel> cards, Player player, CardSelectorPrefs prefs)
+	public static async Task<IEnumerable<CardModel>> FromSimpleGrid(PlayerChoiceContext context, IReadOnlyList<CardModel> cardsIn, Player player, CardSelectorPrefs prefs)
 	{
 		if (CombatManager.Instance.IsEnding)
 		{
 			return Array.Empty<CardModel>();
 		}
+		List<CardModel> cards = cardsIn.ToList();
 		List<CardModel> result;
 		if (!prefs.RequireManualConfirmation && cards.Count <= prefs.MinSelect)
 		{
@@ -216,7 +217,7 @@ public static class CardSelectCmd
 					NOverlayStack.Instance.Push(nSimpleCardSelectScreen);
 					result = (await nSimpleCardSelectScreen.CardsSelected()).ToList();
 				}
-				List<int> indexes = result.Select(cards.IndexOf<CardModel>).ToList();
+				List<int> indexes = result.Select((CardModel c) => cards.IndexOf(c)).ToList();
 				RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromIndexes(indexes));
 			}
 			else
@@ -416,15 +417,19 @@ public static class CardSelectCmd
 		{
 			NPlayerHand.Instance?.CancelAllCardPlay();
 		}
-		List<CardModel> cards = PileType.Hand.GetPile(player).Cards.Where(filter ?? ((Func<CardModel, bool>)((CardModel _) => true))).ToList();
+		List<CardModel> list = PileType.Hand.GetPile(player).Cards.Where(filter ?? ((Func<CardModel, bool>)((CardModel _) => true))).ToList();
 		IEnumerable<CardModel> result;
-		if (cards.Count == 0)
+		if (list.Count == 0)
 		{
-			result = cards;
+			result = list;
 		}
-		else if (!prefs.RequireManualConfirmation && cards.Count <= prefs.MinSelect)
+		else if (!prefs.RequireManualConfirmation && list.Count <= prefs.MinSelect)
 		{
-			result = cards;
+			result = list;
+		}
+		else if (Selector != null)
+		{
+			result = await Selector.GetSelectedCards(list, prefs.MinSelect, prefs.MaxSelect);
 		}
 		else
 		{
@@ -432,7 +437,7 @@ public static class CardSelectCmd
 			await context.SignalPlayerChoiceBegun(PlayerChoiceOptions.CancelPlayCardActions);
 			if (ShouldSelectLocalCard(player))
 			{
-				result = ((Selector == null) ? (await NCombatRoom.Instance.Ui.Hand.SelectCards(prefs, filter, source)) : (await Selector.GetSelectedCards(cards, prefs.MinSelect, prefs.MaxSelect)));
+				result = await NCombatRoom.Instance.Ui.Hand.SelectCards(prefs, filter, source);
 				RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromMutableCombatCards(result));
 			}
 			else
@@ -470,11 +475,15 @@ public static class CardSelectCmd
 		{
 			NPlayerHand.Instance?.CancelAllCardPlay();
 		}
-		List<CardModel> cards = PileType.Hand.GetPile(player).Cards.Where((CardModel c) => c.IsUpgradable).ToList();
+		List<CardModel> list = PileType.Hand.GetPile(player).Cards.Where((CardModel c) => c.IsUpgradable).ToList();
 		CardModel result;
-		if (cards.Count <= 1)
+		if (list.Count <= 1)
 		{
-			result = cards.FirstOrDefault();
+			result = list.FirstOrDefault();
+		}
+		else if (Selector != null)
+		{
+			result = (await Selector.GetSelectedCards(list, 1, 1)).FirstOrDefault();
 		}
 		else
 		{
@@ -482,7 +491,7 @@ public static class CardSelectCmd
 			await context.SignalPlayerChoiceBegun(PlayerChoiceOptions.CancelPlayCardActions);
 			if (ShouldSelectLocalCard(player))
 			{
-				result = ((Selector == null) ? (await NCombatRoom.Instance.Ui.Hand.SelectCards(new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_UPGRADE_HEADER"), 1), (CardModel c) => c.IsUpgradable, source, NPlayerHand.Mode.UpgradeSelect)).FirstOrDefault() : (await Selector.GetSelectedCards(cards, 1, 1)).FirstOrDefault());
+				result = (await NCombatRoom.Instance.Ui.Hand.SelectCards(new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_UPGRADE_HEADER"), 1), (CardModel c) => c.IsUpgradable, source, NPlayerHand.Mode.UpgradeSelect)).FirstOrDefault();
 				RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromMutableCombatCard(result));
 			}
 			else

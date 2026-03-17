@@ -264,12 +264,15 @@ public class NDailyRunScreen : NSubmenu, IStartRunLobbyListener
 		}
 		SetIsLoading(isLoading: true);
 		TimeServerResult timeServerResult = await GetTimeServerTime();
-		_lobby = new StartRunLobby(GameMode.Daily, _netService, this, timeServerResult, 4);
-		_lobby.AddLocalHostPlayer(new UnlockState(SaveManager.Instance.Progress), SaveManager.Instance.Progress.MaxMultiplayerAscension);
-		SetupLobbyParams(_lobby);
-		AfterLobbyInitialized();
-		SetIsLoading(isLoading: false);
-		Log.Info($"Daily initialized with seed: {_lobby.Seed} time: {GetServerRelativeTime()}");
+		if (GodotObject.IsInstanceValid(this))
+		{
+			_lobby = new StartRunLobby(GameMode.Daily, _netService, this, timeServerResult, 4);
+			_lobby.AddLocalHostPlayer(new UnlockState(SaveManager.Instance.Progress), SaveManager.Instance.Progress.MaxMultiplayerAscension);
+			SetupLobbyParams(_lobby);
+			AfterLobbyInitialized();
+			SetIsLoading(isLoading: false);
+			Log.Info($"Daily initialized with seed: {_lobby.Seed} time: {GetServerRelativeTime()}");
+		}
 	}
 
 	private async Task<TimeServerResult> GetTimeServerTime()

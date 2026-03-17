@@ -32,7 +32,7 @@ public sealed class Crusher : MonsterModel
 			CollectionsMarshal.SetCount(list, num);
 			Span<string> span = CollectionsMarshal.AsSpan(list);
 			int index = 0;
-			span[index] = "vfx/monsters/kaiser_crab_boss_explosion";
+			span[index] = SceneHelper.GetScenePath("vfx/monsters/kaiser_crab_boss_explosion");
 			List<string> first = list;
 			return first.Concat(base.AssetPaths);
 		}

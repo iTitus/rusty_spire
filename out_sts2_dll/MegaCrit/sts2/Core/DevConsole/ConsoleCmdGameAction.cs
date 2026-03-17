@@ -11,7 +11,7 @@ public class ConsoleCmdGameAction : GameAction
 {
 	public override ulong OwnerId => Player.NetId;
 
-	public override GameActionType ActionType => GameActionType.NonCombat;
+	public override GameActionType ActionType => GameActionType.Any;
 
 	public Player Player { get; private set; }
 

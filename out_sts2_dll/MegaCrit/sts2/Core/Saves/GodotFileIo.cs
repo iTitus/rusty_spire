@@ -93,7 +93,7 @@ public class GodotFileIo : ISaveStore
 	{
 		path = GetFullPath(path);
 		ValidateGodotFilePath(path);
-		RotateBackup(path);
+		CopyBackup(path);
 		string text = path + ".tmp";
 		using Godot.FileAccess fileAccess = Godot.FileAccess.Open(text, Godot.FileAccess.ModeFlags.Write);
 		if (fileAccess == null)
@@ -115,14 +115,14 @@ public class GodotFileIo : ISaveStore
 	{
 		path = GetFullPath(path);
 		ValidateGodotFilePath(path);
-		RotateBackup(path);
+		CopyBackup(path);
 		string tempPath = path + ".tmp";
 		await using FileAccessStream stream = new FileAccessStream(tempPath, Godot.FileAccess.ModeFlags.Write);
 		await stream.WriteAsync(bytes);
 		long position = stream.Position;
 		stream.Close();
 		RenameFile(tempPath, path);
-		Log.Info($"Wrote {position} bytes to path={path} save_dir={path}");
+		Log.Info($"Wrote {position} bytes to path={path} save_dir={SaveDir}");
 	}
 
 	public bool FileExists(string path)
@@ -151,7 +151,7 @@ public class GodotFileIo : ISaveStore
 		Error error = DirAccess.RenameAbsolute(sourcePath, destinationPath);
 		if (error != Error.Ok)
 		{
-			throw new SaveException($"Failed to rename file. error={error} source={sourcePath} destination={destinationPath}");
+			throw new SaveException($"Failed to rename file. error={error} source={sourcePath} destination={destinationPath} source_exists={Godot.FileAccess.FileExists(sourcePath)} destination_exists={Godot.FileAccess.FileExists(destinationPath)}");
 		}
 	}
 
@@ -221,21 +221,29 @@ public class GodotFileIo : ISaveStore
 		}
 	}
 
-	private static void RotateBackup(string fullPath)
+	private static void CopyBackup(string fullPath)
 	{
+		if (!Godot.FileAccess.FileExists(fullPath))
+		{
+			return;
+		}
 		string text = fullPath + ".backup";
-		if (Godot.FileAccess.FileExists(text))
+		using Godot.FileAccess fileAccess = Godot.FileAccess.Open(fullPath, Godot.FileAccess.ModeFlags.Read);
+		if (fileAccess == null)
 		{
-			DirAccess.RemoveAbsolute(text);
+			Log.Warn("Failed to open source for backup copy. path=" + fullPath);
+			return;
 		}
-		if (Godot.FileAccess.FileExists(fullPath))
+		byte[] buffer = fileAccess.GetBuffer((long)fileAccess.GetLength());
+		fileAccess.Close();
+		using Godot.FileAccess fileAccess2 = Godot.FileAccess.Open(text, Godot.FileAccess.ModeFlags.Write);
+		if (fileAccess2 == null)
 		{
-			Error error = DirAccess.RenameAbsolute(fullPath, text);
-			if (error != Error.Ok)
-			{
-				Log.Warn($"Failed to rotate backup. error={error} source={fullPath} backup={text}");
-			}
+			Log.Warn("Failed to open backup for writing. path=" + text);
+			return;
 		}
+		fileAccess2.StoreBuffer(buffer);
+		fileAccess2.Close();
 	}
 
 	private static void ValidateGodotFilePath(string godotFilePath)

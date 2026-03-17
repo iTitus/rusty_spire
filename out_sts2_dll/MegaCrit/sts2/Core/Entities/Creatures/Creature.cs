@@ -408,7 +408,7 @@ public class Creature
 		{
 			throw new ArgumentException("amount must be non-negative.");
 		}
-		MaxHp = (int)amount;
+		MaxHp = Math.Min((int)amount, 999999999);
 		CurrentHp = Math.Min(CurrentHp, MaxHp);
 	}
 

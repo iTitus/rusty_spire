@@ -60,6 +60,8 @@ public class MockGodotFileIo : ISaveStore
 
 	public bool ShouldFailWrites;
 
+	public bool ShouldFailTimestampSync;
+
 	public List<(string Method, object[] Args)> Calls { get; } = new List<(string, object[])>();
 
 	public Action<string, string>? RenameFileAction { get; set; }
@@ -98,6 +100,10 @@ public class MockGodotFileIo : ISaveStore
 	public void SetLastModifiedTime(string path, DateTimeOffset time)
 	{
 		CanonicalizePath(ref path);
+		if (ShouldFailTimestampSync)
+		{
+			throw new IOException("Simulated timestamp sync failure for " + path);
+		}
 		if (!_files.TryGetValue(path, out File value))
 		{
 			throw new InvalidOperationException("No file at " + path + "!");
@@ -140,17 +146,16 @@ public class MockGodotFileIo : ISaveStore
 			throw new InvalidOperationException("Simulated write failure");
 		}
 		string key = path + ".backup";
-		_files.Remove(key, out var _);
-		if (_files.Remove(path, out var value2))
+		if (_files.TryGetValue(path, out File value))
 		{
-			_files[key] = value2;
+			_files[key] = value;
 		}
-		File value3 = new File
+		File value2 = new File
 		{
 			content = content,
 			lastModifiedTime = getCurrentTime?.Invoke()
 		};
-		_files[path] = value3;
+		_files[path] = value2;
 	}
 
 	public void WriteFile(string path, byte[] bytes)

@@ -21,4 +21,7 @@ public struct FeedbackData
 
 	[JsonPropertyName("platform_branch")]
 	public string? platformBranch;
+
+	[JsonPropertyName("session_id")]
+	public string sessionId;
 }

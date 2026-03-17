@@ -43,7 +43,7 @@ public class UsePotionAction : GameAction
 
 	public PlayerChoiceContext? PlayerChoiceContext { get; private set; }
 
-	public UsePotionAction(PotionModel potion, Creature? target, bool isCombatInIsProgress)
+	public UsePotionAction(PotionModel potion, Creature? target, bool isCombatInProgress)
 	{
 		if (potion.Owner == null)
 		{
@@ -56,7 +56,7 @@ public class UsePotionAction : GameAction
 		}
 		Player = potion.Owner;
 		PotionIndex = (uint)potionSlotIndex;
-		WasEnqueuedInCombat = isCombatInIsProgress;
+		WasEnqueuedInCombat = isCombatInProgress;
 		if (target == null)
 		{
 			return;

@@ -4,3 +4,7 @@
 
 [resource]
 base_font = ExtResource("1_do0wj")
+variation_transform = Transform2D(0.95, 0, 0, 0.95, 0, 0)
+spacing_top = 2
+spacing_bottom = 3
+baseline_offset = -0.05

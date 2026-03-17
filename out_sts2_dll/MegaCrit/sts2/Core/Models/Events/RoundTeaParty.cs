@@ -25,7 +25,7 @@ public sealed class RoundTeaParty : EventModel
 		return new global::_003C_003Ez__ReadOnlyArray<EventOption>(new EventOption[2]
 		{
 			new EventOption(this, EnjoyTea, "ROUND_TEA_PARTY.pages.INITIAL.options.ENJOY_TEA", HoverTipFactory.FromRelic<RoyalPoison>()),
-			new EventOption(this, PickFight, "ROUND_TEA_PARTY.pages.INITIAL.options.PICK_FIGHT")
+			new EventOption(this, PickFight, "ROUND_TEA_PARTY.pages.INITIAL.options.PICK_FIGHT").ThatDoesDamage(base.DynamicVars.Damage.BaseValue)
 		});
 	}
 

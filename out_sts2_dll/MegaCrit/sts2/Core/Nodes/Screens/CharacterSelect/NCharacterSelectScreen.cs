@@ -686,6 +686,7 @@ public class NCharacterSelectScreen : NSubmenu, IStartRunLobbyListener, ICharact
 		{
 			item.Enable();
 		}
+		_selectedButton?.TryGrabFocus();
 		_readyAndWaitingContainer.Visible = false;
 		_embarkButton.Enable();
 		_backButton.Enable();
