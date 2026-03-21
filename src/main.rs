@@ -1,60 +1,55 @@
 use itertools::Itertools;
 use std::cmp::Reverse;
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::ffi::OsStr;
 use std::fs::File;
-use std::io::{BufReader, BufWriter, Cursor, Write};
+use std::io::{BufReader, BufWriter, Seek};
 use std::path::{Component, Path, PathBuf};
-use sts2_extractor::pck::{PckFile, PckHeader, PckReader};
+use sts2_extractor::pck::{PckArchive, PckFileFlags, PckFileMetadata};
+use sts2_extractor::save::history::RunHistory;
 use sts2_extractor::texture::CompressedTexture2d;
 
 const DRY_RUN: bool = false;
 
-// noinspection RsConstantConditionIf
 fn main() -> anyhow::Result<()> {
-    let dir = Path::new("C:/Program Files (x86)/Steam/steamapps/common/Slay the Spire 2");
+    extract()?;
+    // read_history()?;
+    Ok(())
+}
 
-    extract_pck(dir.join("SlayTheSpire2.pck"), "out_sts2_pck")?;
+// noinspection RsConstantConditionIf
+#[allow(unused)]
+fn extract() -> anyhow::Result<()> {
+    let steam_dir = steamlocate::SteamDir::locate()?;
+    let (sts2, library) = steam_dir
+        .find_app(2868840)?
+        .ok_or_else(|| anyhow::anyhow!("sts2 is not installed"))?;
+    let sts2_dir = library.resolve_app_dir(&sts2);
+
+    extract_pck(sts2_dir.join("SlayTheSpire2.pck"), "out_sts2_pck")?;
+
+    let sts2_data_dir = sts2_dir.join("data_sts2_windows_x86_64");
+    let sts2_dll = sts2_data_dir.join("sts2.dll");
     if !DRY_RUN {
-        decompile(
-            dir.join("data_sts2_windows_x86_64/sts2.dll"),
-            "out_sts2_dll",
-        )?;
+        decompile(sts2_dll, "out_sts2_dll")?;
     }
 
     Ok(())
 }
 
-#[derive(Debug, Default)]
-pub struct DirTree {
-    files: HashSet<String>,
-    dirs: HashMap<String, DirTree>,
-    size: usize,
-}
+#[allow(unused)]
+fn read_history() -> anyhow::Result<()> {
+    let sts2_data_dir = directories::BaseDirs::new()
+        .ok_or_else(|| anyhow::anyhow!("cannot find sts2 dir"))?
+        .data_dir()
+        .join("SlayTheSpire2");
+    let history_dir = sts2_data_dir.join("steam/76561198094479556/profile1/saves/history");
+    let file = history_dir.join("1772886548.run");
 
-impl DirTree {
-    pub fn add_entry(&mut self, file: &PckFile) {
-        let mut components: Vec<_> = file.path.split("/").filter(|s| !s.is_empty()).collect();
-        if !components.is_empty() && components[0].ends_with(':') {
-            components.remove(0);
-        }
-        self._add_entry_from_components(file.size as usize, &components);
-    }
+    let run_history: RunHistory = serde_json::from_reader(BufReader::new(File::open(&file)?))?;
+    println!("{run_history:?}");
 
-    fn _add_entry_from_components(&mut self, size: usize, components: &[&str]) {
-        assert!(!components.is_empty());
-        self.size += size;
-        match components.len() {
-            0 => panic!(),
-            1 => {
-                self.files.insert(components[0].to_string());
-            }
-            _ => {
-                let dir = self.dirs.entry(components[0].to_string()).or_default();
-                dir._add_entry_from_components(size, &components[1..]);
-            }
-        }
-    }
+    Ok(())
 }
 
 // noinspection RsConstantConditionIf
@@ -68,74 +63,30 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
     }
 
     let f = File::open(pck_path)?;
-    let mut pck_reader = PckReader::new_from_start(BufReader::new(f))?;
+    let mut pck_archive = PckArchive::new_from_start(BufReader::new(f))?;
 
-    println!("{:#?}", pck_reader.pck.header);
-    println!("found {} files", pck_reader.pck.files.len());
-    println!(
-        "found {} size<=1 files",
-        pck_reader.pck.files.iter().filter(|f| f.size <= 1).count()
-    );
-    println!(
-        "found {} removals",
-        pck_reader
-            .pck
-            .files
-            .iter()
-            .filter(|f| (f.flags & PckHeader::FLAG_FILE_REMOVAL) != 0)
-            .count()
-    );
-    println!(
-        "found {} encrypted files",
-        pck_reader
-            .pck
-            .files
-            .iter()
-            .filter(|f| (f.flags & PckHeader::FLAG_FILE_ENCRYPTED) != 0)
-            .count()
-    );
-    println!(
-        "found {} delta files",
-        pck_reader
-            .pck
-            .files
-            .iter()
-            .filter(|f| (f.flags & PckHeader::FLAG_FILE_DELTA) != 0)
-            .count()
-    );
+    println!("{:?}", pck_archive.metadata().header);
+    let mut stats = Stats::default();
 
-    let files: Vec<_> = pck_reader
-        .pck
-        .files
-        .iter()
-        .cloned()
-        .sorted_unstable_by_key(|f| PathBuf::from(&f.path))
-        .collect();
-    let mut extensions: HashMap<String, usize> = HashMap::default();
-    for (i, f) in files.iter().enumerate() {
+    let file_count = pck_archive.len();
+    for i in 0..file_count {
+        let mut f = pck_archive.by_index(i)?;
+        let m = f.file_metadata();
         if i % 100 == 0 {
-            println!("file: {i}/{}", files.len());
+            println!("file: {i}/{file_count}");
         }
 
-        let ext = Path::new(&f.path)
-            .extension()
-            .and_then(OsStr::to_str)
-            .unwrap_or_default();
-        *extensions.entry(ext.to_string()).or_default() += 1;
-
-        if f.size <= 1
-            || (f.flags & PckHeader::FLAG_FILE_ENCRYPTED) != 0
-            || (f.flags & PckHeader::FLAG_FILE_REMOVAL) != 0
-            || (f.flags & PckHeader::FLAG_FILE_DELTA) != 0
+        stats.register(m);
+        if m.flags.contains(PckFileFlags::ENCRYPTED)
+            || m.flags.contains(PckFileFlags::REMOVAL)
+            || m.flags.contains(PckFileFlags::DELTA)
         {
             continue;
         }
 
         // extract everything else
         {
-            let bytes = pck_reader.read(&f.path)?;
-
-            let path = Path::new(&f.path);
+            let path = PathBuf::from(&*m.path);
             if path
                 .components()
                 .any(|c| !matches!(c, Component::Normal(name) if name.to_str().is_some()))
@@ -143,17 +94,19 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
                 anyhow::bail!("malformed path: {}", path.display());
             }
 
-            let out_path = output_dir.join(path);
+            let out_path = output_dir.join(&path);
             if !DRY_RUN {
                 if let Some(parent) = out_path.parent() {
                     std::fs::create_dir_all(parent)?;
                 }
                 let mut out_file = File::create(&out_path)?;
-                out_file.write_all(&bytes)?;
+                std::io::copy(&mut f, &mut out_file)?;
+                f.rewind();
             }
 
-            if path.extension() == Some(OsStr::new("ctex")) {
-                match CompressedTexture2d::load(&mut Cursor::new(bytes)) {
+            #[allow(clippy::single_match)]
+            match path.extension().and_then(OsStr::to_str).unwrap_or_default() {
+                "ctex" => match CompressedTexture2d::load(&mut f) {
                     Ok(texture) => {
                         if !DRY_RUN {
                             let out_file = File::create(out_path.with_added_extension("png"))?;
@@ -164,18 +117,107 @@ fn extract_pck(pck_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyh
                     Err(e) => {
                         eprintln!("{}: {e}", path.display());
                     }
-                }
+                },
+                _ => {}
             }
         }
     }
 
+    println!("stats:");
+    println!("  total:     {}", stats.total);
+    println!("  removals:  {}", stats.removals);
+    println!("  encrypted: {}", stats.encrypted);
+    println!("  delta:     {}", stats.delta);
+    println!("  size == 0: {}", stats.empty);
+    println!("  size <= 1: {}", stats.size_one_or_less);
     println!("extensions:");
-    extensions
+    stats
+        .extensions
         .into_iter()
         .sorted_unstable_by_key(|(ext, amount)| (Reverse(*amount), ext.to_ascii_lowercase()))
-        .for_each(|(ext, amount)| println!("`{ext}`: {amount}"));
+        .for_each(|(ext, amount)| println!("  `{ext}`: {amount}"));
 
     Ok(())
+}
+
+#[derive(Debug, Default, Clone)]
+struct Stats {
+    total: usize,
+    encrypted: usize,
+    removals: usize,
+    delta: usize,
+    empty: usize,
+    size_one_or_less: usize,
+    extensions: HashMap<String, usize>,
+}
+
+impl Stats {
+    fn register(&mut self, file: &PckFileMetadata) {
+        self.total += 1;
+        if file.flags.contains(PckFileFlags::ENCRYPTED) {
+            self.encrypted += 1;
+        }
+        if file.flags.contains(PckFileFlags::REMOVAL) {
+            self.removals += 1;
+        }
+        if file.flags.contains(PckFileFlags::DELTA) {
+            self.delta += 1;
+        }
+        if file.size == 0 {
+            self.empty += 1;
+        }
+        if file.size <= 1 {
+            self.size_one_or_less += 1;
+        }
+
+        let ext = Path::new(&*file.path)
+            .extension()
+            .and_then(OsStr::to_str)
+            .unwrap_or_default();
+        if let Some(count) = self.extensions.get_mut(ext) {
+            *count += 1;
+        } else {
+            self.extensions.insert(ext.to_string(), 1);
+        }
+    }
+}
+
+#[derive(Debug, Default)]
+pub struct DirTree {
+    files: HashMap<String, PckFileMetadata>,
+    dirs: HashMap<String, DirTree>,
+    size: u64,
+}
+
+impl DirTree {
+    pub fn add_entry(&mut self, file: PckFileMetadata) {
+        let path = file.path.clone();
+        let mut components: Vec<_> = path
+            .split("/")
+            .filter(|&s| !s.is_empty() && s != ".")
+            .collect();
+        if !components.is_empty() && components[0] == "res:" {
+            components.remove(0);
+        }
+
+        if !components.is_empty() {
+            self._add_entry_from_components(&components, file);
+        }
+    }
+
+    fn _add_entry_from_components(&mut self, components: &[&str], file: PckFileMetadata) {
+        self.size += file.size;
+        match components {
+            [] => unreachable!(),
+            [name] => {
+                self.files.insert(name.to_string(), file);
+            }
+            [dir_name, rest @ ..] => {
+                let dir = self.dirs.entry(dir_name.to_string()).or_default();
+                dir._add_entry_from_components(rest, file);
+            }
+        }
+    }
 }
 
 #[allow(unused)]

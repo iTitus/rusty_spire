@@ -1,6 +1,8 @@
 use crate::ReadFromBytes;
 use crate::pck::PckError;
+use bitflags::bitflags;
 use dds::{ColorFormat, ImageViewMut};
+use num_enum::{IntoPrimitive, TryFromPrimitive};
 use std::io::{BufRead, Cursor, Read, Seek, SeekFrom};
 
 #[derive(Debug)]
@@ -19,14 +21,13 @@ impl CompressedTexture2d {
             return Err(PckError::InvalidMagic);
         }
 
-        let version = u32::read_ne(r)?;
-        if !matches!(version, 1) {
-            return Err(PckError::InvalidVersion);
-        }
+        let version: CompressedTexture2dVersion = u32::read_ne(r)?
+            .try_into()
+            .map_err(|_| PckError::InvalidVersion)?;
 
         let width = u32::read_ne(r)?;
         let height = u32::read_ne(r)?;
-        let format_flags = u32::read_ne(r)?;
+        let format_flags = CompressedTexture2dDataFormatFlags::from_bits_retain(u32::read_ne(r)?);
 
         let mipmap_limit = u32::read_ne(r)?;
         // skip reserved
@@ -34,19 +35,32 @@ impl CompressedTexture2d {
             let _ = u32::read_ne(r)?;
         }
 
-        let data_format = u32::read_ne(r)?;
+        let data_format: CompressedTexture2dDataFormat = u32::read_ne(r)?
+            .try_into()
+            .map_err(|_| PckError::InvalidValue("data_format".into()))?;
         let width_2 = u16::read_ne(r)?;
         let height_2 = u16::read_ne(r)?;
         let mipmap_count = u32::read_ne(r)?;
-        let image_format: ImageFormat = u32::read_ne(r)?.try_into()?;
+        let image_format: ImageFormat = u32::read_ne(r)?
+            .try_into()
+            .map_err(|_| PckError::InvalidValue("image_format".into()))?;
+
+        let header = CompressedTexture2dHeader {
+            version,
+            width,
+            height,
+            format_flags,
+            mipmap_limit,
+            data_format,
+            width_2,
+            height_2,
+            mipmaps: mipmap_count,
+            image_format,
+        };
 
         let mut images = vec![];
-        // 0 -> IMAGE
-        // 1 -> PNG
-        // 2 -> WEBP
-        // 3 -> BASIS_UNIVERSAL
         match data_format {
-            0 => match image_format {
+            CompressedTexture2dDataFormat::Image => match image_format {
                 ImageFormat::FORMAT_DXT1
                 | ImageFormat::FORMAT_DXT3
                 | ImageFormat::FORMAT_DXT5
@@ -288,22 +302,21 @@ impl CompressedTexture2d {
                         )));
                     }
                 }
-                ImageFormat::FORMAT_MAX => unreachable!(),
                 _ => {
                     return Err(PckError::NotImplemented(format!(
-                        "CompressedTexture2d: IMAGE ({image_format:?})"
+                        "CompressedTexture2d: image_format ({header:?})"
                     )));
                 }
             },
-            1 | 2 => {
+            CompressedTexture2dDataFormat::Png | CompressedTexture2dDataFormat::WebP => {
                 for _ in 0..=mipmap_count {
                     let size = u32::read_ne(r)?;
                     let mut data_reader = r.take(size as _);
                     let img = image::load(
                         &mut data_reader,
                         match data_format {
-                            1 => image::ImageFormat::Png,
-                            2 => image::ImageFormat::WebP,
+                            CompressedTexture2dDataFormat::Png => image::ImageFormat::Png,
+                            CompressedTexture2dDataFormat::WebP => image::ImageFormat::WebP,
                             _ => unreachable!(),
                         },
                     )?;
@@ -311,50 +324,62 @@ impl CompressedTexture2d {
                     images.push(img);
                 }
             }
-            3 => {
-                return Err(PckError::NotImplemented(
-                    "CompressedTexture2d: BASIS_UNIVERSAL".into(),
-                ));
+            _ => {
+                return Err(PckError::NotImplemented(format!(
+                    "CompressedTexture2d: data_format ({header:?})"
+                )));
             }
-            _ => return Err(PckError::Unknown),
         }
 
-        Ok(Self {
-            header: CompressedTexture2dHeader {
-                version,
-                width,
-                height,
-                format_flags,
-                mipmap_limit,
-                data_format,
-                width_2,
-                height_2,
-                mipmaps: mipmap_count,
-                image_format,
-            },
-            images,
-        })
+        Ok(Self { header, images })
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub struct CompressedTexture2dHeader {
-    pub version: u32,
+    pub version: CompressedTexture2dVersion,
     pub width: u32,
     pub height: u32,
-    pub format_flags: u32,
+    pub format_flags: CompressedTexture2dDataFormatFlags,
     pub mipmap_limit: u32,
-    pub data_format: u32,
+    pub data_format: CompressedTexture2dDataFormat,
     pub width_2: u16,
     pub height_2: u16,
     pub mipmaps: u32,
     pub image_format: ImageFormat,
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq, IntoPrimitive, TryFromPrimitive)]
+#[repr(u32)]
+pub enum CompressedTexture2dVersion {
+    V1 = 1,
+}
+
+#[derive(Debug, Copy, Clone, Eq, PartialEq, IntoPrimitive, TryFromPrimitive)]
+#[repr(u32)]
+pub enum CompressedTexture2dDataFormat {
+    Image,
+    Png,
+    WebP,
+    BasisUniversal,
+}
+
+bitflags! {
+    #[derive(Debug, Copy, Clone, Eq, PartialEq)]
+    pub struct CompressedTexture2dDataFormatFlags : u32 {
+        const STREAM = 1 << 22;
+        const HAS_MIPMAPS = 1 << 23;
+        const DETECT_3D = 1 << 24;
+        const DETECT_SRGB = 1 << 25;
+        const DETECT_NORMAL = 1 << 26;
+        const DETECT_ROUGNESS = 1 << 27;
+    }
+}
+
 /// From Godot source
 #[allow(non_camel_case_types)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, IntoPrimitive, TryFromPrimitive)]
 #[repr(u32)]
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub enum ImageFormat {
     FORMAT_L8,  // Luminance
     FORMAT_LA8, // Luminance-Alpha
@@ -403,21 +428,6 @@ pub enum ImageFormat {
     FORMAT_RG16I,
     FORMAT_RGB16I,
     FORMAT_RGBA16I,
-    FORMAT_MAX,
-}
-
-const _: () = assert!(ImageFormat::FORMAT_L8 as u32 == 0);
-const _: () = assert!(ImageFormat::FORMAT_MAX as u32 == 47);
-
-impl TryFrom<u32> for ImageFormat {
-    type Error = PckError;
-
-    fn try_from(value: u32) -> Result<Self, Self::Error> {
-        if value >= Self::FORMAT_MAX as u32 {
-            return Err(PckError::InvalidValue("image_format".into()));
-        }
-        Ok(unsafe { std::mem::transmute::<u32, Self>(value) })
-    }
 }
 
 struct SeekingChain<T, U> {
@@ -442,7 +452,7 @@ impl<T: BufRead, U: BufRead> BufRead for SeekingChain<T, U> {
     fn fill_buf(&mut self) -> std::io::Result<&[u8]> {
         if !self.done_first {
             match self.first.fill_buf()? {
-                buf if buf.is_empty() => self.done_first = true,
+                [] => self.done_first = true,
                 buf => return Ok(buf),
             }
         }

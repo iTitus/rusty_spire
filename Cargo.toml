@@ -8,4 +8,15 @@ anyhow = "1"
 image = "0.25"
 thiserror = "2"
 itertools = "0.14"
-dds = "0.2.0" # required until image-extras updates to include this
+dds = "0.2" # required until image-extras updates to include this
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+directories = "6"
+steamlocate = "2"
+indexmap = "2"
+bitflags = { version = "2", features = ["std"] }
+num_enum = "0.7"
+
+[profile.release]
+lto = true
+codegen-units = 1
