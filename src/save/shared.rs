@@ -86,6 +86,13 @@ pub struct SavedProperty<T> {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+pub struct Modifier {
+    pub id: ModelId,
+    #[serde(default, skip_serializing_if = "crate::serde::is_default")]
+    pub props: SavedProperties,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 pub struct Enchantment {
     pub id: ModelId,
     pub amount: i32,
@@ -132,4 +139,19 @@ pub struct Relic {
         skip_serializing_if = "crate::serde::is_default"
     )]
     pub floor_added: Option<i32>,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+pub struct Badge {
+    pub id: ModelId,
+    pub rarity: BadgeRarity,
+}
+
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum BadgeRarity {
+    None,
+    Bronze,
+    Silver,
+    Gold,
 }

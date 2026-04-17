@@ -1,4 +1,4 @@
-use crate::save::shared::{Card, LocString, ModelId, Potion, Relic, SavedProperties};
+use crate::save::shared::{Badge, Card, LocString, ModelId, Modifier, Potion, Relic};
 use crate::save::version::Migrate;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -12,8 +12,10 @@ pub struct RunHistory {
     pub win: bool,
     #[serde(default)]
     pub seed: String,
-    pub start_time: i64,
-    pub run_time: f32,
+    #[serde(with = "chrono::serde::ts_seconds")]
+    pub start_time: chrono::DateTime<chrono::Utc>,
+    #[serde(with = "crate::serde::d_seconds_f64")]
+    pub run_time: std::time::Duration,
     pub ascension: i32,
     #[serde(default = "_default_build_id")]
     pub build_id: String,
@@ -58,13 +60,6 @@ pub enum GameMode {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-pub struct Modifier {
-    pub id: ModelId,
-    #[serde(default, skip_serializing_if = "crate::serde::is_default")]
-    pub props: SavedProperties,
-}
-
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 pub struct RunHistoryPlayer {
     pub id: u64,
     #[serde(default)]
@@ -75,6 +70,8 @@ pub struct RunHistoryPlayer {
     pub relics: Vec<Relic>,
     #[serde(default)]
     pub potions: Vec<Potion>,
+    #[serde(default)]
+    pub badges: Vec<Badge>,
     #[serde(default = "_max_potion_slot_count")]
     pub max_potion_slot_count: i32,
 }

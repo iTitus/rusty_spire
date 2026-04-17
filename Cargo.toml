@@ -16,6 +16,7 @@ steamlocate = "2"
 indexmap = "2"
 bitflags = { version = "2", features = ["std"] }
 num_enum = "0.7"
+chrono = { version = "0.4", features = ["serde"] }
 
 [profile.release]
 lto = true
