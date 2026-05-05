@@ -271,6 +271,10 @@ impl CompressedTexture2d {
                         second: r.take(remaining),
                         done_first: false,
                     };
+                    // TODO: use image when it supports mipmaps
+                    /*let image = image::ImageReader::new(data_reader)
+                    .with_guessed_format()?
+                    .decode()?;*/
                     let mut decoder = dds::Decoder::new(data_reader)?;
                     while !decoder.is_done() {
                         let Some(info) = decoder.surface_info() else {
@@ -312,16 +316,11 @@ impl CompressedTexture2d {
                 for _ in 0..=mipmap_count {
                     let size = u32::read_ne(r)?;
                     let mut data_reader = r.take(size as _);
-                    let img = image::load(
-                        &mut data_reader,
-                        match data_format {
-                            CompressedTexture2dDataFormat::Png => image::ImageFormat::Png,
-                            CompressedTexture2dDataFormat::WebP => image::ImageFormat::WebP,
-                            _ => unreachable!(),
-                        },
-                    )?;
+                    let image = image::ImageReader::new(&mut data_reader)
+                        .with_guessed_format()?
+                        .decode()?;
                     data_reader.seek(SeekFrom::End(0))?;
-                    images.push(img);
+                    images.push(image);
                 }
             }
             _ => {

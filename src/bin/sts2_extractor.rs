@@ -11,6 +11,7 @@ use std::path::{Component, Path, PathBuf};
 const DRY_RUN: bool = false;
 
 fn main() -> anyhow::Result<()> {
+    // TODO: image_extras::register();
     extract()?;
     Ok(())
 }
