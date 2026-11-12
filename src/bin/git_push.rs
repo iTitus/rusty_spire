@@ -5,15 +5,15 @@ use std::path::Path;
 use std::process::ExitStatus;
 
 fn main() -> anyhow::Result<()> {
-    let output_dir = Path::new("../sts2_data");
+    let output_dir = Path::new("../sts2_data").canonicalize()?;
 
     std::process::Command::new("git")
-        .current_dir(output_dir)
+        .current_dir(&output_dir)
         .args(["status"])
         .status()?
         .exit_success()?;
 
-    print!("Version: ");
+    print!("Version (e.g. `v0.113.0`): ");
     std::io::stdout().flush()?;
     let mut input = String::new();
     std::io::stdin().read_line(&mut input)?;
@@ -24,17 +24,17 @@ fn main() -> anyhow::Result<()> {
     println!("{version:?}");
 
     std::process::Command::new("git")
-        .current_dir(output_dir)
+        .current_dir(&output_dir)
         .args(["add", "-A"])
         .status()?
         .exit_success()?;
     std::process::Command::new("git")
-        .current_dir(output_dir)
+        .current_dir(&output_dir)
         .args(["commit", "-a", "-m", version])
         .status()?
         .exit_success()?;
     std::process::Command::new("git")
-        .current_dir(output_dir)
+        .current_dir(&output_dir)
         .args(["push"])
         .status()?
         .exit_success()?;

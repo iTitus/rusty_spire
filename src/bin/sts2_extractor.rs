@@ -211,21 +211,24 @@ impl DirTree {
 
 #[allow(unused)]
 fn decompile(dll_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow::Result<()> {
-    let dll_path = dll_path.as_ref();
+    let dll_path = dll_path.as_ref().canonicalize()?;
     let output_dir = output_dir.as_ref();
 
     if std::fs::exists(output_dir)? {
         std::fs::remove_dir_all(output_dir)?;
     }
+    std::fs::create_dir_all(output_dir)?;
+    let output_dir = output_dir.canonicalize()?;
 
-    println!("decompiling with `ilspycmd`...");
-    let status = std::process::Command::new("ilspycmd")
+    println!("decompiling `{}` with `ilspycmd`...", dll_path.display());
+    let mut command = std::process::Command::new("ilspycmd");
+    command
         .arg("--nested-directories")
         .arg("-p")
         .arg("-o")
         .arg(output_dir)
-        .arg(dll_path)
-        .status()?;
+        .arg(dll_path);
+    let status = command.status()?;
     if status.success() {
         Ok(())
     } else {
