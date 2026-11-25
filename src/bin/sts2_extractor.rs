@@ -221,7 +221,11 @@ fn decompile(dll_path: impl AsRef<Path>, output_dir: impl AsRef<Path>) -> anyhow
     let output_dir = output_dir.canonicalize()?;
 
     println!("decompiling `{}` with `ilspycmd`...", dll_path.display());
-    let mut command = std::process::Command::new("ilspycmd");
+    #[cfg(windows)]
+    let command_name = "ilspycmd.cmd";
+    #[cfg(not(windows))]
+    let command_name = "ilspycmd";
+    let mut command = std::process::Command::new(command_name);
     command
         .arg("--nested-directories")
         .arg("-p")
